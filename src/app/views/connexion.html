@@ -1,0 +1,26 @@
+<div id="container" class="container">
+
+    <h3><span class="label label-primary">Connexion</span></h3>
+
+    <form  ng-submit="submit()"	>
+
+        <fieldset class="form-group">
+
+            <label for="inputUsername">Nom du compte / email</label>
+
+            <input type="text"  ng-model="username-mail" class="form-control" id="inputUsername" placeholder="Nom utilisateur ou mail" >
+
+        </fieldset>
+
+        <fieldset class="form-group">
+
+            <label for="inputPassword">Mot de passe</label>
+
+            <input type="password"  ng-model="password" class="form-control" id="inputPassword" placeholder="Mot de passe" >
+
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+
+    </form>
+</div>

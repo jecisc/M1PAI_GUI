@@ -1,0 +1,62 @@
+
+<div id="container" class="container">
+
+<h3><span class="label label-primary">Inscription</span></h3>
+
+
+    <form  ng-submit="submit()"	ng-controller="SubscriptionCtrl">
+
+        <fieldset class="form-group">
+
+            <label for="inputPseudo">Ton nom de compte</label>
+
+            <input type="text"  ng-model="pseudo" class="form-control" id="inputPseudo" placeholder="Nom utilisateur" required>
+
+        </fieldset>
+
+        <fieldset class="form-group">
+
+            <label for="inputEmail">Ton adresse mail</label>
+
+            <input type="email"  ng-model="mail" class="form-control" id="inputEmail" placeholder="Email" >
+
+        </fieldset>
+
+        <fieldset class="form-group">
+
+            <label for="inputPassword">Ton mot de passe</label>
+
+            <input type="password" ng-model="password" class="form-control" id="inputPassword" placeholder="Mot de passe" >
+
+        </fieldset>
+
+        <fieldset class="form-group">
+
+            <label for="inputCheckPassword">Confirme ton mot de passe</label>
+
+            <input type="password" ng-model="checkPassword" class="form-control" id="inputCheckPassword" placeholder="Confirmation" >
+
+        </fieldset>
+
+        <fieldset class="form-group">
+
+            <label for="inputName">Ton nom</label>
+
+            <input type="text" ng-model="name" class="form-control" id="inputName" placeholder="Nom" >
+
+        </fieldset>
+
+        <fieldset class="form-group">
+
+            <label for="inputFirstName">Ton prénom</label>
+
+            <input type="text"  ng-model="firstName" class="form-control" id="inputFirstName" placeholder="Prénom" >
+
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+
+    </form>
+
+</div>
+
