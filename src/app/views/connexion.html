@@ -2,25 +2,26 @@
 
     <h3><span class="label label-primary">Connexion</span></h3>
 
-    <form  ng-submit="submit()"	>
+    <div ng-controller="ConnexionCtrl">
 
-        <fieldset class="form-group">
+    <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
 
-            <label for="inputUsername">Nom du compte / email</label>
+        <form ng-submit="submit()">
 
-            <input type="text"  ng-model="username-mail" class="form-control" id="inputUsername" placeholder="Nom utilisateur ou mail" >
+            <fieldset class="form-group">
+                <label for="inputUsername">Nom du compte / email</label>
+                <input type="text" ng-model="userNameOrMail" class="form-control" id="inputUsername"
+                       placeholder="Nom utilisateur ou mail">
+            </fieldset>
 
-        </fieldset>
+            <fieldset class="form-group">
+                <label for="inputPassword">Mot de passe</label>
+                <input type="password" ng-model="password" class="form-control" id="inputPassword"
+                       placeholder="Mot de passe">
+            </fieldset>
 
-        <fieldset class="form-group">
+            <button type="submit" class="btn btn-primary">Login</button>
 
-            <label for="inputPassword">Mot de passe</label>
-
-            <input type="password"  ng-model="password" class="form-control" id="inputPassword" placeholder="Mot de passe" >
-
-        </fieldset>
-
-        <button type="submit" class="btn btn-primary">Login</button>
-
-    </form>
+        </form>
+    </div>
 </div>

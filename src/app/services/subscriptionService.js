@@ -8,6 +8,6 @@ var services=angular.module('services',['ngResource']);
 services.factory('SubscriptionServ',['$resource',
     function($resource){
         return $resource("http://localhost:8080/user/create",{},{
-            save: {method: 'POST',cache:false,isArray:false}
+            save: {method: 'POST', cache:false, isArray:false}
         });
     }]);

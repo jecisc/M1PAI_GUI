@@ -10,8 +10,8 @@ app = angular.module('myApp', [
 ]).config(['$routeProvider', function ($routeProvider) {
   $routeProvider
       .when('/', {
-        templateUrl: 'views/connexion.html'
-
+        templateUrl: 'views/connexion.html',
+        controller: 'ConnexionCtrl'
       })
       .when('/subscription', {
         templateUrl: 'views/subscription.html',
