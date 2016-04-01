@@ -27,7 +27,6 @@ controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'Subscription
                     console.log("Error:" + JSON.stringify(errorResponse));
                 }
             );
-
-
+            
         };
     }]);
