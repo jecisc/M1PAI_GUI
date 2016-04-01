@@ -2,14 +2,9 @@
 
 var controllers = angular.module('controllers', []);
 
-controllers.controller('OfflineHomepageCtrl', ['$scope', '$location',
-    function OfflineHomepageCtrl($scope, $location) {
-        $scope.submit = function () {
-            var user = {
-                userNameOrMail: $scope.userNameOrMail,
-                password: $scope.password
-            };
-
-
-        };
-    }]);
+controllers.controller('OfflineHomepageCtrl', function($scope, $location) {
+ 
+    $scope.login = function() {
+        $location.path('/connexion');
+    };
+})
