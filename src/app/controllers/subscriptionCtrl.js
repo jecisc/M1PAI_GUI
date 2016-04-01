@@ -1,6 +1,6 @@
 'use strict';
 
-var controllers = angular.module('controllers', []);
+
 
 controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
     function SubscriptionCtrl($scope, $location, SubscriptionServ) {
