@@ -11,7 +11,7 @@ app = angular.module('myApp', [
   $routeProvider
       .when('/', {
         templateUrl: 'views/offlineHomepage.html',
-        controller: 'ConnexionCtrl'
+        controller: 'OfflineHomepageCtrl'
       })
       .when('/connexion', {
           templateUrl: 'views/connexion.html',
