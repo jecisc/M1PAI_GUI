@@ -1,0 +1,24 @@
+#new-board-btn {
+    margin-left:5%;
+    width: 90%;
+    line-height:50px;
+    background-color: #003366;
+    font-size:20px;
+}
+
+#header{
+    color:white;
+}
+
+#headerDescription{
+    color:white;
+}
+
+.glyphicon {
+    font-size: 40px;
+}
+
+#texte{
+    color:white;
+    font-size : 20px;
+}
