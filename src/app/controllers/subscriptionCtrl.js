@@ -1,8 +1,8 @@
 'use strict';
 
+var myApp = angular.module('myApp');
 
-
-controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
+myApp.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
     function SubscriptionCtrl($scope, $location, SubscriptionServ) {
         $scope.submit = function () {
 

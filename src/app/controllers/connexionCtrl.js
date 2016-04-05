@@ -1,6 +1,8 @@
 'use strict';
 
-controllers.controller('ConnexionCtrl', ['$scope', '$location', 'ConnexionServ',
+var myApp = angular.module('myApp');
+
+myApp.controller('ConnexionCtrl', ['$scope', '$location', 'ConnexionServ',
     function ConnexionCtrl($scope, $location, ConnexionServ) {
         $scope.submit = function () {
 

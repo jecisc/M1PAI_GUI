@@ -4,16 +4,26 @@
 <h3><span class="label label-primary">Inscription</span></h3>
 
 
-    <form ng-submit="submit()"	ng-controller="SubscriptionCtrl" role="form">
+    <form ng-submit="submit()"	ng-controller="SubscriptionCtrl" role="form" name="myForm">
 
         <fieldset class="form-group">
-            <label for="inputPseudo">Ton nom de compte</label>
-            <input type="text"  ng-model="pseudo" class="form-control" id="inputPseudo" placeholder="Nom utilisateur" required>
+
+            <label for="pseudo">Ton nom de compte</label>
+            <input type="text" ng-model="pseudo" class="form-control" id="pseudo" name="pseudo" placeholder="Nom utilisateur"
+                   ng-minlength="5" ng-maxlength="20" ng-pattern="/^[A-z][A-z0-9]*$/" required>
+            <span ng-show="myForm.pseudo.$error.required && myForm.pseudo.$dirty">Requis</span>
+            <span ng-show="!myForm.pseudo.$error.minLength && !myForm.pseudo.$error.maxLength &&
+            myForm.pseudo.$error.pattern && myForm.pseudo.$dirty">Doit commencer par une lettre et contenir uniquement des lettres et chiffres.</span>
+            <span ng-show="!myForm.pseudo.$error.required
+            && (myForm.pseudo.$error.minlength || myForm.pseudo.$error.maxlength)
+            && myForm.pseudo.$dirty"> Le nom d'utilisateur doit contenir 5 à 20 caractères.</span>
         </fieldset>
 
         <fieldset class="form-group">
-            <label for="inputEmail">Ton adresse mail</label>
-            <input type="email"  ng-model="mail" class="form-control" id="inputEmail" placeholder="Email" required>
+            <label for="email">Ton adresse mail</label>
+            <input type="email"  ng-model="email" class="form-control" id="email" name="email" placeholder="Email" required>
+            <span ng-show="myForm.email.$error.required && myForm.email.$dirty">Requis</span>
+            <span ng-show="!myForm.email.$error.required && myForm.email.$error.email && myForm.email.$dirty">Mail invalide</span>
         </fieldset>
 
         <fieldset class="form-group">
@@ -36,7 +46,7 @@
             <input type="text"  ng-model="firstName" class="form-control" id="inputFirstName" placeholder="Prénom" required>
         </fieldset>
 
-        <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Login</button>
+        <button type="submit" ng-disabled="!myForm.$valid" class="btn btn-primary">Inscription</button>
 
     </form>
 

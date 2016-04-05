@@ -3,7 +3,7 @@
  */
 'use strict';
 
-var services=angular.module('services',['ngResource']);
+var services=angular.module('myApp');
 
 services.factory('SubscriptionServ',['$resource',
     function($resource){
