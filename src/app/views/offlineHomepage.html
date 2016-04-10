@@ -1,12 +1,20 @@
 <div id="container" class="container">
+    <header class="page-header text-center" >
 
-    <h3><span class="label label-primary">Partinizer</span></h3>
+        <h1 id="header">Partinizer</h1>
+    </header>
 
     <div ng-controller="OfflineHomepageCtrl">
+        <div class="container">
+        <section class="row">
+            <div class="col-xs-12" style="height:50px;"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12"> <button ng-click="login()" id="new-board-btn" class="btn btn-primary btn-lg" >Connexion</button></div>
+            <div class="col-xs-12" style="height:50px;"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12"><button ng-click="subscription()"  id="new-board-btn" class="btn btn-primary btn-lg">Inscription</button></div>
+            <div class="col-xs-12" style="height:50px;"></div>
+            <div class="col-xs-12 col-sm-12 col-md-12"><button ng-click="description()"  id="new-board-btn" class="btn btn-primary btn-lg">C'est quoi ?</button></div>
 
-        <button ng-click="login()">Connexion</button>
-        <button ng-click="subscription()">Inscription</button>
-        <button ng-click="description()">C'est quoi ?</button>
-
+        </section>
+        </div>
     </div>
 </div>

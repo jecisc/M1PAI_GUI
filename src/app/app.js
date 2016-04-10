@@ -21,5 +21,9 @@ app = angular.module('myApp', [
         templateUrl: 'views/subscription.html',
         controller: 'SubscriptionCtrl'
       })
+      .when('/description', {
+        templateUrl: 'views/description.html',
+        controller: 'DescriptionCtrl'
+      })
 
 }]);
