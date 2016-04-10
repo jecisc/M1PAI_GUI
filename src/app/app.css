@@ -177,6 +177,7 @@ header span {
 
 .home {
     text-align: center;
+    padding-top: 0 !important;
 }
 
 .home button {
