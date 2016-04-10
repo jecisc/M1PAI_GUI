@@ -60,7 +60,7 @@ body, html {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
 }
 
-.buttonIcon{
+.buttonIcon {
     border-radius: 50%;
     font-size: 24px;
     height: 45px;
@@ -73,22 +73,18 @@ body, html {
     line-height: normal;
 }
 
-.buttonIcon .icon{
+.buttonIcon .icon {
     position: absolute;
     top: 50%;
     left: 50%;
-    -webkit-transform: translate(-12px,-12px);
-    transform: translate(-12px,-12px);
+    -webkit-transform: translate(-12px, -12px);
+    transform: translate(-12px, -12px);
     line-height: 24px;
     width: 24px;
 }
 
 .form-control {
     border-radius: 0 !important;
-}
-
-form label {
-    margin-bottom: 15px;
 }
 
 /* Header */
@@ -174,9 +170,11 @@ header span {
 
 /* Home */
 
-.home {
-    width: 100%;
+.main1Row {
     height: calc(100% - 60px);
+}
+
+.home {
     text-align: center;
 }
 
@@ -188,27 +186,32 @@ header span {
 
 /* Main with 2 header row */
 .main2Rows {
-    width: 100%;
     height: calc(100% - 116px);
-    padding-top: 40px;
 }
 
-.main2Rows form {
+.main2Rows label {
+    margin-bottom: 15px;
+}
+
+.main1Row, .main2Rows {
+    padding-top: 40px;
+    width: 100%;
+}
+
+.main2Rows form, .main1Row form {
     width: 80%;
     margin-left: 10%;
 }
 
-/* Connexion */
-
-.main2Rows .float{
+.main2Rows .float, .main1Row .float {
     float: right;
 }
 
-.main2Rows .myButton{
+.main2Rows .myButton, .main1Row .myButton {
     margin-top: 25px;
 }
 
-.main2Rows .return{
+.main2Rows .return, .main1Row .return {
     margin-left: 10%;
 }
 
