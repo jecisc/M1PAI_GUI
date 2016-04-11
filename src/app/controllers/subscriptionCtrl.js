@@ -23,8 +23,8 @@ myApp.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
                     console.log("Success:" + JSON.stringify(response));
                     $location.path('/');
                 },
-                function error(errorResponse) {
-                    console.log("Error:" + JSON.stringify(errorResponse));
+                function error() {
+                    $scope.errorMessage = "Error côté serveur.";
                 }
             );
             
