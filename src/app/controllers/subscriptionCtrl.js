@@ -1,9 +1,12 @@
 'use strict';
 
-
-
 controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
     function SubscriptionCtrl($scope, $location, SubscriptionServ) {
+
+        $scope.return = function() {
+            $location.path('/');
+        };
+        
         $scope.submit = function () {
 
             var user = {

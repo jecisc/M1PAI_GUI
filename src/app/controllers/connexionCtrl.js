@@ -2,6 +2,11 @@
 
 controllers.controller('ConnexionCtrl', ['$scope', '$location', 'ConnexionServ',
     function ConnexionCtrl($scope, $location, ConnexionServ) {
+
+        $scope.return = function() {
+            $location.path('/');
+        };
+
         $scope.submit = function () {
 
             var user = {

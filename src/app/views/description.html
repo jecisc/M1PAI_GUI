@@ -1,20 +1,29 @@
-<div id="container" class="container">
-    <header class="page-header text-center" >
-        <div class="row">
-            <div ng-click="back()" class="col-lg-1 col-sm-1 col-xs-1 ">
-                <span class="glyphicon glyphicon-arrow-left"></span>
-            </div>
-            <div ng-click="back()" class="col-lg-11 col-sm-11 col-xs-11" >
-                <h1>C'est quoi ?</h1>
-            </div>
+<header class="header">
+    <div class="row">
+        <div class="logo">
+            <img src="../../Ressources/Images/logo.png">
         </div>
-    </header>
-    <div class="container">
-        <div class="col-xs-12"></div>
-        <p id="texte">
-           Partinizer (Party Organizer) est une application permettant de gérer et rejoindre facilement des évenements.
-           Il y a donc deux types de status : organisateur ou participant.
-            Le but est de savoir en un coup d'oeil qui participe, et quelles sont les ressources nécessaires (ou facultatives) à l'évenement.
-        </p>
     </div>
+    <div class="row">
+        <span class="spacer"></span>
+        <span>
+            C'est quoi ?
+        </span>
+    </div>
+</header>
+
+<div class="main2Rows description">
+
+    <p>
+        Partinizer (Party Organizer) est une application permettant de gérer et rejoindre facilement des évenements.
+    </p>
+    <p>
+        Il y a donc deux types de status : organisateur ou participant.
+        Le but est de savoir en un coup d'oeil qui participe, et quelles sont les ressources nécessaires (ou
+        facultatives) à l'évenement.
+    </p>
+
+    <button ng-click="back()" class="buttonIcon myButton return">
+        <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
+    </button>
 </div>

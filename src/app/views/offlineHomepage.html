@@ -1,19 +1,11 @@
-<div id="container" class="container">
-    <header class="page-header text-center" >
-
-        <h1>Partinizer</h1>
-    </header>
-
-    <div ng-controller="OfflineHomepageCtrl">
-        <div class="container">
-        <section class="row">
-            <div class="col-xs-12" style="height:50px;"></div>
-            <div class="col-xs-12 col-sm-12 col-md-12"> <button ng-click="login()"  class="new-board-btn btn btn-primary btn-lg" >Connexion</button></div>
-            <div class="col-xs-12" style="height:50px;"></div>
-            <div class="col-xs-12 col-sm-12 col-md-12"><button ng-click="subscription()"   class="new-board-btn btn btn-primary btn-lg">Inscription</button></div>
-            <div class="col-xs-12" style="height:50px;"></div>
-            <div class="col-xs-12 col-sm-12 col-md-12"><button ng-click="description()"   class="new-board-btn btn btn-primary btn-lg">C'est quoi ?</button></div>
-        </section>
-        </div>
+<header class="header">
+    <div class="logo">
+        <img src="../../Ressources/Images/logo.png">
     </div>
+</header>
+
+<div class="home main1Row" ng-controller="OfflineHomepageCtrl">
+    <button ng-click="login()" class="accent myButton myButtonRaised">Connexion</button>
+    <button ng-click="subscription()" class="accent myButton myButtonRaised">Inscription</button>
+    <button ng-click="description()" class="accent myButton myButtonRaised">C'est quoi ?</button>
 </div>
