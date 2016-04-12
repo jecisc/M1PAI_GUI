@@ -3,7 +3,6 @@
  */
 'use strict';
 
-var services=angular.module('services',['ngResource']);
 
 services.factory('ConnexionServ',['$resource',
     function($resource){

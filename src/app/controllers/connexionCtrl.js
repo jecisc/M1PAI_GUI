@@ -13,11 +13,12 @@ controllers.controller('ConnexionCtrl', ['$scope', '$location', 'ConnexionServ',
                 function success(response) {
                     //alert($scope.challenge.question);
                     console.log("Success:" + JSON.stringify(response));
+                    $location.path('/homepage');
                     
                 },
                 function error(errorResponse) {
                     console.log("Error:" + JSON.stringify(errorResponse));
-                    $scope.errorMessage = "Error côté serveur."
+                    $scope.errorMessage = "Erreur côté serveur."
                 }
             );
 
