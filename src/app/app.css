@@ -5,7 +5,7 @@ body, html {
     height: 100%;
     width: 100%;
     margin: 0;
-    font-family: 'Roboto','Helvetica','Arial',sans-serif !important;
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
 }
 
 @media screen and (min-width: 480px) {
@@ -176,12 +176,22 @@ header span {
 .home {
     text-align: center;
     padding-top: 0 !important;
+    overflow: auto;
 }
 
-.home button {
-    width: 80%;
-    height: 15%;
-    margin-top: 14% !important;
+.home img {
+    width: 100%;
+}
+
+.home .navigation {
+    width: 100%;
+}
+
+.home .navigation button {
+    width: 35%;
+    margin-top: 0;
+    margin-right: 20px;
+    margin-left: 20px;
 }
 
 /* Main with 2 header row */
@@ -215,7 +225,7 @@ header span {
     margin-left: 10%;
 }
 
-.description{
+.description {
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
@@ -223,6 +233,6 @@ header span {
     padding: 30px;
 }
 
-.description .return{
+.description .return {
     margin-left: 0 !important;
 }
