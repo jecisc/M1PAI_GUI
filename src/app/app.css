@@ -9,6 +9,12 @@ body, html {
 }
 
 @media screen and (min-width: 480px) {
+    body{
+        background: url(../../Ressources/Images/back.jpg) fixed;
+        -webkit-background-size: contain;
+        background-size: contain;
+    }
+
     .main {
         width: 600px;
         margin: auto;
