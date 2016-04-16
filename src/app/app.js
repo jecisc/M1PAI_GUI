@@ -29,11 +29,6 @@ app = angular.module('myApp', [
         templateUrl: 'views/subscription.html',
         controller: 'SubscriptionCtrl'
       })
-      // page de description (C'est quoi ?)
-      .when('/description', {
-        templateUrl: 'views/description.html',
-        controller: 'DescriptionCtrl'
-      })
 
       // page d'accueil connecté
       .when('/homepage', {
