@@ -8,8 +8,14 @@ app = angular.module('myApp', [
   'ngResource',
   'controllers',
     'services'
-]).config(['$routeProvider', function ($routeProvider) {
+]).config(['$routeProvider','$httpProvider', function ($routeProvider,$httpProvider) {
+    $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
+    /*$httpProvider.defaults.withCredentials=true;
+    $httpProvider.defaults.useXDomain = true;*/
+
+
   $routeProvider
+
 
       // page d'acueil non connecté
       .when('/', {

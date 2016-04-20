@@ -28,6 +28,7 @@ controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'Subscription
                 },
                 function error(errorResponse) {
                     console.log("Error:" + JSON.stringify(errorResponse));
+                    
                 }
             );
             
