@@ -1,14 +1,18 @@
-<div id="container" class="container">
-    <header class="page-header text-center" >
+<header class="header">
+    <div class="row">
+        <span class="spacer"></span>
+        <span>
+            Accueil
+        </span>
+    </div>
+</header>
 
-        <h1>Partinizer</h1>
-    </header>
 
-    <div ng-controller="HomepageCtrl">
+<div ng-controller="HomepageCtrl">
         <div class="container">
             <section class="row">
                 <div class="col-xs-12" style="height:50px;"></div>
-                <div class="col-xs-12 col-sm-12 col-md-12"> <button ng-click="myEvents()"  class="btn btn-primary btn-lg new-board-btn" >Créer mon événement</button></div>
+                <div class="col-xs-12 col-sm-12 col-md-12"> <button ng-click="myEvents()"  class="btn btn-primary btn-lg new-board-btn">Créer mon événement</button></div>
                 <div class="col-xs-12" style="height:50px;"></div>
                 <div class="col-xs-12 col-sm-12 col-md-12"><button ng-click="manageEvent()"  class="btn btn-primary btn-lg new-board-btn">Gérer mes événements</button></div>
                 <div class="col-xs-12" style="height:50px;"></div>
@@ -18,4 +22,3 @@
             </section>
         </div>
     </div>
-</div>

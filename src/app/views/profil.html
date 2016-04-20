@@ -1,12 +1,25 @@
-<div id="container" class="container">
-    <header class="page-header text-center" >
-
-        <h1 id="header">Partinizer</h1>
-    </header>
-
-    <div ng-controller="ProfilCtrl">
-        <div class="container">
-            toto
-        </div>
+<header class="header">
+    <div class="row">
+        <span class="spacer"></span>
+        <span>
+            Mon Profil
+        </span>
     </div>
+</header>
+
+
+<div class="main3Row" ng-controller="ProfilCtrl">
+    <div class="profil_icon"></div>
+    <div class = "profil_field">Pseudo</div>
+    <div ng-bind="pseudo" class="profil_field2"></div>
+    <div class = "profil_field">Adresse mail</div>
+    <div ng-bind="mail" class="profil_field2"></div>
+    <div class = "profil_field">Nom</div>
+    <div ng-bind="name" class="profil_field2"></div>
+    <div class = "profil_field">Prénom</div>
+    <div ng-bind="firstName" class="profil_field2"></div>
+    <div class="space"></div>
+    <button ng-click="modifyProfil()" class="accent myButton myButtonRaised centered">Modifer le profil</button>
+    <div class="space"></div>
+    <button ng-click="frienship()" class=" accent myButton myButtonRaised centered">Gérer mes amis</button>
 </div>

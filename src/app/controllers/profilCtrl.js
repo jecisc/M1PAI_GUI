@@ -4,16 +4,15 @@
 'use strict';
 
 controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ', function($scope, $location,ProfilServ) {
-    //var userPseudo = "Teobrisse";
 
 
-    ProfilServ.getProfil(/*userPseudo,*/
+
+    ProfilServ.getProfil(
         function success(response) {
-            //alert($scope.challenge.question);
-            //console.log("Success:" + JSON.stringify(response));
-
-            console.log(response.name);
-            /*$scope.nom du champ dans la vue = response.data.name;*/
+            $scope.pseudo = response.pseudo;
+            $scope.mail = response.mail;
+            $scope.name  = response.name;
+            $scope.firstName = response.firstName;
         },
         function error(errorResponse) {
             console.log("Error:" + JSON.stringify(errorResponse));

@@ -33,7 +33,12 @@ body, html {
     background-color: #FF5722 !important;
 }
 
+.space {
+    padding:14px;
+}
+
 .myButton {
+    margin-left : 10%;
     background: 0 0;
     border: none;
     border-radius: 2px;
@@ -164,6 +169,37 @@ header .logo {
     padding-left: 40px;
 }
 
+.profil_icon {
+    overflow:hidden;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+    width: 70px;
+    height: 70px;
+    background-image: url('../../Ressources/Images/profil_icone.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom : 5px;
+}
+
+.profil_field {
+    margin-top : 7px;
+    margin-bottom : 5px;
+    margin-left : 15%;
+    color : #2e6da4;
+    font-weight : bold;
+    font-size : 25px;
+}
+
+.profil_field2 {
+    text-align : center;
+    font-size : 18px;
+}
+
+
 header span {
     line-height: 48px;
     text-align: center;
@@ -209,25 +245,34 @@ header span {
     margin-bottom: 15px;
 }
 
+.main3Row {
+    padding-top: 20px;
+    width: 100%;
+}
+
 .main1Row, .main2Rows {
     padding-top: 40px;
     width: 100%;
 }
 
-.main2Rows form, .main1Row form {
+.main2Rows form, .main1Row .main3Row form {
     width: 80%;
     margin-left: 10%;
 }
 
-.main2Rows .float, .main1Row .float {
+.main2Rows .float, .main1Row .main3Row .float {
     float: right;
 }
 
-.main2Rows .myButton, .main1Row .myButton {
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+.main2Rows .myButton, .main1Row .main3Row .myButton {
     margin-top: 25px;
 }
 
-.main2Rows .return, .main1Row .return {
+.main2Rows .return, .main1Row .main3Row .return {
     margin-left: 10%;
 }
 
