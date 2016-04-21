@@ -1,9 +1,7 @@
 'use strict';
 
-var myApp = angular.module('myApp');
-
-myApp.controller('ConnexionCtrl', ['$scope', '$location', 'ConnexionServ',
-    function ConnexionCtrl($scope, $location, ConnexionServ) {
+controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'ConnexionServ',
+    function ConnexionCtrl($rootScope,$scope, $location, ConnexionServ) {
 
         $scope.return = function() {
             $location.path('/');
@@ -11,25 +9,31 @@ myApp.controller('ConnexionCtrl', ['$scope', '$location', 'ConnexionServ',
 
         $scope.submit = function () {
 
-            var user = {
-                userNameOrMail: $scope.userNameOrMail,
-                password: $scope.password
-            };
 
-            ConnexionServ.get(user,
+            var userNameOrMail= $scope.userNameOrMail;
+            var password= $scope.password;
+
+
+            //ConnexionServ.authenticate(userNameOrMail,password,
+            ConnexionServ.authenticate(userNameOrMail,password).login({username:userNameOrMail})
+                .$promise
+                .then(
                 function success(response) {
                     //alert($scope.challenge.question);
                     console.log("Success:" + JSON.stringify(response));
-                    //TODO set le pseudo en global
+                    $rootScope.pseudo=response.pseudo;
                     $location.path('/homepage');
-                    
+
                 },
                 function error(errorResponse) {
                     console.log("Error:" + JSON.stringify(errorResponse));
-                    $scope.errorMessage = "Erreur côté serveur."
+                    $scope.errorMessage = "Identification invalide."
                 }
             );
 
 
         };
+
+
+
     }]);
