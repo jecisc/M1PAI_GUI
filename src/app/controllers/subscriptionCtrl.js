@@ -1,9 +1,13 @@
 'use strict';
 
-var myApp = angular.module('myApp');
+controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
 
-myApp.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
     function SubscriptionCtrl($scope, $location, SubscriptionServ) {
+
+        $scope.return = function() {
+            $location.path('/');
+        };
+        
         $scope.submit = function () {
 
             var user = {
@@ -11,7 +15,7 @@ myApp.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
                 firstName: $scope.firstName,
                 password: $scope.password,
                 mail: $scope.email,
-                registDate: 1458155215879,
+                registDate: Date.now(),
                 pseudo: $scope.pseudo,
                 avatar: " ",
                 active: false

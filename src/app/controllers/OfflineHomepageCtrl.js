@@ -1,6 +1,6 @@
 'use strict';
 
-var controllers = angular.module('controllers', []);
+
 
 controllers.controller('OfflineHomepageCtrl', function($scope, $location) {
  

@@ -4,6 +4,11 @@ var myApp = angular.module('myApp');
 
 myApp.controller('ConnexionCtrl', ['$scope', '$location', 'ConnexionServ',
     function ConnexionCtrl($scope, $location, ConnexionServ) {
+
+        $scope.return = function() {
+            $location.path('/');
+        };
+
         $scope.submit = function () {
 
             var user = {
@@ -15,11 +20,13 @@ myApp.controller('ConnexionCtrl', ['$scope', '$location', 'ConnexionServ',
                 function success(response) {
                     //alert($scope.challenge.question);
                     console.log("Success:" + JSON.stringify(response));
+                    //TODO set le pseudo en global
+                    $location.path('/homepage');
                     
                 },
                 function error(errorResponse) {
                     console.log("Error:" + JSON.stringify(errorResponse));
-                    $scope.errorMessage = "Error côté serveur."
+                    $scope.errorMessage = "Erreur côté serveur."
                 }
             );
 
