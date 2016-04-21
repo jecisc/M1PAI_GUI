@@ -5,7 +5,25 @@
 </header>
 
 <div class="home main1Row" ng-controller="OfflineHomepageCtrl">
-    <button ng-click="login()" class="accent myButton myButtonRaised">Connexion</button>
-    <button ng-click="subscription()" class="accent myButton myButtonRaised">Inscription</button>
-    <button ng-click="description()" class="accent myButton myButtonRaised">C'est quoi ?</button>
+    <div class="description">
+        <p>
+            Partinizer (Party Organizer) est une application permettant de gérer et rejoindre facilement des
+            évenements.
+        </p>
+    </div>
+
+    <img src="../../Ressources/Images/event.png"/>
+
+    <div class="description">
+        <p>
+            Il y a donc deux types de status : organisateur ou participant.
+            Le but est de savoir en un coup d'oeil qui participe, et quelles sont les ressources nécessaires (ou
+            facultatives) à l'évenement.
+        </p>
+    </div>
+
+    <div class="navigation">
+        <button ng-click="login()" class="accent myButton myButtonRaised">Connexion</button>
+        <button ng-click="subscription()" class="accent myButton myButtonRaised">Inscription</button>
+    </div>
 </div>

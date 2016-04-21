@@ -14,7 +14,7 @@ controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'Subscription
                 firstName: $scope.firstName,
                 password: $scope.password,
                 mail: $scope.mail,
-                registDate: 1458155215879,
+                registDate: Date.now(),
                 pseudo: $scope.pseudo,
                 avatar: " ",
                 active: false
