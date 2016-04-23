@@ -1,7 +1,7 @@
 'use strict';
 
-controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'ConnexionServ',
-    function ConnexionCtrl($rootScope,$scope, $location, ConnexionServ) {
+controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'ConnexionServ','$cookies','$http',
+    function ConnexionCtrl($rootScope,$scope, $location, ConnexionServ,$cookies,$http) {
 
         $scope.return = function() {
             $location.path('/');
@@ -13,15 +13,14 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
             var userNameOrMail= $scope.userNameOrMail;
             var password= $scope.password;
 
-
-            //ConnexionServ.authenticate(userNameOrMail,password,
             ConnexionServ.authenticate(userNameOrMail,password).login({username:userNameOrMail})
                 .$promise
                 .then(
                 function success(response) {
-                    //alert($scope.challenge.question);
+
                     console.log("Success:" + JSON.stringify(response));
-                    $rootScope.pseudo=response.pseudo;
+                    $cookies.put("username",userNameOrMail);
+                    $http.defaults.headers.common['Authorization']="Basic " + btoa(userNameOrMail + ":" + password);
                     $location.path('/homepage');
 
                 },

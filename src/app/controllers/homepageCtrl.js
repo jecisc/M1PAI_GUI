@@ -4,7 +4,7 @@
 'use strict';
 
 
-controllers.controller('HomepageCtrl', function($scope, $location) {
+controllers.controller('HomepageCtrl',['$scope','$location','ConnexionServ', function($scope, $location,ConnexionServ) {
 
     $scope.myEvents = function() {
         $location.path('/events');
@@ -22,4 +22,8 @@ controllers.controller('HomepageCtrl', function($scope, $location) {
         $location.path('/profil');
     };
 
-})
+    $scope.logout=function(){
+        ConnexionServ.logout();
+    };
+
+}]);

@@ -4,55 +4,27 @@
 'use strict';
 
 
-services.factory('ConnexionServ',['$resource',
-    /*function($http){
+services.factory('ConnexionServ',['$resource','$cookies','$location','$http',
 
-        return {authenticate:function(username,password,callback){
-
-            var headers={};
-
-            //if(username!={} || password!={}){
-                headers={Authorization : "Basic " + btoa(username + ":" + password)};
-           /* }
-            else {
-                headers = {};
-            }
-
-            console.log("TEST");
-            return $http({
-                method: 'GET',
-                url: 'http://vmargerin:Password59@localhost:8080/user/'+username,
-                headers: headers
-
-            });
-        }};*/
-
-        function($resource){
+        function($resource,$cookies,$location,$http){
             return{
-                authenticate:function(username,password){
-                    return $resource("http://localhost:8080/user/"+username,{},{
+                authenticate:function(username,password) {
+                    return $resource("http://localhost:8080/user/" + username, {}, {
 
-                        login: {method: 'GET',headers:{Authorization: "Basic " + btoa(username + ":" + password)},
-                            cache:false, isArray:false/*, params:{username:'@username'}*/}
+                        login: {
+                            method: 'GET', headers: {Authorization: "Basic " + btoa(username + ":" + password)},
+                            cache: false, isArray: false/*, params:{username:'@username'}*/
+                        }
                     });
-            }
+                },
+
+                logout:function(){
+                    $cookies.remove("username");
+                    delete $http.defaults.headers.common['Authorization'];
+                    $location.path('/');
+                }
+
 
         }}]);
 
 
-        //authenticate();
-        /*self.credentials = {};
-         self.login = function(username,password,callback) {
-         authenticate(username,password, function() {
-         if ($rootScope.authenticated) {
-         //$location.path("/");
-         self.error = false;
-         } else {
-         //$location.path("/login");
-         self.error = true;
-         }
-         });
-         };*/
-
-
-   // }]);

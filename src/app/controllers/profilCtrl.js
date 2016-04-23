@@ -3,7 +3,11 @@
  */
 'use strict';
 
-controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ', function($scope, $location,ProfilServ) {
+controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','ConnexionServ', function($scope, $location,ProfilServ) {
+
+    $scope.return = function() {
+        $location.path('/homepage');
+    };
 
 
 
@@ -15,6 +19,11 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ', functio
             $scope.firstName = response.firstName;
         },
         function error(errorResponse) {
+            if(errorResponse.status==401){
+                alert("Session interrompue")
+                console.log("Utilisateur non authentifié.");
+            }
+
             console.log("Error:" + JSON.stringify(errorResponse));
             $location.path('/');
         }
