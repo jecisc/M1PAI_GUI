@@ -7,10 +7,21 @@
     </div>
 </header>
 
+<div ng-controller="ManageFriendsCtrl">
+    <table>
+        <tbody >
+            <tr ng-repeat="friend in friends">
+                <td>{{friend.firstName}}</td>
+                <td>{{friend.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
 
 
 
-<button ng-click="return()" class="buttonIcon myButton return">
+
+<button ng-click="returnProfil()" class="buttonIcon myButton return">
     <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
 </button>

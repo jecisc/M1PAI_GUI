@@ -66,4 +66,8 @@ app = angular.module('myApp', [
           templateUrl: 'views/profil.html',
           controller: 'ProfilCtrl'
       })
+      .when('/friends', {
+          templateUrl: 'views/manageFriends.html',
+          controller: 'ManageFriendsCtrl'
+      })
 }]);
