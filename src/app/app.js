@@ -24,7 +24,7 @@ app = angular.module('myApp', [
 
       // page de connexion
       .when('/connexion', {
-          templateUrl: 'views/connexion.html',
+          templateUrl: 'views/offlineHomepage.html',
           controller: 'ConnexionCtrl'
       })
       // page d'inscription

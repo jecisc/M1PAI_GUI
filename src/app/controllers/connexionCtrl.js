@@ -3,9 +3,6 @@
 controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'ConnexionServ','$cookies','$http',
     function ConnexionCtrl($rootScope,$scope, $location, ConnexionServ,$cookies,$http) {
 
-        $scope.return = function() {
-            $location.path('/');
-        };
 
         $scope.submit = function () {
 

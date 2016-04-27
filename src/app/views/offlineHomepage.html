@@ -1,29 +1,56 @@
-<header class="header">
-    <div class="logo">
-        <img src="../../Ressources/Images/logo.png">
-    </div>
-</header>
+<div ng-controller="OfflineHomepageCtrl" class="home offlineHome">
+    <header class="header">
+        <div class="mdl-layout__header-row">
+            <div class="logo">
+                <img src="../../Ressources/Images/logo.png">
+            </div>
+            <div class="mdl-layout-spacer"></div>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" ng-click="subscription()">Inscription</a>
+            </nav>
+        </div>
+    </header>
 
-<div class="home main1Row" ng-controller="OfflineHomepageCtrl">
-    <div class="description">
-        <p>
-            Partinizer (Party Organizer) est une application permettant de gérer et rejoindre facilement des
-            évenements.
-        </p>
+
+    <div class="main1Row">
+        <div class="description">
+            <p>
+                Un évenement à organiser ?
+                Difficile d'organiser ?
+                Difficile de réunir tout le monde ?
+                <b>Partinizer</b> est fait pour vous !
+            </p>
+        </div>
+
+        <img src="../../Ressources/Images/event2.jpg"/>
+
+        <div class="description">
+            <p>
+                Que vous organisiez ou pariticpez à un évenement vous êtes au bon endroit !
+            </p>
+        </div>
+        <div ng-controller="ConnexionCtrl">
+
+            <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
+
+            <form ng-submit="submit()">
+
+                <fieldset class="form-group">
+                    <label for="inputUsername">Nom du compte / Email</label>
+                    <input type="text" ng-model="userNameOrMail" class="form-control" id="inputUsername"
+                           placeholder="Nom utilisateur ou mail">
+                </fieldset>
+
+                <fieldset class="form-group">
+                    <label for="inputPassword">Mot de passe</label>
+                    <input type="password" ng-model="password" class="form-control" id="inputPassword"
+                           placeholder="Mot de passe">
+                </fieldset>
+
+                <button type="submit" class="accent myButton myButtonRaised">Connexion</button>
+
+            </form>
+        </div>
     </div>
 
-    <img src="../../Ressources/Images/event.png"/>
-
-    <div class="description">
-        <p>
-            Il y a donc deux types de status : organisateur ou participant.
-            Le but est de savoir en un coup d'oeil qui participe, et quelles sont les ressources nécessaires (ou
-            facultatives) à l'évenement.
-        </p>
-    </div>
-
-    <div class="navigation">
-        <button ng-click="login()" class="accent myButton myButtonRaised">Connexion</button>
-        <button ng-click="subscription()" class="accent myButton myButtonRaised">Inscription</button>
-    </div>
 </div>
