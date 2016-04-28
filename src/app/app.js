@@ -66,4 +66,9 @@ app = angular.module('myApp', [
           templateUrl: 'views/profil.html',
           controller: 'ProfilCtrl'
       })
+      // modifier le profil
+      .when('/modifyProfil', {
+          templateUrl: 'views/modifyProfil.html',
+          controller: 'ModifyProfilCtrl'
+      })
 }]);

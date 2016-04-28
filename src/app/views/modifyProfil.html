@@ -1,0 +1,73 @@
+<header class="header">
+    <div class="row">
+        <span class="spacer"></span>
+        <span>
+            Modifier le profil
+        </span>
+    </div>
+</header>
+
+
+<div class="main2Rows" ng-controller="ModifyProfilCtrl">
+    <form ng-submit="submit()" role="form" name="myForm">
+
+
+
+        <!-- NOM PRENOM ------------------------------------------------------------------------------------------------------->
+        <fieldset class="form-group">
+            <label for="name">Nom</label>
+            <input type="text" ng-model="name" class="form-control" id="name" name="name" required
+                   ng-minlength="3" ng-maxlength="40" ng-pattern="/^[A-zÀ-ÿ]*$/">
+
+            <span ng-show="myForm.name.$error.required && myForm.name.$dirty">Champ obligatoire</span>
+                <span ng-show="!myForm.name.$error.minLength && !myForm.name.$error.maxLength &&
+                myForm.name.$error.pattern && myForm.name.$dirty">Doit être composé de lettres uniquement</span>
+                <span ng-show="!myForm.name.$error.required
+                && (myForm.name.$error.minlength || myForm.name.$error.maxlength)
+                && myForm.name.$dirty"> Le nom doit contenir 3 à 40 caractères.</span>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="firstName">Prénom</label>
+            <input type="text" ng-model="firstName" class="form-control" id="firstName" name="firstName" required
+                   ng-minlength="3" ng-maxlength="40" ng-pattern="/^[A-zÀ-ÿ]*$/">
+            <span ng-show="myForm.firstName.$error.required && myForm.firstName.$dirty">Champ obligatoire</span>
+                <span ng-show="!myForm.firstName.$error.minLength && !myForm.firstName.$error.maxLength &&
+                myForm.firstName.$error.pattern && myForm.firstName.$dirty">Doit être composé de lettres uniquement</span>
+                <span ng-show="!myForm.firstName.$error.required
+                && (myForm.firstName.$error.minlength || myForm.firstName.$error.maxlength)
+                && myForm.firstName.$dirty"> Le prénom doit contenir 3 à 40 caractères.</span>
+        </fieldset>
+
+        <!-- MOT DE PASSE ----------------------------------------------------------------------------------------------------->
+        <fieldset class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" ng-model="password" class="form-control" id="password" name="password"
+                   placeholder="Laisser vide si aucun changement"
+                   ng-pattern="/(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/"
+                   ng-minlength="8" ng-maxlength="40">
+                <span ng-show="!myForm.password.$error.minLength && !myForm.password.$error.maxLength &&
+                myForm.password.$error.pattern && myForm.password.$dirty">Le mot de passe doit être formé d'au moins une majuscule, une minuscule, et au moins 1 chiffre ou caractère spécial</span>
+                <span ng-show="!myForm.password.$error.required
+                && (myForm.password.$error.minlength || myForm.password.$error.maxlength)
+                && myForm.password.$dirty"> Le mot de passe doit contenir 8 à 40 caractères.</span>
+        </fieldset>
+
+        <fieldset class="form-group">
+            <label for="checkPassword">Confirmation du mot de passe</label>
+            <input type="password" ng-model="checkPassword" class="form-control" id="checkPassword" name="checkPassword"
+                   placeholder="Confirmation" compare-to="password">
+            <span ng-show="myForm.checkPassword.$error.compareTo">Doit être identique au mot de passe</span>
+        </fieldset>
+
+        <button type="submit" ng-disabled="!myForm.$valid" class="float accent myButton myButtonRaised">Modifier
+        </button>
+
+    </form>
+
+    <button ng-click="return()" class="buttonIcon myButton return">
+        <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
+    </button>
+</div>
+
+

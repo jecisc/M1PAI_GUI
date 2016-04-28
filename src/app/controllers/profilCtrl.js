@@ -9,7 +9,9 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','Connexi
         $location.path('/homepage');
     };
 
-
+    $scope.modifyProfil = function() {
+        $location.path('/modifyProfil');
+    };
 
     ProfilServ.getProfil(
         function success(response) {

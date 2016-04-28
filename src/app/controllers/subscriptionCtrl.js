@@ -28,7 +28,7 @@ controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'Subscription
                     $location.path('/');
                 },
                 function error() {
-                    $scope.errorMessage = "Error côté serveur.";
+                    $scope.errorMessage = "Erreur côté serveur.";
 
                 }
             );
