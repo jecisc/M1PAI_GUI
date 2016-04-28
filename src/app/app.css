@@ -236,7 +236,7 @@ header .row {
     margin: 0;
 }
 
-.mdl-navigation__link {
+.mdl-navigation__link, .forgetPassword{
     cursor: pointer;
 }
 
@@ -378,12 +378,17 @@ header span {
     margin-left: 0 !important;
 }
 
-.offlineHome form{
-    text-align: center;
-}
 
 .offlineHome form fieldset{
     text-align: left;
+}
+
+.offlineHome form button{
+    margin-top: 15px;
+}
+
+.forgetPassword{
+    float: right;
 }
 
 button[disabled], html input[disabled] {
