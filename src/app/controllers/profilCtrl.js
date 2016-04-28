@@ -9,7 +9,9 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','Connexi
         $location.path('/homepage');
     };
 
-
+    $scope.returnProfil = function() {
+        $location.path('/profil');
+    };
 
     ProfilServ.getProfil(
         function success(response) {
