@@ -29,7 +29,7 @@ controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'Subscription
                 },
                 function error() {
                     $scope.errorMessage = "Error côté serveur.";
-
+                    
                 }
             );
             

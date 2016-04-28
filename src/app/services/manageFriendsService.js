@@ -15,10 +15,21 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     getFriends: {
                         method: 'GET',
                         cache: false,
-                       
+
+                    }
+
+                });
+            },
+            deleteFriend:function(idFriend){
+                console.log(idFriend);
+                return $resource("http://localhost:8080/user/friends/delete/"+idFriend, {}, {
+                    
+                    delete: {
+                        method: 'DELETE',
+                        cache: false,
+                        
                     }
                 });
             }
-        
-
+           
 }}]);

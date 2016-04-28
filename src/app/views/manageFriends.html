@@ -7,21 +7,30 @@
     </div>
 </header>
 
-<div ng-controller="ManageFriendsCtrl">
-    <table>
+<div ng-controller="ManageFriendsCtrl" >
+    <h3>Mes notifications</h3>
+    <h3>Mes amis</h3>
+    <table class="table table-fixedheader table-striped">
+
         <tbody >
             <tr ng-repeat="friend in friends">
-                <td>{{friend.firstName}}</td>
-                <td>{{friend.name}}</td>
+                <td><img src="../../Ressources/Images/logo_user.jpg" class="icon"/></td>
+                <td width="40%">{{friend.firstName}}</td>
+                <td width="40%">{{friend.name}}</td>
+                <td width="10%">
+                    <button ng-click="removeFriend($index)" type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-remove"/>
+                     </button>
+                </td>
             </tr>
         </tbody>
     </table>
+    <button ng-click="returnProfil()" class="buttonIcon myButton return">
+        <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
+    </button>
 </div>
 
 
 
 
 
-<button ng-click="returnProfil()" class="buttonIcon myButton return">
-    <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
-</button>
