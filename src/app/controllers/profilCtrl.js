@@ -4,6 +4,22 @@
 'use strict';
 
 controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','ConnexionServ', function($scope, $location,ProfilServ) {
+    
+    $scope.myEvents = function() {
+        $location.path('/events');
+    };
+
+    $scope.manageEvent = function() {
+        $location.path('/manageEvents');
+    };
+
+    $scope.myParticipations = function() {
+        $location.path('/participations');
+    };
+
+    $scope.myProfil = function() {
+        $location.path('/profil');
+    };
 
     $scope.return = function() {
         $location.path('/homepage');
