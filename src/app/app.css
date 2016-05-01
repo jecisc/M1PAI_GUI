@@ -8,7 +8,7 @@ body, html {
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif !important;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 600px) {
     body{
         background: url(../../Ressources/Images/back.jpg) fixed;
         -webkit-background-size: contain;
@@ -16,7 +16,7 @@ body, html {
     }
 
     .main {
-        width: 600px;
+        width: 600px !important;
         margin: auto;
         border-right: solid 1px rgba(66, 66, 66, .6);
         border-left: solid 1px rgba(66, 66, 66, .6);
@@ -26,6 +26,7 @@ body, html {
 .main {
     background: #FFF;
     height: 100%;
+    width: 100%;
 }
 
 .accent {
@@ -302,7 +303,7 @@ header span {
 /* Home */
 .home {
     padding-top: 0 !important;
-    height: 100%;
+    height: calc(100% - 58px);
     overflow: hidden;
 }
 
@@ -394,4 +395,53 @@ header span {
 button[disabled], html input[disabled] {
     background-color: #607D8B !important;
     cursor: not-allowed !important;
+}
+
+/* Footer */
+
+footer{
+    bottom: 0;
+    z-index: 20;
+    position: fixed;
+    background-color: #FFF;
+    border-top: 1px solid #aaa;
+    height: 58px;
+    width: 100%;
+    color: #78909C;
+}
+
+@media screen and (min-width: 600px) {
+   footer {
+        width: 598px !important;
+    }
+}
+
+footer div{
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    height: 100%;
+}
+
+footer .last{
+    width: calc(25% - 10px);
+}
+
+footer div:hover{
+    background-color: #607D8B;
+    color: #FFF;
+}
+
+footer{
+    font-size: 12px;
+}
+
+footer p{
+    font-size: 20px;
+    margin: 7px 0 0 0;
+}
+
+footer .selected{
+    color: #1976D2;
 }

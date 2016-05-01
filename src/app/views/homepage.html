@@ -8,21 +8,33 @@
 </header>
 
 
-<div ng-controller="HomepageCtrl">
-        <div class="container">
-            <section class="row">
-                <div class="col-xs-12" style="height:50px;"></div>
-                <div class="col-xs-12 col-sm-12 col-md-12"> <button ng-click="myEvents()"  class="btn btn-primary btn-lg new-board-btn">Créer mon événement</button></div>
-                <div class="col-xs-12" style="height:50px;"></div>
-                <div class="col-xs-12 col-sm-12 col-md-12"><button ng-click="manageEvent()"  class="btn btn-primary btn-lg new-board-btn">Gérer mes événements</button></div>
-                <div class="col-xs-12" style="height:50px;"></div>
-                <div class="col-xs-12 col-sm-12 col-md-12"><button ng-click="myParticipations()"   class="btn btn-primary btn-lg new-board-btn">Mes participations</button></div>
-                <div class="col-xs-12" style="height:50px;"></div>
-                <div class="col-xs-12 col-sm-12 col-md-12"><button ng-click="myProfil()"   class="btn btn-primary btn-lg new-board-btn">Mon profil</button></div>
-            </section>
-        </div>
-    </div>
-
 <button ng-click="logout()" type="button" class="btn btn-default btn-sm">
     <span class="glyphicon glyphicon-log-out"></span> Log out
 </button>
+
+<footer ng-controller="HomepageCtrl">
+    <div ng-click="myEvents()">
+        <p>
+            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+        </p>
+        Créer
+    </div>
+    <div ng-click="manageEvent()">
+        <p>
+            <i class="fa fa-calendar-o" aria-hidden="true"></i>
+        </p>
+        Gérer
+    </div>
+    <div ng-click="myParticipations()">
+        <p>
+            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+        </p>
+        Participations
+    </div>
+    <div ng-click="myProfil()" class="last">
+        <p>
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </p>
+        Profil
+    </div>
+</footer>
