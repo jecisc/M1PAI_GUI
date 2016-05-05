@@ -3,10 +3,22 @@
 controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'ConnexionServ','$cookies','$http',
     function ConnexionCtrl($rootScope,$scope, $location, ConnexionServ,$cookies,$http) {
 
+        $scope.forgotPassword = function(){
+
+            $http({
+                url: "http://localhost:8080/user/forgotPassword",
+                method: "GET",
+                params: {userName : $scope.userName}
+            }).success(function(data) {
+                $scope.infoMessage = data.message;
+                $scope.errorMessage = null;
+            }).error(function(data) {
+                $scope.errorMessage = data.message;
+                $scope.infoMessage = null;
+            });
 
         $scope.submit = function () {
-
-
+            
             var userName= $scope.userName;
             var password= $scope.password;
 
@@ -23,12 +35,15 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                 },
                 function error(errorResponse) {
                     console.log("Error:" + JSON.stringify(errorResponse));
+                    $scope.infoMessage = null;
                     $scope.errorMessage = "Identification invalide."
                 }
             );
 
 
         };
+
+        }
 
 
 

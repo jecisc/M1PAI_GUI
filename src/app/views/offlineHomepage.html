@@ -32,6 +32,8 @@
         <div ng-controller="ConnexionCtrl">
 
             <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
+            <div class="alert alert-success" ng-show="infoMessage">{{infoMessage}}</div>
+
 
             <form ng-submit="submit()">
 
@@ -47,9 +49,11 @@
                            placeholder="Mot de passe">
                 </fieldset>
 
-                    <a class="forgetPassword" ng-click="forgetPassword()">Mot de passe oublié</a> <!-- TODO -->
+                <a class="forgetPassword" ng-click="forgotPassword()">Mot de passe oublié</a>
 
-                <div><button type="submit" class="accent myButton myButtonRaised">Connexion</button></div>
+                <div>
+                    <button type="submit" class="accent myButton myButtonRaised">Connexion</button>
+                </div>
 
             </form>
         </div>
