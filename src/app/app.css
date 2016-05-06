@@ -303,7 +303,7 @@ header span {
 /* Home */
 .home {
     padding-top: 0 !important;
-    height: calc(100% - 58px);
+    height: 100%;
     overflow: hidden;
 }
 
