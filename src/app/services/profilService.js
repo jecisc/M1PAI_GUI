@@ -4,11 +4,11 @@
 
 'use strict';
 
-
 services.factory('ProfilServ',['$resource','$rootScope','$cookies',
-    
-    function($resource){
+
+    function($resource,$rootScope,$cookies){
         return $resource("http://localhost:8080/user/get",{},{
-            getProfil:{method:'GET',cache:false, isArray:false}
+            getProfil:{method:'GET',cache:false, isArray:false},
+            modifyProfil:{method:'POST',cache:false, isArray:false}
         });
     }]);

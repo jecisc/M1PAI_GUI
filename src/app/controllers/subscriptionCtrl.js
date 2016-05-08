@@ -1,8 +1,8 @@
 'use strict';
 
-controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ', '$http',
+controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'SubscriptionServ',
 
-    function SubscriptionCtrl($scope, $location, SubscriptionServ, $http) {
+    function SubscriptionCtrl($scope, $location, SubscriptionServ) {
 
         $scope.return = function() {
             $location.path('/');
@@ -10,22 +10,25 @@ controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'Subscription
         
         $scope.submit = function () {
 
-            SubscriptionServ.save({
-                    name: $scope.name,
-                    firstName: $scope.firstName,
-                    password: $scope.password,
-                    mail: $scope.email,
-                    registDate: Date.now(),
-                    pseudo: $scope.pseudo
-                },
+            var user = {
+                name: $scope.name,
+                firstName: $scope.firstName,
+                password: $scope.password,
+                mail: $scope.email,
+                registDate: Date.now(),
+                pseudo: $scope.pseudo,
+                avatar: " ",
+                active: false
+            };
+
+            SubscriptionServ.save(user,
                 function success(response) {
-                    $scope.infoMessage = response.message;
-                    $scope.errorMessage = null;
+                    //alert($scope.challenge.question);
+                    console.log("Success:" + JSON.stringify(response));
                     $location.path('/');
                 },
-                function error(response) {
-                    $scope.errorMessage = response.data.message;
-                    $scope.infoMessage = null;
+                function error() {
+                    $scope.errorMessage = "Erreur côté serveur.";
 
                 }
             );
