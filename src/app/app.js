@@ -32,6 +32,10 @@ app = angular.module('myApp', [
         templateUrl: 'views/subscription.html',
         controller: 'SubscriptionCtrl'
       })
+      // page Mes Participations //TODO mettre en redirection vers accueil connecté
+      .when('/myParticipations', {
+        templateUrl: 'views/myParticipations.html',
+      })
       // page de description (C'est quoi ?)
       .when('/description', {
         templateUrl: 'views/description.html',
