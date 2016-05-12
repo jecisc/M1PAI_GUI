@@ -61,7 +61,8 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
             }
             $location.path('/profil');
         },
-        function error() {
+        function error(errorResponse) {
+            console.log(errorResponse);
 
             if(errorResponse.status==401){
                 alert("Session interrompue")
