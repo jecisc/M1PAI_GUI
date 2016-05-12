@@ -13,23 +13,59 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                 return $resource("http://localhost:8080/user/friends", {}, {
 
                     getFriends: {
+                         method: 'GET',
+                         isArray: true
+                     }
+                });
+            },
+            getFriendRequests:function(){
+                return $resource("http://localhost:8080/friendRequest/get", {}, {
+
+                    get: {
                         method: 'GET',
-                        cache: false,
-
+                        isArray: true
                     }
-
                 });
             },
             deleteFriend:function(idFriend){
-                console.log(idFriend);
                 return $resource("http://localhost:8080/user/friends/delete/"+idFriend, {}, {
                     
                     delete: {
                         method: 'DELETE',
-                        cache: false,
+                        cache: false
                         
                     }
                 });
+            },
+            acceptFriend:function(idAsker){
+                return $resource("http://localhost:8080/friendRequest/accept/"+idAsker, {}, {
+
+                    accept: {
+                        method: 'GET',
+                        cache: false
+
+                    }
+                });
+            },
+            denyFriend:function(idAsker) {
+                return $resource("http://localhost:8080/friendRequest/deny/" + idAsker, {}, {
+
+                    deny: {
+                        method: 'GET',
+                        cache: false
+
+                    }
+                });
+            },
+            searchUsersByName:function(name,page,size){
+                return $resource("http://localhost:8080/user/search?size="+size+"&page="+page+"&name="+name, {}, {
+
+                    get: {
+                        method: 'GET',
+                        cache: false
+
+                    }
+                });
             }
-           
+            
 }}]);

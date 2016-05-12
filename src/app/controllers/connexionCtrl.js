@@ -22,7 +22,7 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                     $cookies.put("username",userNameOrMail);
                     $http.defaults.headers.common['Authorization']="Basic " + btoa(userNameOrMail + ":" + password);
                     $location.path('/homepage');
-
+                    $rootScope.user=response;
                 },
                 function error(errorResponse) {
                     console.log("Error:" + JSON.stringify(errorResponse));
