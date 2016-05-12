@@ -445,3 +445,45 @@ footer p{
 footer .selected{
     color: #FF9E80;
 }
+
+table.table-fixedheader, table.table-fixedheader>thead, table.table-fixedheader>tbody, table.table-fixedheader>thead>tr, table.table-fixedheader>tbody>tr, table.table-fixedheader>thead>tr>th, table.table-fixedheader>tbody>td {
+    display: block;
+}
+table.table-fixedheader>thead>tr:after, table.table-fixedheader>tbody>tr:after {
+    content:' ';
+    display: block;
+    visibility: visible;
+    clear: both;
+    color : #2e6da4;
+    font-weight : bold;
+}
+
+table.table-fixedheader>tbody {
+    overflow-y: scroll;
+    height: 20vh;
+
+}
+
+table.table-fixedheader>thead {
+    overflow-y: scroll;
+}
+
+table.table-fixedheader>thead>tr>th:after, table.table-fixedheader>tbody>tr>td:after {
+    content:' ';
+    display: table-cell;
+    visibility: hidden;
+    clear: both;
+}
+
+table.table-fixedheader>thead tr th, table.table-fixedheader>tbody tr td {
+   /* float: left;*/
+    vertical-align: middle;
+    text-align: center;
+    word-wrap:break-word;
+    font-size: 3vw;
+    font-family: "Comic Sans MS";
+}
+
+table.table-fixedheader>tbody>tr>td>img{
+    width :10vw;
+}

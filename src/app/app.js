@@ -8,7 +8,8 @@ app = angular.module('myApp', [
   'ngResource',
   'ngCookies',
   'controllers',
-    'services'
+    'services',
+    'ngTable'
 ]).config(['$routeProvider','$httpProvider', function ($routeProvider,$httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
@@ -65,5 +66,13 @@ app = angular.module('myApp', [
       .when('/profil', {
           templateUrl: 'views/profil.html',
           controller: 'ProfilCtrl'
+      })
+      .when('/friends', {
+          templateUrl: 'views/manageFriends.html',
+          controller: 'ManageFriendsCtrl'
+      })
+      .when('/addFriend', {
+          templateUrl: 'views/addFriend.html',
+          controller: 'AddFriendCtrl'
       })
 }]);

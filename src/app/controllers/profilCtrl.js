@@ -29,6 +29,10 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','Connexi
         $location.path('/profil');
     };
 
+    $scope.frienship = function() {
+        $location.path('/friends');
+    };
+
     ProfilServ.getProfil(
         function success(response) {
             $scope.pseudo = response.pseudo;
@@ -38,7 +42,7 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','Connexi
         },
         function error(errorResponse) {
             if(errorResponse.status==401){
-                alert("Session interrompue")
+                alert("Session interrompue");
                 console.log("Utilisateur non authentifié.");
             }
 
@@ -46,4 +50,4 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','Connexi
             $location.path('/');
         }
     );
-}])
+}]);

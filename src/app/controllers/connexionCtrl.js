@@ -32,7 +32,7 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                     $cookies.put("username",userName);
                     $http.defaults.headers.common['Authorization']="Basic " + btoa(userName + ":" + password);
                     $location.path('/homepage');
-
+                    $rootScope.user=response;
                 },
                 function error(errorResponse) {
                     console.log("Error:" + JSON.stringify(errorResponse));

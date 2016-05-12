@@ -26,7 +26,6 @@ controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'Subscription
                 function error(response) {
                     $scope.errorMessage = response.data.message;
                     $scope.infoMessage = null;
-
                 }
             );
             
