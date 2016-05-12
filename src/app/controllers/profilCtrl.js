@@ -3,7 +3,7 @@
  */
 'use strict';
 
-controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','ConnexionServ', function($scope, $location,ProfilServ) {
+controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ', function($scope, $location,ProfilServ) {
     
     $scope.myEvents = function() {
         $location.path('/events');
