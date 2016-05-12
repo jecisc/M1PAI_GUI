@@ -15,8 +15,4 @@ controllers.controller('OfflineHomepageCtrl', function ($scope, $location) {
         $location.path('/description');
     };
 
-    //TODO mettre ça dans la partie ONLINE
-    $scope.myParticipations = function () {
-        $location.path('/myParticipations');
-    };
 });
