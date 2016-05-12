@@ -47,9 +47,9 @@ app = angular.module('myApp', [
       // redirections depuis l'accueil en mode connecté
 
       // mes evenements
-      .when('/events', {
-          templateUrl: 'views/events.html',
-          controller: 'EventsCtrl'
+      .when('/event', {
+          templateUrl: 'views/event.html',
+          controller: 'EventCtrl'
       })
       // gestion de mes evenements
       .when('/manageEvents', {

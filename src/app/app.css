@@ -98,6 +98,9 @@ body, html {
     border-radius: 0 !important;
 }
 
+.voffset15 { margin-bottom: 15px;}
+.voffset30 { margin-bottom: 30px;}
+
 /* Header */
 
 header {

@@ -7,7 +7,7 @@
 controllers.controller('HomepageCtrl',['$scope','$location','ConnexionServ', function($scope, $location,ConnexionServ) {
 
     $scope.myEvents = function() {
-        $location.path('/events');
+        $location.path('/event');
     };
 
     $scope.manageEvent = function() {

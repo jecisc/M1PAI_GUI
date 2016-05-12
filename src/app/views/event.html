@@ -1,0 +1,106 @@
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#myForm").formToWizard({ submitButton: 'confirmCreation' })
+    });
+</script>
+<header class="header">
+    <div class="row">
+        <span class="spacer"></span>
+        <span>
+            Création d'événement
+        </span>
+    </div>
+</header>
+
+<div class="main1Row" ng-controller="EventCtrl">
+
+    <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
+
+    <form ng-submit="submit()" role="form" name="myForm" id="myForm">
+
+        <fieldset >
+            <div class="col-xs-12 ">
+                <label for="nomEvent">Nom</label>
+                <input type="text" ng-model="nomEvent" class="form-control" id="nomEvent" name="nomEvent" placeholder="Nom de l'evenement">
+                <span ng-show="myForm.nomEvent.$error.required && myForm.nomEvent.$dirty">Champ obligatoire</span>
+            </div>
+
+            <div class="row voffset15"></div>
+
+            <div class="col-xs-5">
+                <label for="placeEvent">Lieu</label>
+                <input type="text" ng-model="placeEvent" class="form-control"  id="placeEvent" name="placeEvent" placeholder="Lieu">
+                <span ng-show="myForm.placeEvent.$error.required && myForm.placeEvent.$dirty">Champ obligatoire</span>
+            </div>
+
+            <div class="col-xs-7">
+                <label for="dateEvent">Date et heure</label>
+                <input type="datetime-local" min="sysdate" ng-model="dateEvent" class="form-control"  id="dateEvent" name="dateEvent">
+                <span ng-show="myForm.dateEvent.$error.required && myForm.dateEvent.$dirty">Champ obligatoire</span>
+            </div>
+
+            <div class="row voffset15"></div>
+
+            <div class="col-xs-12">
+                <label for="descriptionEvent">Courte description</label>
+                <textarea class="form-control" rows="5" id="descriptionEvent" name="descriptionEvent" placeholder="Décris en quelques mot comment se passera ton evenement."></textarea>
+            </div>
+
+            <div class="row voffset15"></div>
+
+            <label for="bedEvent" class="col-xs-10">Nombre de lits dispos</label>
+            <input type="number" class="col-xs-2" min="0" max = "20" value="0" ng-model="bedEvent" id="bedEvent" name = "bedEvent">
+
+            <div class="row voffset15"></div>
+
+            <label for="placeDispoEvent" class="col-xs-10">Nombre de places max</label>
+            <input type="number" class="col-xs-2" min="0" max = "20" value="0" ng-model="placeDispoEvent" id="placeDispoEvent" name = "placeDispoEvent">
+
+            <div class="row voffset30"></div>
+
+
+        </fieldset>
+        <fieldset><p>test</p></fieldset>
+        <fieldset>
+            <select data-toggle="items" class="list-group col-xs-12" style="height:300px"multiple>
+                <option class="list-group-item" data-value="Cras justo odio">Cras justo odio</option>
+                <option class="list-group-item" data-value="Dapibus ac facilisis in">Dapibus ac facilisis in</option>
+                <option class="list-group-item" data-value="Morbi leo risus">Morbi leo risus</option>
+                <option class="list-group-item" data-value="Porta ac consectetur ac">Porta ac consectetur ac</option>
+                <option class="list-group-item" data-value="Vestibulum at eros">Vestibulum at eros</option>
+            </select>
+        </fieldset>
+        <p>
+            <button id="confirmCreation" type="submit" ng-disabled="!myForm.$valid" class="float accent myButton myButtonRaised">Créer l'évenement</button>
+        </p>
+    </form>
+</div>
+
+<footer ng-controller="HomepageCtrl">
+    <div ng-click="myEvents()" class="selected last">
+        <p>
+            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
+        </p>
+        Créer
+    </div>
+    <div ng-click="manageEvent()">
+        <p>
+            <i class="fa fa-calendar-o" aria-hidden="true"></i>
+        </p>
+        Gérer
+    </div>
+    <div ng-click="myParticipations()">
+        <p>
+            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
+        </p>
+        Participations
+    </div>
+    <div ng-click="myProfil()" >
+        <p>
+            <i class="fa fa-user" aria-hidden="true"></i>
+        </p>
+        Profil
+    </div>
+</footer>
+
+
