@@ -16,6 +16,7 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                 $scope.errorMessage = data.message;
                 $scope.infoMessage = null;
             });
+        };
 
         $scope.submit = function () {
             
@@ -43,7 +44,6 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
 
         };
 
-        }
 
 
 
