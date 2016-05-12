@@ -24,13 +24,17 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','Connexi
     $scope.return = function() {
         $location.path('/homepage');
     };
-
+    
     $scope.returnProfil = function() {
         $location.path('/profil');
     };
 
     $scope.frienship = function() {
         $location.path('/friends');
+    };
+        
+    $scope.modifyProfil = function() {
+        $location.path('/modifyProfil');
     };
 
     ProfilServ.getProfil(

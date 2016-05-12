@@ -75,4 +75,9 @@ app = angular.module('myApp', [
           templateUrl: 'views/addFriend.html',
           controller: 'AddFriendCtrl'
       })
+      // modifier le profil
+      .when('/modifyProfil', {
+          templateUrl: 'views/modifyProfil.html',
+          controller: 'ModifyProfilCtrl'
+      })
 }]);
