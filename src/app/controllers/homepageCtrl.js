@@ -14,10 +14,6 @@ controllers.controller('HomepageCtrl',['$scope','$location','ConnexionServ', fun
         $location.path('/manageEvents');
     };
 
-    $scope.myParticipations = function() {
-        $location.path('/participations');
-    };
-
     $scope.myProfil = function() {
         $location.path('/profil');
     };

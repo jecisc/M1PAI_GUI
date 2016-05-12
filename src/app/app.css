@@ -379,6 +379,28 @@ header span {
     margin-left: 0 !important;
 }
 
+.eventContainer {
+    width: 80%;
+    padding-bottom: 20px;
+}
+
+.eventContainer .btn {
+    margin-top: 10px;
+}
+
+.event {
+    border: 5px solid #E8EAF6;
+    padding: 10px 10px 10px 10px;
+    margin-top: 30px;
+}
+
+.event span {
+    width: 100%;
+}
+
+.event h2 {
+margin: 0;
+}
 
 .offlineHome form fieldset{
     text-align: left;
