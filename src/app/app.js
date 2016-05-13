@@ -1,6 +1,6 @@
 'use strict';
 var controllers = angular.module('controllers', []);
-var services=angular.module('services',['ngResource']);
+var services=angular.module('services',['ngResource', 'directive']);
 // Declare app level module which depends on views, and components
 var app;
 app = angular.module('myApp', [

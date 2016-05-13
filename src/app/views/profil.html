@@ -7,7 +7,6 @@
     </div>
 </header>
 
-
 <div class="main3Row" ng-controller="ProfilCtrl">
     <div class="profil_icon"></div>
     <div class = "profil_field">Pseudo</div>
@@ -24,31 +23,6 @@
     <button ng-click="frienship()" class=" accent myButton myButtonRaised centered">Gérer mes amis</button>
 </div>
 
-<footer ng-controller="HomepageCtrl">
-    <div ng-click="myEvents()">
-        <p>
-            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-        </p>
-        Créer
-    </div>
-    <div ng-click="manageEvent()">
-        <p>
-            <i class="fa fa-calendar-o" aria-hidden="true"></i>
-        </p>
-        Gérer
-    </div>
-    <div ng-click="myParticipations()">
-        <p>
-            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-        </p>
-        Participations
-    </div>
-    <div ng-click="myProfil()" class="selected last">
-        <p>
-            <i class="fa fa-user" aria-hidden="true"></i>
-        </p>
-        Profil
-    </div>
-</footer>
+<my-footer/>
 
 
