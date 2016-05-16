@@ -28,44 +28,24 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
         }
     );
 
-    $scope.submit = function () {
+    $scope.submitInfos = function () {
 
-        if ($scope.password == null) {
-            var userModification = {
+        var userModification = {
                 id: $scope.id,
                 name: $scope.name,
-                firstName: $scope.firstName,
-                avatar: ""
+                firstName: $scope.firstName
             };
-        }
-        else {
-            var userModification = {
-                id: $scope.id,
-                name: $scope.name,
-                firstName: $scope.firstName,
-                avatar: "",
-                password : $scope.password
-            };
-        }
 
-        var pseudo = $scope.pseudo;
-        var password = $scope.password;
-
-        ModifyProfilServ.modifyProfil(userModification,
+        ModifyProfilServ.modifyProfileInfos(userModification,
         function success(response) {
-            //alert($scope.challenge.question);
             console.log("Success:" + JSON.stringify(response));
-            if ($scope.password != null) {
-                delete $http.defaults.headers.common['Authorization'];
-                $http.defaults.headers.common['Authorization'] = "Basic " + btoa(pseudo + ":" + $scope.password);
-            }
             $location.path('/profil');
         },
         function error(errorResponse) {
             console.log(errorResponse);
 
             if(errorResponse.status==401){
-                alert("Session interrompue")
+                alert("Session interrompue");
                 console.log("Utilisateur non authentifié.");
                 $location.path('/');
             }
@@ -79,4 +59,37 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
 
     };
 
-}])
+        $scope.submitNewPassword = function () {
+            
+                var userModification = {
+                    id: $scope.id,
+                    password : $scope.password
+                };
+
+            ModifyProfilServ.modifyProfilePassword(userModification,
+                function success(response) {
+                    //alert($scope.challenge.question);
+                    console.log("Success:" + JSON.stringify(response));
+                    delete $http.defaults.headers.common['Authorization'];
+                    $http.defaults.headers.common['Authorization'] = "Basic " + btoa($scope.pseudo + ":" + $scope.password);
+                    $location.path('/profil');
+                },
+                function error(errorResponse) {
+                    console.log(errorResponse);
+
+                    if(errorResponse.status==401){
+                        alert("Session interrompue");
+                        console.log("Utilisateur non authentifié.");
+                        $location.path('/');
+                    }
+                    else {
+                        $scope.errorMessage = "Erreur côté serveur.";
+                        console.log("Error:" + JSON.stringify(errorResponse));
+                        $location.path('/');
+                    }
+                }
+            );
+
+        };
+
+}]);

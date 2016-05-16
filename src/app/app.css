@@ -300,6 +300,15 @@ header span {
     color: rgba(255, 255, 255, .6);
 }
 
+h2 {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: rgba(0,0,0,.54);
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    line-height: 40px;
+}
+
 /* Home */
 .home {
     padding-top: 0 !important;
@@ -341,7 +350,6 @@ header span {
 }
 
 .main1Row, .main2Rows {
-    padding-top: 20px;
     width: 100%;
     overflow: auto;
 }
@@ -508,4 +516,21 @@ table.table-fixedheader>thead tr th, table.table-fixedheader>tbody tr td {
 
 table.table-fixedheader>tbody>tr>td>img{
     width :10vw;
+}
+
+.profilForm{
+    border: 1px solid rgba(0,0,0,.54);
+    padding-bottom: 50px;
+    padding-top: 20px;
+    position: relative;
+    margin: 35px 10px 10px;
+}
+
+.profilForm h2{
+    top: -20px;
+    position: absolute;
+    margin-top: 0;
+    left: 20px;
+    background-color: white;
+    padding: 0 10px;
 }

@@ -9,9 +9,10 @@
 
 services.factory('ModifyProfilServ',['$resource','$rootScope','$cookies',
 
-
-    function($resource,$rootScope,$cookies){
-        return $resource("http://localhost:8080/user/update",{}, {
-            modifyProfil: {method: 'POST', cache: false, isArray: false}
+    function($resource){
+        return $resource("http://localhost:8080/user/updateInfos",{}, {
+            modifyProfileInfos: {method: 'POST', cache: false, isArray: false}
         });
-    }]);
+    }
+
+]);
