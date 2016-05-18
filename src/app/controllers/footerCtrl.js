@@ -19,7 +19,7 @@ controllers.controller('HomepageCtrl',['$scope','$location','ConnexionServ', fun
     };
     
     $scope.myParticipations = function() {
-        $location.path('/participations');
+        $location.path('/myParticipations');
     };
 
     $scope.logout=function(){
@@ -36,7 +36,7 @@ controllers.controller('HomepageCtrl',['$scope','$location','ConnexionServ', fun
     };
 
     $scope.shouldDisplayParticipationSelection = function(){
-        if( $scope.pagePath() == '/participations')
+        if( $scope.pagePath() == '/myParticipations')
             return 'selected'
     };
 
