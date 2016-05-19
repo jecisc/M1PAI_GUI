@@ -3,8 +3,8 @@
  */
 'use strict';
 
-controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','ModifyProfilServ','ProfilServ','ConnexionServ','$cookies','$http',
-    function($rootScope,$scope, $location,ModifyProfilServ,ProfilServ/*,ConnexionServ*/,$cookies,$http) {
+controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','ModifyProfilServ','ProfilServ','$cookies','$http',
+    function($rootScope,$scope, $location,ModifyProfilServ,ProfilServ,$cookies,$http) {
 
     $scope.return = function() {
         $location.path('/profil');
@@ -56,12 +56,13 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
             //alert($scope.challenge.question);
             console.log("Success:" + JSON.stringify(response));
             if ($scope.password != null) {
-                $cookies.put("username", pseudo);
-                $http.defaults.headers.common['Authorization'] = "Basic " + btoa(pseudo + ":" + password);
+                delete $http.defaults.headers.common['Authorization'];
+                $http.defaults.headers.common['Authorization'] = "Basic " + btoa(pseudo + ":" + $scope.password);
             }
             $location.path('/profil');
         },
-        function error() {
+        function error(errorResponse) {
+            console.log(errorResponse);
 
             if(errorResponse.status==401){
                 alert("Session interrompue")

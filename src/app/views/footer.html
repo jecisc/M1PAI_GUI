@@ -1,0 +1,26 @@
+<footer ng-controller="FooterCtrl">
+    <div ng-click="myEvents()">
+        <p>
+            <i class="fa fa-calendar-plus-o" aria-hidden="true" ng-class="shouldDisplayEventSelection()"></i>
+        </p>
+        Créer
+    </div>
+    <div ng-click="manageEvent()">
+        <p>
+            <i class="fa fa-calendar-o" aria-hidden="true" ng-class="shouldDisplayManageEventSelection()"></i>
+        </p>
+        Gérer
+    </div>
+    <div ng-click="myParticipations()">
+        <p>
+            <i class="fa fa-calendar-check-o" aria-hidden="true" ng-class="shouldDisplayParticipationSelection()"></i>
+        </p>
+        Participations
+    </div>
+    <div ng-click="myProfil()" class="last">
+        <p>
+            <i class="fa fa-user" aria-hidden="true"  ng-class="shouldDisplayProfilSelection()"></i>
+        </p>
+        Profil
+    </div>
+</footer>

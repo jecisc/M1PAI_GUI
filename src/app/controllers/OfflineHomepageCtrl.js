@@ -1,18 +1,18 @@
 'use strict';
 
 
+controllers.controller('OfflineHomepageCtrl', function ($scope, $location) {
 
-controllers.controller('OfflineHomepageCtrl', function($scope, $location) {
- 
-    $scope.login = function() {
+    $scope.login = function () {
         $location.path('/connexion');
     };
 
-    $scope.subscription = function() {
+    $scope.subscription = function () {
         $location.path('/subscription');
     };
 
-    $scope.description = function() {
+    $scope.description = function () {
         $location.path('/description');
     };
-})
+
+});

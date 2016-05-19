@@ -3,12 +3,21 @@
  */
 'use strict';
 
-controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','ConnexionServ', function($scope, $location,ProfilServ) {
-
+controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ', function($scope, $location,ProfilServ) {
+    
+    //TODO Remove useless links
     $scope.return = function() {
         $location.path('/homepage');
     };
+    
+    $scope.returnProfil = function() {
+        $location.path('/profil');
+    };
 
+    $scope.frienship = function() {
+        $location.path('/friends');
+    };
+        
     $scope.modifyProfil = function() {
         $location.path('/modifyProfil');
     };
@@ -22,7 +31,7 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','Connexi
         },
         function error(errorResponse) {
             if(errorResponse.status==401){
-                alert("Session interrompue")
+                alert("Session interrompue");
                 console.log("Utilisateur non authentifié.");
             }
 
@@ -30,4 +39,4 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ','Connexi
             $location.path('/');
         }
     );
-}])
+}]);

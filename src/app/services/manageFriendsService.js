@@ -5,11 +5,11 @@
 'use strict';
 
 
-services.factory('ManageFriendsServ',['$resource','$cookies',
+services.factory('ManageFriendsServ', ['$resource', '$cookies',
 
-    function($resource,$cookies){
-        return{
-            friendsManager:function() {
+    function ($resource, $cookies) {
+        return {
+            friendsManager: function () {
                 return $resource("http://localhost:8080/user/friends", {}, {
 
                     getFriends: {
@@ -18,7 +18,7 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     }
                 });
             },
-            getFriendRequests:function(){
+            getFriendRequests: function () {
                 return $resource("http://localhost:8080/friendRequest/get", {}, {
 
                     get: {
@@ -27,18 +27,16 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     }
                 });
             },
-            deleteFriend:function(idFriend){
-                return $resource("http://localhost:8080/user/friends/delete/"+idFriend, {}, {
-
+            deleteFriend: function (idFriend) {
+                return $resource("http://localhost:8080/user/friends/delete/" + idFriend, {}, {
                     delete: {
                         method: 'DELETE',
                         cache: false
-
                     }
                 });
             },
-            acceptFriend:function(idAsker){
-                return $resource("http://localhost:8080/friendRequest/accept/"+idAsker, {}, {
+            acceptFriend: function (idAsker) {
+                return $resource("http://localhost:8080/friendRequest/accept/" + idAsker, {}, {
 
                     accept: {
                         method: 'GET',
@@ -47,7 +45,7 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     }
                 });
             },
-            denyFriend:function(idAsker) {
+            denyFriend: function (idAsker) {
                 return $resource("http://localhost:8080/friendRequest/deny/" + idAsker, {}, {
 
                     deny: {
@@ -57,8 +55,8 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     }
                 });
             },
-            searchUsersByName:function(name,page,size){
-                return $resource("http://localhost:8080/user/search?size="+size+"&page="+page+"&name="+name, {}, {
+            searchUsersByName: function (name, page, size) {
+                return $resource("http://localhost:8080/user/search?size=" + size + "&page=" + page + "&name=" + name, {}, {
 
                     get: {
                         method: 'GET',
@@ -67,5 +65,5 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     }
                 });
             }
-
-        }}]);
+        }
+    }]);

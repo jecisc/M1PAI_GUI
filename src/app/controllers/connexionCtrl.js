@@ -16,6 +16,7 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                 $scope.errorMessage = data.message;
                 $scope.infoMessage = null;
             });
+        };
 
         $scope.submit = function () {
             
@@ -31,7 +32,7 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                     $cookies.put("username",userName);
                     $http.defaults.headers.common['Authorization']="Basic " + btoa(userName + ":" + password);
                     $location.path('/homepage');
-
+                    $rootScope.user=response;
                 },
                 function error(errorResponse) {
                     console.log("Error:" + JSON.stringify(errorResponse));
@@ -43,7 +44,6 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
 
         };
 
-        }
 
 
 
