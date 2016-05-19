@@ -4,7 +4,7 @@
 'use strict';
 
 
-controllers.controller('HomepageCtrl',['$scope','$location','ConnexionServ', function($scope, $location,ConnexionServ) {
+controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ', function($scope, $location,ConnexionServ) {
 
     $scope.myEvents = function() {
         $location.path('/events');
