@@ -1,0 +1,10 @@
+<table ng-table="userTable" show-filter="true" class="table table-bordered table-striped">
+    <tr>
+        <td><input type="text" ng-model="filters.name"/></td>
+    </tr>
+    <tr ng-repeat="user in users">
+        <td title="'Photo'">{{user.avatar}}</td>
+        <td title="'Prénom'">{{user.firstName}}</td>
+        <td title="'Nom'" filter="{nom:'text'}">{{user.name}}</td>
+    </tr>
+</table>

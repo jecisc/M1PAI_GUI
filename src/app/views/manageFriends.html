@@ -7,10 +7,42 @@
     </div>
 </header>
 
+<div> <!--ng-controller="ManageFriendsCtrl"-->
+    <h3>Mes demandes d'amis</h3>
+    <table>
+        <tbody >
+        <tr ng-repeat="request in friendsRequest">
+            <td width="60%">{{request.firstName}}&nbsp;{{request.name}}</td>
+            <td width="20%"><button ng-click="acceptFriend($index)"  class="float accent myButton myButtonRaised">&nbsp;Accepter</button></td>
+            <td width="20%"><button ng-click="denyFriend($index)" class="float accent myButton myButtonRaised">Refuser</button></td>
+        </tr>
+        </tbody>
+    </table>
+    <h3>Mes amis</h3>
+    <table class="table table-fixedheader table-striped">
+
+        <tbody >
+            <tr ng-repeat="friend in friends">
+                <td><img src="../../Ressources/Images/logo_user.jpg" class="icon"/></td>
+                <td width="40%">{{friend.firstName}}</td>
+                <td width="40%">{{friend.name}}</td>
+                <td width="10%">
+                    <button ng-click="removeFriend($index)" type="button" class="btn btn-default btn-sm">
+                        <span class="glyphicon glyphicon-remove"/>
+                     </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <button ng-click="returnProfil()" class="buttonIcon myButton return">
+        <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
+    </button>
+    <button ng-click="addFriend()" type="button" class="float accent myButton myButtonRaised">
+        <span class="glyphicon glyphicon-remove"/>
+    </button>
+</div>
 
 
 
 
-<button ng-click="return()" class="buttonIcon myButton return">
-    <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
-</button>
+

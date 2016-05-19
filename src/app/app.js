@@ -1,6 +1,6 @@
 'use strict';
 var controllers = angular.module('controllers', []);
-var services=angular.module('services',['ngResource']);
+var services=angular.module('services',['ngResource', 'directive']);
 // Declare app level module which depends on views, and components
 var app;
 app = angular.module('myApp', [
@@ -8,7 +8,8 @@ app = angular.module('myApp', [
   'ngResource',
   'ngCookies',
   'controllers',
-    'services'
+    'services',
+    'ngTable'
 ]).config(['$routeProvider','$httpProvider', function ($routeProvider,$httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
@@ -32,6 +33,12 @@ app = angular.module('myApp', [
         templateUrl: 'views/subscription.html',
         controller: 'SubscriptionCtrl'
       })
+
+      // page Mes Participations
+      .when('/myParticipations', {
+        templateUrl: 'views/myParticipations.html',
+      })
+
       // page de description (C'est quoi ?)
       .when('/description', {
         templateUrl: 'views/description.html',
@@ -65,6 +72,14 @@ app = angular.module('myApp', [
       .when('/profil', {
           templateUrl: 'views/profil.html',
           controller: 'ProfilCtrl'
+      })
+      .when('/friends', {
+          templateUrl: 'views/manageFriends.html',
+          controller: 'ManageFriendsCtrl'
+      })
+      .when('/addFriend', {
+          templateUrl: 'views/addFriend.html',
+          controller: 'AddFriendCtrl'
       })
       // modifier le profil
       .when('/modifyProfil', {

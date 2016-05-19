@@ -5,23 +5,7 @@
 
 
 controllers.controller('HomepageCtrl',['$scope','$location','ConnexionServ', function($scope, $location,ConnexionServ) {
-
-    $scope.myEvents = function() {
-        $location.path('/event');
-    };
-
-    $scope.manageEvent = function() {
-        $location.path('/manageEvents');
-    };
-
-    $scope.myParticipations = function() {
-        $location.path('/participations');
-    };
-
-    $scope.myProfil = function() {
-        $location.path('/profil');
-    };
-
+    
     $scope.logout=function(){
         ConnexionServ.logout();
     };
