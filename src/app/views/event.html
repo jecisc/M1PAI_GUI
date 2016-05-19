@@ -62,13 +62,16 @@
         </fieldset>
         <fieldset><p>test</p></fieldset>
         <fieldset>
-            <select data-toggle="items" class="list-group col-xs-12" style="height:300px"multiple>
-                <option class="list-group-item" data-value="Cras justo odio">Cras justo odio</option>
-                <option class="list-group-item" data-value="Dapibus ac facilisis in">Dapibus ac facilisis in</option>
-                <option class="list-group-item" data-value="Morbi leo risus">Morbi leo risus</option>
-                <option class="list-group-item" data-value="Porta ac consectetur ac">Porta ac consectetur ac</option>
-                <option class="list-group-item" data-value="Vestibulum at eros">Vestibulum at eros</option>
-            </select>
+            <h3>Mes amis</h3>
+            <table class="table table-fixedheader table-striped">
+                <tbody >
+                <tr ng-repeat="friend in friends"
+                    ng-class="{'selected':selection.indexOf($index) != -1}">
+                        <td width="50%" ng-click="toggle($index)">{{friend.firstName}}</td>
+                        <td width="50%" ng-click="toggle($index)">{{friend.name}}</td>
+                </tr>
+                </tbody>
+            </table>
         </fieldset>
         <p>
             <button id="confirmCreation" type="submit" ng-disabled="!myForm.$valid" class="float accent myButton myButtonRaised">Créer l'évenement</button>

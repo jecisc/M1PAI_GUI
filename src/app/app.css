@@ -102,6 +102,12 @@ body, html {
 .voffset20 { margin-bottom: 20px;}
 .voffset30 { margin-bottom: 30px;}
 
+
+.selected {
+    background-color: #FF9E80;
+}
+
+
 /* Header */
 
 header {
