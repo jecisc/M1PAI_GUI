@@ -62,8 +62,7 @@ app = angular.module('myApp', [
 
       // page d'accueil connecté
       .when('/homepage', {
-          templateUrl: 'views/homepage.html',
-          controller: 'HomepageCtrl'
+          templateUrl: 'views/homepage.html'
       })
 
       // redirections depuis l'accueil en mode connecté
