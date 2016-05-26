@@ -8,6 +8,7 @@
 
         var steps = $(element).find("fieldset");
         var count = steps.size();
+
         var submmitButtonName = "#" + options.submitButton;
         $(submmitButtonName).hide();
 
@@ -16,7 +17,6 @@
         steps.each(function(i) {
             $(this).wrap("<div id='step" + i + "'></div>");
             $(this).append("<p id='step" + i + "commands'></p>");
-
 
             if (i == 0) {
                 createNextButton(i);

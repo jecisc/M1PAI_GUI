@@ -6,90 +6,41 @@
 
 controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', function(ManageFriendsServ,$scope, $location) {
 
-   
 
+    /* Permet de choisir des amis a ajouter a l'evenement a partir de la liste
+    *  Toutes les personnes ajoutées seont dans $scope.selection (c'est l'index de la liste concernant l'ami qui est ajouté) */
     $scope.selection = [];
-
+    $scope.friendsEvent = [];
     $scope.toggle = function (idx) {
         var pos = $scope.selection.indexOf(idx);
         if (pos == -1) {
+           // $scope.selection.push($scope.friends[idx]);
             $scope.selection.push(idx);
         } else {
             $scope.selection.splice(pos, 1);
         }
     };
 
+
     $scope.submit = function () {
-        console.log("Success:");
+        for (var i = 0 ; i < $scope.selection.length ; i++) {
+            $scope.friendsEvent.push($scope.friends[$scope.selection[i]]);
+        }
+        var event = {
+            nomEvent: $scope.nomEvent,
+            placeEvent: $scope.placeEvent,
+            dateEvent: $scope.dateEvent,
+            descriptionEvent: $scope.descriptionEvent,
+            bedEvent: $scope.bedEvent,
+            placeDispoEvent: $scope.placeDispoEvent,
+            friendsEvent : $scope.friendsEvent
+        };
+        console.log(event);
+
     }
 
-    $scope.returnProfil = function() {
-        $location.path('/profil');
-    };
 
-    $scope.acceptFriend=function(index){
-        var friend=$scope.friendsRequest[index];
-        ManageFriendsServ.acceptFriend(friend.id).accept()
-            .$promise.then(
-            function success(response) {
-
-                ManageFriendsServ.friendsManager().getFriends()
-                    .$promise
-                    .then(
-                        function success(data) {
-
-                            $scope.friends={};
-                            $scope.friends=data;
-                            $scope.friendsRequest.splice(index,1);
-
-                        },
-                        function error(errorResponse) {
-                            console.log("Erreur raffraichissement des amis");
-                        }
-                    );
-
-            },
-            function error(errorResponse) {
-                console.log("Erreur dans l'acceptation");
-                ManageFriendsServ.acceptFriend(friend.id).accept()
-                    .$promise.then(
-                    function success(response) {
-                    }
-                );
-
-            })};
-
-    $scope.denyFriend=function(index){
-        var friend=$scope.friendsRequest[index];
-        ManageFriendsServ.denyFriend(friend.id).deny()
-            .$promise.then(
-            function success(response) {
-                $scope.friendsRequest.splice(index,1);
-            },
-            function error(errorResponse) {
-                console.log("Erreur refus demande d'ami");
-            })
-    };
-
-
-    $scope.removeFriend=function(index){
-
-        var friend=$scope.friends[index];
-
-        ManageFriendsServ.deleteFriend(friend.id).delete()
-            .$promise
-            .then(
-                function success(response) {
-
-                    $scope.friends.splice(index,1);
-
-                },
-                function error(errorResponse) {
-                    console.log("Erreur dans la suppression");
-                }
-            );
-    };
-
+    /* Permet de recuperer la liste d'amis associée à la personne qui crée l'evenement */
     ManageFriendsServ.friendsManager().getFriends()
         .$promise
         .then(
@@ -116,13 +67,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', fu
                 function error(errorResponse) {
 
                 })
-    };
-
-    //var refresh=$interval(getFriendsRequest(),3000);
-
-    $scope.addFriend=function() {
-
-        $location.path('addFriend');
     };
 
 }]);
