@@ -43,7 +43,9 @@
 
             <div class="col-xs-12">
                 <label for="descriptionEvent">Courte description</label>
-                <textarea class="form-control" rows="5" id="descriptionEvent" name="descriptionEvent" placeholder="Décris en quelques mot comment se passera ton evenement."></textarea>
+                <textarea class="form-control" rows="5" ng-model="descriptionEvent" id="descriptionEvent" name="descriptionEvent" placeholder="Décris en quelques mot comment se passera ton evenement.">
+
+                </textarea>
             </div>
 
             <div class="row voffset20"></div>
@@ -62,13 +64,21 @@
         </fieldset>
         <fieldset><p>test</p></fieldset>
         <fieldset>
-            <h3>Mes amis</h3>
-            <table class="table table-fixedheader table-striped">
+            <h3>Ajouter mes amis</h3>
+            <!--<table class="table table-fixedheader table-striped">
                 <tbody >
-                <tr ng-repeat="friend in friends"
+                <tr ng-repeat="friend in friends" selection-model
                     ng-class="{'selected':selection.indexOf($index) != -1}">
-                        <td width="50%" ng-click="toggle($index)">{{friend.firstName}}</td>
-                        <td width="50%" ng-click="toggle($index)">{{friend.name}}</td>
+                        <td width="50%">{{friend.firstName}}</td>
+                        <td width="50%">{{friend.name}}</td>
+                </tr>
+                </tbody>
+            </table>-->
+            <table class="table table-fixedheader tablefriend">
+                <tbody >
+                <tr class="col-xs-12 " ng-repeat="friend in friends" ng-class="{'selected':selection.indexOf($index) != -1}">
+                    <td  class="tdfriend"ng-click="toggle($index)">{{friend.firstName}}</td>
+                    <td  class="tdfriend" ng-click="toggle($index)">{{friend.name}}</td>
                 </tr>
                 </tbody>
             </table>
@@ -79,31 +89,6 @@
     </form>
 </div>
 
-<footer ng-controller="HomepageCtrl">
-    <div ng-click="myEvents()" class="selected last">
-        <p>
-            <i class="fa fa-calendar-plus-o" aria-hidden="true"></i>
-        </p>
-        Créer
-    </div>
-    <div ng-click="manageEvent()">
-        <p>
-            <i class="fa fa-calendar-o" aria-hidden="true"></i>
-        </p>
-        Gérer
-    </div>
-    <div ng-click="myParticipations()">
-        <p>
-            <i class="fa fa-calendar-check-o" aria-hidden="true"></i>
-        </p>
-        Participations
-    </div>
-    <div ng-click="myProfil()" >
-        <p>
-            <i class="fa fa-user" aria-hidden="true"></i>
-        </p>
-        Profil
-    </div>
-</footer>
+<my-footer/>
 
 

@@ -7,7 +7,7 @@
 controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ', function($scope, $location,ConnexionServ) {
 
     $scope.myEvents = function() {
-        $location.path('/events');
+        $location.path('/event');
     };
 
     $scope.manageEvent = function() {
@@ -46,7 +46,7 @@ controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ', funct
     };
 
     $scope.shouldDisplayEventSelection = function(){
-        if( $scope.pagePath() == '/events')
+        if( $scope.pagePath() == '/event')
             return 'selected'
     };
 

@@ -103,9 +103,6 @@ body, html {
 .voffset30 { margin-bottom: 30px;}
 
 
-.selected {
-    background-color: #FF9E80;
-}
 
 
 /* Header */
@@ -478,6 +475,20 @@ footer .selected{
     color: #FF9E80;
 }
 
+tbody .selected{
+    background-color: #93c47d;
+}
+
+.tablefriend {
+    border-collapse:collapse;
+}
+
+
+
+.tdfriend {
+
+    width : 20%;
+}
 table.table-fixedheader, table.table-fixedheader>thead, table.table-fixedheader>tbody, table.table-fixedheader>thead>tr, table.table-fixedheader>tbody>tr, table.table-fixedheader>thead>tr>th, table.table-fixedheader>tbody>td {
     display: block;
 }
