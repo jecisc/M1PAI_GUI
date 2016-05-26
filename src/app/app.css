@@ -27,6 +27,7 @@ body, html {
     background: #FFF;
     height: 100%;
     width: 100%;
+    overflow: auto;
 }
 
 .accent {
@@ -323,7 +324,12 @@ header span {
 }
 
 .main1Row{
-    height: calc(100% - 60px);
+    height: calc( 100% - 58px );
+}
+
+.main1RowConnected{
+    height: calc( 100% - 118px ) !important;
+    overflow: auto;
 }
 
 /* Main with 2 header row */
@@ -507,5 +513,49 @@ table.table-fixedheader>thead tr th, table.table-fixedheader>tbody tr td {
 }
 
 table.table-fixedheader>tbody>tr>td>img{
-    width :10vw;
+    width :50px;
+    max-height: 50px;
+}
+
+.listUser>tbody>tr>td>img{
+    width :50px;
+    max-height: 50px;
+}
+
+.selected {
+    background-color:lightgreen;
+    color:black;
+    font-weight:bold;
+}
+
+.addFriend{
+    width:100%;
+    padding-bottom: 70px;
+    text-align: center;
+}
+
+.addFriend table {
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.addFriend table th, .addFriend table td{
+    width: calc( 50% - 50px );
+}
+
+th:last-child, td:last-child {
+    width: 50px !important;
+}
+
+.addFriend table tr{
+    max-height: 50px;
+}
+
+
+@media screen and (max-width: 400px) {
+   .addFriend table td{
+       font-size: 10px;
+   }
 }

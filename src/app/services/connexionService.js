@@ -20,6 +20,7 @@ services.factory('ConnexionServ',['$resource','$cookies','$location','$http',
 
                 logout:function(){
                     $cookies.remove("username");
+                    $cookies.remove("password");
                     delete $http.defaults.headers.common['Authorization'];
                     $location.path('/');
                 }

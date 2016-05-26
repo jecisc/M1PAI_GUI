@@ -13,6 +13,21 @@ app = angular.module('myApp', [
 ]).config(['$routeProvider','$httpProvider', function ($routeProvider,$httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 
+    var $cookies;
+    angular.injector(['ngCookies']).invoke(['$cookies', function(_$cookies_) {
+        $cookies = _$cookies_;
+    }]);
+
+    function authentication(){
+
+        var username=$cookies.get("username");
+        if(username!=null){
+            var password=$cookies.get("password");
+            $httpProvider.defaults.headers.common['Authorization']="Basic " + btoa(username + ":" + password);
+        }
+    }
+    authentication();
+
   $routeProvider
 
       // page d'acueil non connecté
@@ -86,4 +101,25 @@ app = angular.module('myApp', [
           templateUrl: 'views/modifyProfil.html',
           controller: 'ModifyProfilCtrl'
       })
-}]);
+}])
+    .factory('authHttpResponseInterceptor',['$q','$location',function($q,$location){
+        return {
+            response: function(response){
+                if (response.status === 401) {
+                    console.log("Response 401");
+                }
+                return response || $q.when(response);
+            },
+            responseError: function(rejection) {
+                if (rejection.status === 401) {
+                    console.log("Response Error 401",rejection);
+                    $location.path('/connexion')
+                }
+                return $q.reject(rejection);
+            }
+        }
+    }])
+    .config(['$httpProvider',function($httpProvider) {
+        //Http Intercpetor to check auth failures for xhr requests
+        $httpProvider.interceptors.push('authHttpResponseInterceptor');
+    }]);
