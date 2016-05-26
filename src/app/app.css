@@ -429,6 +429,12 @@ button[disabled], html input[disabled] {
     cursor: not-allowed !important;
 }
 
+/* Images for ressources */
+.ressourceImg {
+    width: 50px;
+    cursor: pointer;
+}
+
 /* Footer */
 
 footer{
