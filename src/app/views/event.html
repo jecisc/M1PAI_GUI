@@ -191,19 +191,10 @@
         <!-- 3rd Step ------------------------------------------------------------------------------------------------->
         <fieldset>
             <h3>Ajouter mes amis</h3>
-            <!--<table class="table table-fixedheader table-striped">
-                <tbody >
-                <tr ng-repeat="friend in friends" selection-model
-                    ng-class="{'selected':selection.indexOf($index) != -1}">
-                        <td width="50%">{{friend.firstName}}</td>
-                        <td width="50%">{{friend.name}}</td>
-                </tr>
-                </tbody>
-            </table>-->
             <table class="table table-fixedheader tablefriend">
                 <tbody >
                 <tr class="col-xs-12 " ng-repeat="friend in friends" ng-class="{'selected':selection.indexOf($index) != -1}">
-                    <td  class="tdfriend"ng-click="toggle($index)">{{friend.firstName}}</td>
+                    <td  class="tdfriend" ng-click="toggle($index)">{{friend.firstName}}</td>
                     <td  class="tdfriend" ng-click="toggle($index)">{{friend.name}}</td>
                 </tr>
                 </tbody>
