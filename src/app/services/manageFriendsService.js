@@ -18,6 +18,15 @@ services.factory('ManageFriendsServ', ['$resource', '$cookies',
                     }
                 });
             },
+            resourcesManager: function () {
+                return $resource("http://localhost:8080/event/getAllResources", {}, {
+                    
+                    getResources:{
+                        method: 'GET',
+                        isArray: true
+                    }
+                })
+            },
             getFriendRequests: function () {
                 return $resource("http://localhost:8080/friendRequest/get", {}, {
 
