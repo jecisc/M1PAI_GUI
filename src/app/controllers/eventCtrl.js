@@ -68,6 +68,12 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', fu
         }
     };
 
+
+    $scope.clickOnCategory = function (idx) {
+        $scope.resources=$scope.categories[idx].resources;
+    };
+
+
     /* Permet de recuperer les ressources que l'utilisateur a choisi */
     $scope.ressources = [];
 
@@ -97,8 +103,8 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', fu
         .$promise
         .then(
             function success(data) {
-                $scope.resources={};
-                $scope.resources=data;
+                $scope.categories={};
+                $scope.categories=data;
             },
             function error(errorResponse) {
 
@@ -113,6 +119,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', fu
                 $scope.friends={};
                 $scope.friends=data;
                 getFriendsRequest();
+                console.log($scope.friends);
 
             },
             function error(errorResponse) {
