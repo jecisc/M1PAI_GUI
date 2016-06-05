@@ -12,21 +12,8 @@ app = angular.module('myApp', [
     'ngTable'
 ]).config(['$routeProvider','$httpProvider', function ($routeProvider,$httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
-
-    var $cookies;
-    angular.injector(['ngCookies']).invoke(['$cookies', function(_$cookies_) {
-        $cookies = _$cookies_;
-    }]);
-
-    function authentication(){
-
-        var username=$cookies.get("username");
-        if(username!=null){
-            var password=$cookies.get("password");
-            $httpProvider.defaults.headers.common['Authorization']="Basic " + btoa(username + ":" + password);
-        }
-    }
-    authentication();
+    $httpProvider.defaults.withCredentials = true;
+   
 
   $routeProvider
 

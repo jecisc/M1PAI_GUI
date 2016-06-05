@@ -16,7 +16,8 @@ controllers.controller('SubscriptionCtrl', ['$scope', '$location', 'Subscription
                     password: $scope.password,
                     mail: $scope.email,
                     registDate: Date.now(),
-                    pseudo: $scope.pseudo
+                    pseudo: $scope.pseudo,
+                    avatar:''
                 },
                 function success(response) {
                     $scope.infoMessage = response.message;

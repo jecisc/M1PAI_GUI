@@ -29,9 +29,9 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                 function success(response) {
 
                     console.log("Success:" + JSON.stringify(response));
-                    $cookies.put("username",userName);
+                    /*$cookies.put("username",userName);
                     $cookies.put("password",password);
-                    $http.defaults.headers.common['Authorization']="Basic " + btoa(userName + ":" + password);
+                    $http.defaults.headers.common['Authorization']="Basic " + btoa(userName + ":" + password);*/
                     $location.path('/homepage');
                     $rootScope.user=response;
                 },

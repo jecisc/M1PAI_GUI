@@ -6,6 +6,7 @@
 controllers.controller('AddFriendCtrl',['NgTableParams','$resource','ManageFriendsServ','$scope','$window',
     function(NgTableParams,$resource,ManageFriendsServ,$scope,$window) {
 
+       
         $scope.tableParams = new NgTableParams({},{
             counts:[],
             getData:function($defer,params) {
