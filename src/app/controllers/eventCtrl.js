@@ -4,56 +4,48 @@
 'use strict';
 
 
-controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', function(ManageFriendsServ,$scope, $location) {
+controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', '$compile', function(ManageFriendsServ,$scope,$compile, $location) {
 
-    $scope.tabIndex=[];
-    $scope.addRessourceToTable = function(id) {
+    $scope.ressources = [];
+    /* items est ce qu'on renverra lors de l'envoie du formulaire */
+    $scope.items = [];
 
+    $scope.clickOnCategory = function (idx) {
+        $scope.resources=$scope.categories[idx].resources;
+    };
 
-        if( $scope.tabIndex[id] != null){
-
+    /* Cette fonction permet d'ajouter les ressources choisies pa l'utilisateur depuis la modal dans le tableau des ressources */
+    $scope.addRessourceToTable = function(id,theName) {
+        //il faut verifier ici que la ressource na pas deja ete inseree dans le tableau
+        if( $scope.items.indexOf($scope.items.id) != -1){
+            alert("Ressource deja presente");
         }
         else {
-            $scope.tabIndex.push(id);
-            var table = angular.element( document.querySelector( '#requireRessourcesTable' ) );
-            var row = table.insertRow(1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            cell1.innerHTML = this.outerHTML;
-            cell2.innerHTML = "<input type='number' value='1' min='0'>";
-            cell3.innerHTML = '<button ng-click="addQty()" class="addButton" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>'
-                + '<button type="button" class="subButton"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>'
-                + '<button type="button" class="removeButton" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-           // $('#modalAddRessource').modal('toggle');
-
-           // $compile(table)(scope);
+            $scope.items.push({
+                name: theName,
+                id: id,
+                cpt:1
+            });
         }
     };
-    /*
-    $(".ressources-img img").on("click", function(){
-        var id = $(this).attr("id");
-        if( $("#requireRessourcesTable").find($("#" + id)).length){
 
-        } else {
-            var table = document.getElementById("requireRessourcesTable");
-            var row = table.insertRow(1);
-            var cell1 = row.insertCell(0);
-            var cell2 = row.insertCell(1);
-            var cell3 = row.insertCell(2);
-            cell1.innerHTML = this.outerHTML;
-            cell2.innerHTML = "<input type='number' value='1' min='0'>";
-            cell3.innerHTML = '<button ng-click="addQty()" class="addButton" type="button"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>'
-                + '<button type="button" class="subButton"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>'
-                + '<button type="button" class="removeButton" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>';
-            $('#modalAddRessource').modal('toggle');
+    $scope.addQty = function (item) {
+       item.cpt += 1;
+    };
 
-            $compile(cell3)(scope);
-        }
-    });
-*/
-    
-    
+    $scope.subQty = function (item) {
+        if (item.cpt > 0)
+            item.cpt -= 1;
+    };
+
+    $scope.remove = function (item) {
+        var index = $scope.items.indexOf(item);
+        $scope.items.splice(index, 1);
+    };
+
+
+
+
     /* Permet de choisir des amis a ajouter a l'evenement a partir de la liste
     *  Toutes les personnes ajoutées seront dans $scope.selection (c'est l'index de la liste concernant l'ami qui est ajouté) */
     $scope.selection = [];
@@ -69,14 +61,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', fu
     };
 
 
-    $scope.clickOnCategory = function (idx) {
-        $scope.resources=$scope.categories[idx].resources;
-    };
-
-
-    /* Permet de recuperer les ressources que l'utilisateur a choisi */
-    $scope.ressources = [];
-
 
     $scope.submit = function () {
         for (var i = 0 ; i < $scope.selection.length ; i++) {
@@ -85,16 +69,16 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', fu
 
 
         var event = {
-            nomEvent: $scope.nomEvent,
-            placeEvent: $scope.placeEvent,
-            dateEvent: $scope.dateEvent,
-            descriptionEvent: $scope.descriptionEvent,
-            bedEvent: $scope.bedEvent,
-            placeDispoEvent: $scope.placeDispoEvent,
-            friendsEvent : $scope.friendsEvent
+            name : $scope.nomEvent,
+            localisation: $scope.placeEvent,
+            dateBeginning: $scope.dateEvent,
+            description: $scope.descriptionEvent,
+           /* bedEvent: $scope.bedEvent,
+            placeDispoEvent: $scope.placeDispoEvent,*/
+            participants : $scope.friendsEvent,
+            neededs : $scope.items
         };
-        console.log(event);
-
+    console.log(event);
     }
 
 
@@ -105,6 +89,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', fu
             function success(data) {
                 $scope.categories={};
                 $scope.categories=data;
+                console.log( $scope.categories);
             },
             function error(errorResponse) {
 
@@ -140,7 +125,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', fu
                 })
     };
 
-    
+
 
 
 }]);
