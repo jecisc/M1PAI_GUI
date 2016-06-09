@@ -75,15 +75,15 @@
         <fieldset>
 
             <table class="table" id="requireRessourcesTable">
-                <caption>Ressources requises / participant</caption>
+                <caption><b>Ressources requises / participant</b></caption>
                 <tr>
-                    <th style="width:50%">Ressource</th>
+                    <th style="width:40%">Ressource</th>
                     <th style="width:10%">Quantite</th>
                     <th style="width:40%">Action</th>
                 </tr>
                 <tr ng-repeat="item in items" class="item-unchecked">
-                    <td style="width:50%">{{item.name}} </td>
-                    <td style="width:10%"><input type='number' value='{{item.cpt}}' min='0' ng-model="itemAmount" ></td>
+                    <td  style="width:350%">{{item.name}} </td>
+                    <td class="secondcolumn" style="width:10%"><input type='number' value='{{item.cpt}}' min='0' ng-model="itemAmount" ></td>
                     <td style="width:40%">
                         <button ng-click="addQty(item)" class="addButton" type="button">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -99,10 +99,12 @@
             </table>
 
             <br>
+            <p style="text-align:center">
             <button class="btn btn-xs btn-primary text-center" data-toggle="modal" data-target="#modalAddRessource"
                     ng-click="clickOnCategory(0)">
                 Ajouter une ressource
             </button>
+            </p>
             <div class="row voffset20"></div>
 
         </fieldset>

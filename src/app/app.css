@@ -411,6 +411,9 @@ header span {
     width: 100%;
 }
 
+.secondcolumn input {
+    width: 100%;
+}
 .event h2 {
 margin: 0;
 }
