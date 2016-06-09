@@ -563,7 +563,7 @@ table.table-fixedheader>tbody>tr>td>img{
     max-height: 50px;
 }
 
-.selected {
+.addFriend table.selected {
     background-color:lightgreen;
     color:black;
     font-weight:bold;

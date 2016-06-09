@@ -1,7 +1,7 @@
 controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyParticipationsServ', 'ConnexionServ', function ($scope, $location, MyParticipationsServ) {
 
     $scope.myEvents = function () {
-        $location.path('/events');
+        $location.path('/event');
     };
 
     $scope.manageEvent = function () {
