@@ -31,7 +31,9 @@ controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ', funct
     };
 
     $scope.shouldDisplayProfilSelection = function(){
-        if( $scope.pagePath() == '/profil')
+        if( $scope.pagePath() == '/profil'
+            || $scope.pagePath() == '/friends'
+            || $scope.pagePath() == '/modifyProfil')
             return 'selected'
     };
 
