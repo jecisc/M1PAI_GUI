@@ -190,6 +190,18 @@ header .row {
     height: 64px;
     margin: 0;
     padding: 0 40px 0 0;
+    position: relative;
+}
+
+.mdl-layout__header-row .logout {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
+.mdl-layout__header-row .logout span{
+    color: #FFF;
 }
 
 .mdl-layout__header-row .mdl-navigation {
