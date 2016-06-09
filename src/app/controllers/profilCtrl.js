@@ -5,10 +5,6 @@
 
 controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ', function($scope, $location,ProfilServ) {
     
-    $scope.return = function() {
-        $location.path('/homepage');
-    };
-    
     $scope.returnProfil = function() {
         $location.path('/profil');
     };

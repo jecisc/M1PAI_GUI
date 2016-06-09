@@ -32,7 +32,7 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                     $cookies.put("username",userName);
                     $cookies.put("password",password);
                     $http.defaults.headers.common['Authorization']="Basic " + btoa(userName + ":" + password);
-                    $location.path('/homepage');
+                    $location.path('/myParticipations');
                     $rootScope.user=response;
                 },
                 function error(errorResponse) {

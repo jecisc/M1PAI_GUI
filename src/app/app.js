@@ -60,11 +60,6 @@ app = angular.module('myApp', [
         controller: 'DescriptionCtrl'
       })
 
-      // page d'accueil connecté
-      .when('/homepage', {
-          templateUrl: 'views/homepage.html'
-      })
-
       // redirections depuis l'accueil en mode connecté
 
       // mes evenements
