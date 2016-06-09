@@ -26,7 +26,7 @@
                 <td><img src="../../Ressources/Images/logo_user.jpg" class="icon"/></td>
                 <td width="40%">{{friend.firstName}}</td>
                 <td width="40%">{{friend.name}}</td>
-                <td width="10%">
+                <td width="20%">
                     <button ng-click="removeFriend($index)" type="button" class="btn btn-default btn-sm">
                         <span class="glyphicon glyphicon-remove"/>
                      </button>
@@ -37,9 +37,7 @@
     <button ng-click="returnProfil()" class="buttonIcon myButton return">
         <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
     </button>
-    <button ng-click="addFriend()" type="button" class="float accent myButton myButtonRaised">
-        <span class="glyphicon glyphicon-remove"/>
-    </button>
+    <button ng-click="addFriend()"  class=" accent myButton myButtonRaised centered">Ajouter des amis</button>
 </div>
 
 

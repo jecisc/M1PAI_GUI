@@ -20,22 +20,55 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
         $location.path('/profil');
     };
 
-    MyParticipationsServ.getProfil(
+    MyParticipationsServ.getMyParticipations().get().$promise.then(
         function success(response) {
-            $scope.pseudo = response.pseudo;
-            $scope.mail = response.mail;
-            $scope.name  = response.name;
-            $scope.firstName = response.firstName;
+            $scope.participations=response;
+            console.log($scope.events);
         },
         function error(errorResponse) {
             if(errorResponse.status==401){
-                alert("Session interrompue")
-                console.log("Utilisateur non authentifié.");
+
             }
 
-            console.log("Error:" + JSON.stringify(errorResponse));
-            $location.path('/');
         }
     );
+
+    MyParticipationsServ.getMyEventsInvitation().get().$promise.then(
+        function success(response) {
+            $scope.invitations=response;
+            console.log($scope.events);
+        },
+        function error(errorResponse) {
+            if(errorResponse.status==401){
+
+            }
+
+        }
+    );
+
+    $scope.acceptEvent=function(index){
+
+        var invitation=$scope.invitations[index];
+        MyParticipationsServ.acceptEvent(invitation.id).get().$promise.then(
+            function success(response) {
+                $scope.participations.push($scope.invitations[index]);
+                $scope.invitations.splice(index,1);
+            },
+            function error(errorResponse) {
+                console.log("ERROR OCCUR ON ACCEPTING EVENT");
+            });
+    }
+
+    $scope.denyEvent=function(index){
+
+        var invitation=$scope.invitations[index];
+        MyParticipationsServ.denyEvent(invitation.id).get().$promise.then(
+            function success(response) {
+                $scope.invitations.splice(index,1);
+            },
+            function error(errorResponse) {
+                console.log("ERROR OCCUR ON DENYING EVENT");
+            });
+    }
     
 }]);

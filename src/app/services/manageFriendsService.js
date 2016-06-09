@@ -64,15 +64,24 @@ services.factory('ManageFriendsServ', ['$resource', '$cookies',
                     }
                 });
             },
-            searchUsersByName: function (name, page, size) {
-                return $resource("http://localhost:8080/user/search?size=" + size + "&page=" + page + "&name=" + name, {}, {
+            searchUsersByPseudo:function(filter,page,size){
+                return $resource("http://localhost:8080/user/search?size=5&page="+page+"&pseudo="+filter.pseudo, {}, {
+                    get: {
+                        method: 'GET',
+                        cache: false,
+                        isArray: true
+                    }
+                });
 
+            },
+            getNumberOfUsersFilterByPseudo:function(filter){
+                return $resource("http://localhost:8080/user/getNumberOfUsersFilterByPseudo?pseudoFilter="+filter.pseudo,{},{
                     get: {
                         method: 'GET',
                         cache: false
-
                     }
                 });
             }
+
         }
     }]);

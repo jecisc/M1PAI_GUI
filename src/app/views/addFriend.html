@@ -1,10 +1,27 @@
-<table ng-table="userTable" show-filter="true" class="table table-bordered table-striped">
-    <tr>
-        <td><input type="text" ng-model="filters.name"/></td>
-    </tr>
-    <tr ng-repeat="user in users">
-        <td title="'Photo'">{{user.avatar}}</td>
-        <td title="'Prénom'">{{user.firstName}}</td>
-        <td title="'Nom'" filter="{nom:'text'}">{{user.name}}</td>
-    </tr>
-</table>
+<header class="header">
+    <div class="row">
+        <span class="spacer"></span>
+        <span>
+            Ajouter des amis
+        </span>
+    </div>
+</header>
+<div class="addFriend">
+    <table ng-table="tableParams" show-filter="true" class="table-bordered listUser">
+        <!--<tr>
+            <td><input type="text" ng-model="filters.name"/></td>
+        </tr>-->
+        <tr ng-repeat="row in $data track by row.id" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+            <td  data-title="'Pseudo'" filter="{pseudo:'text'}">{{row.pseudo}}</td>
+            <td  data-title="'Nom'" >{{row.name}}</td>
+            <td  data-title="'Prénom'">{{row.firstName}}</td>
+            <!--<td  data-title="'Photo'"><img src="../../Ressources/Images/logo_user.jpg" class="icon"/></td>-->
+        </tr>
+    </table>
+    <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
+    <button ng-click="addFriendRequest()" class=" accent myButton myButtonRaised centered">Demander en ami</button>
+</div>
+
+
+
+<my-footer/>
