@@ -30,13 +30,7 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ', functio
             $scope.firstName = response.firstName;
         },
         function error(errorResponse) {
-            if(errorResponse.status==401){
-                alert("Session interrompue");
-                console.log("Utilisateur non authentifié.");
-            }
-
-            console.log("Error:" + JSON.stringify(errorResponse));
-            $location.path('/');
+           
         }
     );
 }]);
