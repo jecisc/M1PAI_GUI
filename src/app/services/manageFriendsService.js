@@ -5,20 +5,29 @@
 'use strict';
 
 
-services.factory('ManageFriendsServ',['$resource','$cookies',
+services.factory('ManageFriendsServ', ['$resource', '$cookies',
 
-    function($resource,$cookies){
-        return{
-            friendsManager:function() {
+    function ($resource, $cookies) {
+        return {
+            friendsManager: function () {
                 return $resource("http://localhost:8080/user/friends", {}, {
 
                     getFriends: {
-                         method: 'GET',
-                         isArray: true
-                     }
+                        method: 'GET',
+                        isArray: true
+                    }
                 });
             },
-            getFriendRequests:function(){
+            resourcesManager: function () {
+                return $resource("http://localhost:8080/event/getAllResources", {}, {
+                    
+                    getResources:{
+                        method: 'GET',
+                        isArray: true
+                    }
+                })
+            },
+            getFriendRequests: function () {
                 return $resource("http://localhost:8080/friendRequest/get", {}, {
 
                     get: {
@@ -27,18 +36,16 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     }
                 });
             },
-            deleteFriend:function(idFriend){
-                return $resource("http://localhost:8080/user/friends/delete/"+idFriend, {}, {
-                    
+            deleteFriend: function (idFriend) {
+                return $resource("http://localhost:8080/user/friends/delete/" + idFriend, {}, {
                     delete: {
                         method: 'DELETE',
                         cache: false
-                        
                     }
                 });
             },
-            acceptFriend:function(idAsker){
-                return $resource("http://localhost:8080/friendRequest/accept/"+idAsker, {}, {
+            acceptFriend: function (idAsker) {
+                return $resource("http://localhost:8080/friendRequest/accept/" + idAsker, {}, {
 
                     accept: {
                         method: 'GET',
@@ -47,7 +54,7 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     }
                 });
             },
-            denyFriend:function(idAsker) {
+            denyFriend: function (idAsker) {
                 return $resource("http://localhost:8080/friendRequest/deny/" + idAsker, {}, {
 
                     deny: {
@@ -57,25 +64,14 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                     }
                 });
             },
-            addFriendRequest:function(idFriend){
-                return $resource("http://localhost:8080/friendRequest/ask/" + idFriend, {}, {
-
-                    add: {
-                        method: 'GET',
-                        cache: false
-
-                    }
-                });
-            },
-
             searchUsersByPseudo:function(filter,page,size){
                 return $resource("http://localhost:8080/user/search?size=5&page="+page+"&pseudo="+filter.pseudo, {}, {
-                        get: {
-                            method: 'GET',
-                            cache: false,
-                            isArray: true
-                        }
-                    });
+                    get: {
+                        method: 'GET',
+                        cache: false,
+                        isArray: true
+                    }
+                });
 
             },
             getNumberOfUsersFilterByPseudo:function(filter){
@@ -87,5 +83,5 @@ services.factory('ManageFriendsServ',['$resource','$cookies',
                 });
             }
 
-            
-}}]);
+        }
+    }]);

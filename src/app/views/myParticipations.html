@@ -13,7 +13,7 @@
 
 <div ng-controller="MyParticipationsCtrl">
 
-    <div class="eventContainer centered">
+    <!--<div class="eventContainer centered">
         <div class="event">
             <h2>Soirée chez Paul</h2>
             <i class="glyphicon glyphicon-map-marker"/> 25 rue Jean Dujardin - 59800 Tourcoing
@@ -23,9 +23,34 @@
         <button class="pull-left btn btn-xs btn-danger" data-toggle="modal" data-target="#modalRefuseEvent">Refuser
         </button>
         <button class="pull-right btn btn-xs btn-success">Accepter</button>
+    </div>-->
+
+    <div ng-repeat="invitation in invitations" class="eventContainer centered">
+        <div class="event">
+            <h2>{{invitation.description}}</h2>
+            <i class="glyphicon glyphicon-map-marker">{{invitation.localisation}}</i>
+            <i class="glyphicon glyphicon-user">12</i>
+            <i class="glyphicon glyphicon-calendar">{{invitation.dateBeginning}}</i>
+        </div>
+        <button ng-click="denyEvent($index)" class="pull-left btn btn-xs btn-danger" data-toggle="modal" data-target="#modalRefuseEvent">Refuser
+        </button>
+        <button ng-click="acceptEvent($index)" class="pull-right btn btn-xs btn-success">Accepter</button>
     </div>
 
-    <div class="eventContainer centered">
+
+
+    <div ng-repeat="participation in participations" class="eventContainer centered">
+        <div class="event">
+            <h2>{{participation.description}}</h2>
+            <i class="glyphicon glyphicon-map-marker">{{participation.localisation}}</i>
+            <i class="glyphicon glyphicon-user">12</i>
+            <i class="glyphicon glyphicon-calendar">{{participation.dateBeginning}}</i>
+        </div>
+    </div>
+
+
+
+    <!--<div class="eventContainer centered">
         <div class="event">
             <h2>Week-end à la mer</h2>
             <i class="glyphicon glyphicon-map-marker"/> Dunkerque
@@ -36,7 +61,7 @@
             plus
             participer
         </button>
-    </div>
+    </div>-->
 
     <!-- Modal Refuse an event-->
     <div class="modal fade" id="modalRefuseEvent" tabindex="-1" role="dialog">
