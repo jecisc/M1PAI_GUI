@@ -151,12 +151,12 @@
         <!-- 3rd Step ------------------------------------------------------------------------------------------------->
         <fieldset>
             <h3>Ajouter mes amis</h3>
-            <table class="table table-fixedheader tablefriend">
+            <table st-table="rowCollection" class="table  tablefriend">
                 <tbody>
-                <tr class="col-xs-12 " ng-repeat="friend in friends"
+                <tr ng-repeat="friend in friends"
                     ng-class="{'selected':selection.indexOf($index) != -1}">
-                    <td class="tdfriend" ng-click="toggle($index)">{{friend.firstName}}</td>
-                    <td class="tdfriend" ng-click="toggle($index)">{{friend.name}}</td>
+                    <td  class="tdfriend" ng-click="toggle($index)">{{friend.firstName}}</td>
+                    <td  ng-click="toggle($index)">{{friend.name}}</td>
                 </tr>
                 </tbody>
             </table>

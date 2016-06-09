@@ -64,6 +64,16 @@ services.factory('ManageFriendsServ', ['$resource', '$cookies',
                     }
                 });
             },
+            addFriendRequest:function(idFriend){
+                return $resource("http://localhost:8080/friendRequest/ask/" + idFriend, {}, {
+
+                    add: {
+                        method: 'GET',
+                        cache: false
+
+                    }
+                });
+            },
             searchUsersByPseudo:function(filter,page,size){
                 return $resource("http://localhost:8080/user/search?size=5&page="+page+"&pseudo="+filter.pseudo, {}, {
                     get: {
