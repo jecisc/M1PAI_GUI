@@ -11,37 +11,48 @@
     </div>
 </header>
 
-<div> <!--ng-controller="ManageFriendsCtrl"-->
-    <h3>Mes demandes d'amis</h3>
-    <table>
+<div class="manageFriends"> <!--ng-controller="ManageFriendsCtrl"-->
+    <h2><span class="fa fa-user-plus fa-1x"></span>Mes demandes d'amis</h2>
+    <table class="mdlTable">
         <tbody >
         <tr ng-repeat="request in friendsRequest">
-            <td width="60%">{{request.firstName}}&nbsp;{{request.name}}</td>
-            <td width="20%"><button ng-click="acceptFriend($index)"  class="float accent myButton myButtonRaised">&nbsp;Accepter</button></td>
-            <td width="20%"><button ng-click="denyFriend($index)" class="float accent myButton myButtonRaised">Refuser</button></td>
+            <td>{{request.firstName}}&nbsp;{{request.name}}</td>
+            <td>
+                <a class="btn btn-success" ng-click="acceptFriend($index)">
+                    <i class="fa fa-check" title="Delete" aria-hidden="true"></i>
+                    <span class="sr-only">Delete</span>
+                </a>
+                </td>
+
+            <td>
+                <a class="btn btn-danger" ng-click="denyFriend($index)">
+                    <i class="fa fa-ban" title="Delete" aria-hidden="true"></i>
+                    <span class="sr-only">Delete</span>
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
-    <h3>Mes amis</h3>
-    <table class="table table-fixedheader table-striped">
 
-        <tbody >
+    <h2><span class="fa fa-users fa-1x"></span>Mes amis</h2>
+
+    <table class="mdlTable">
             <tr ng-repeat="friend in friends">
                 <td><img src="../../Ressources/Images/logo_user.jpg" class="icon"/></td>
                 <td width="40%">{{friend.firstName}}</td>
                 <td width="40%">{{friend.name}}</td>
                 <td width="20%">
-                    <button ng-click="removeFriend($index)" type="button" class="btn btn-default btn-sm">
-                        <span class="glyphicon glyphicon-remove"/>
-                     </button>
+                    <a class="btn btn-danger" ng-click="removeFriend($index)">
+                        <i class="fa fa-ban" title="Delete" aria-hidden="true"></i>
+                        <span class="sr-only">Delete</span>
+                    </a>
                 </td>
             </tr>
-        </tbody>
     </table>
-    <button ng-click="returnProfil()" class="buttonIcon myButton return">
-        <img src="../../Ressources/Images/Left_arrow.svg" class="icon"/>
-    </button>
-    <button ng-click="addFriend()"  class=" accent myButton myButtonRaised centered">Ajouter des amis</button>
+
+    <div style="text-align: center;">
+        <button ng-click="addFriend()"  class="accent myButton myButtonRaised">Ajouter des amis</button>
+    </div>
 </div>
 
 <my-footer/>

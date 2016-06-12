@@ -315,7 +315,7 @@ header .logo img{
     height: 90%;
 }
 
-.profil table{
+.mdlTable{
     position: relative;
     border: 1px solid rgba(0,0,0,.12);
     border-collapse: collapse;
@@ -323,11 +323,12 @@ header .logo img{
     font-size: 13px;
     background-color: #fff;
     width: 95%;
-    margin: 40px auto;
+    margin: 20px auto;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    text-transform: capitalize;
 }
 
-.profil tr{
+.mdlTable tr{
     position: relative;
     height: 48px;
     transition-duration: .28s;
@@ -335,31 +336,53 @@ header .logo img{
     transition-property: background-color;
 }
 
-.profil tr:hover{
+.mdlTable tr:hover{
     background-color: #eee;
 }
 
-.profil td{
+.mdlTable td{
     position: relative;
     height: 48px;
     border-top: 1px solid rgba(0,0,0,.12);
     border-bottom: 1px solid rgba(0,0,0,.12);
     padding: 12px 24px;
     box-sizing: border-box;
+    color: #757575;
 }
 
 .profil td:first-child{
-    position: relative;
     vertical-align: bottom;
     text-overflow: ellipsis;
     font-weight: 700;
     line-height: 24px;
     letter-spacing: 0;
-    height: 48px;
     font-size: 12px;
     color: rgba(0,0,0,.54);
     padding-bottom: 8px;
     box-sizing: border-box;
+}
+
+.manageFriends{
+    height: calc(100% - 121px);
+    padding-top: 15px;
+}
+
+.manageFriends .mdlTable td:first-child{
+    width: 100%;
+}
+
+.manageFriends h2{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 15px 10px;
+    color: rgba(0,0,0,.64);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.manageFriends h2 span{
+    margin: 0 12px 0 0;
 }
 
 
@@ -580,9 +603,7 @@ table.table-fixedheader>thead>tr:after, table.table-fixedheader>tbody>tr:after {
 }
 
 table.table-fixedheader>tbody {
-    overflow-y: scroll;
     height: 20vh;
-
 }
 
 table.table-fixedheader>thead {
