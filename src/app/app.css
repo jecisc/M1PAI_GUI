@@ -328,6 +328,20 @@ header .logo img{
     text-transform: capitalize;
 }
 
+.mdlTable th {
+    position: relative;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0;
+    height: 48px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, .54);
+    padding-bottom: 8px;
+    box-sizing: border-box;
+}
+
 .mdlTable tr{
     position: relative;
     height: 48px;
