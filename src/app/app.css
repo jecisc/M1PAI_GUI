@@ -280,34 +280,86 @@ header .logo img{
      height: 45px;
 }
 
-.profil_icon {
-    overflow:hidden;
-    -webkit-border-radius:50px;
-    -moz-border-radius:50px;
-    border-radius:50px;
-    width: 70px;
-    height: 70px;
-    background-image: url('../../Ressources/Images/profil_icone.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    border: 2px solid black;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom : 5px;
+.profil .profil_header{
+    background: #f6f7f9;
+    border-bottom: 1px solid #d3d6db;
+    border-radius: 2px 2px 0 0;
+    min-height: 66px;
+    padding-top: 16px;
+    margin-bottom: 16px;
 }
 
-.profil_field {
-    margin-top : 7px;
-    margin-bottom : 5px;
-    margin-left : 15%;
-    color : #2e6da4;
-    font-weight : bold;
-    font-size : 25px;
+.profil .profil_header h2{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0 12px 5px;
+    color: rgba(0,0,0,.54);
 }
 
-.profil_field2 {
-    text-align : center;
-    font-size : 18px;
+.profil .profil_header h2 span{
+    margin: 0 12px 0 0;
+}
+
+.profil .buttons{
+    display: inline-flex;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.profil{
+    width: 95%;
+    margin: auto;
+    border: 1px solid #d3d6db;
+    border-radius: 3px;
+    height: 90%;
+}
+
+.profil table{
+    position: relative;
+    border: 1px solid rgba(0,0,0,.12);
+    border-collapse: collapse;
+    white-space: nowrap;
+    font-size: 13px;
+    background-color: #fff;
+    width: 95%;
+    margin: 40px auto;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.profil tr{
+    position: relative;
+    height: 48px;
+    transition-duration: .28s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    transition-property: background-color;
+}
+
+.profil tr:hover{
+    background-color: #eee;
+}
+
+.profil td{
+    position: relative;
+    height: 48px;
+    border-top: 1px solid rgba(0,0,0,.12);
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    padding: 12px 24px;
+    box-sizing: border-box;
+}
+
+.profil td:first-child{
+    position: relative;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0;
+    height: 48px;
+    font-size: 12px;
+    color: rgba(0,0,0,.54);
+    padding-bottom: 8px;
+    box-sizing: border-box;
 }
 
 

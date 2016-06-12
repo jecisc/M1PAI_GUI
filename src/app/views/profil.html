@@ -12,23 +12,34 @@
 </header>
 
 <div class="main1Row main1RowConnected">
-    <div class="profil_icon"></div>
-    <div class = "profil_field">Pseudo</div>
-    <div ng-bind="pseudo" class="profil_field2"></div>
-    <div class = "profil_field">Adresse mail</div>
-    <div ng-bind="mail" class="profil_field2"></div>
-    <div class = "profil_field">Nom</div>
-    <div ng-bind="name" class="profil_field2"></div>
-    <div class = "profil_field">Prénom</div>
-    <div ng-bind="firstName" class="profil_field2"></div>
-    <div class="space"></div>
-    <p style="text-align:center">
-    <button ng-click="modifyProfil()" class="accent myButton myButtonRaised centered">Modifer le profil</button>
-    </p>
-    <div class="space"></div>
-    <p style="text-align:center">
-    <button ng-click="frienship()" class=" accent myButton myButtonRaised centered">Gérer mes amis</button>
-    </p>
+
+    <div class="profil">
+        <div class="profil_header">
+            <h2><span class="fa fa-user fa-2x"></span>Vos informations</h2></div>
+
+        <table>
+            <tr>
+                <td> Pseudo</td>
+                <td ng-bind="pseudo"></td>
+            </tr>
+            <tr>
+                <td> Mail</td>
+                <td ng-bind="mail"></td>
+            </tr>
+            <tr>
+                <td> Nom</td>
+                <td ng-bind="name"></td>
+            </tr>
+            <tr>
+                <td> Prenom</td>
+                <td ng-bind="firstName"></td>
+            </tr>
+        </table>
+        <div class="buttons">
+            <button ng-click="modifyProfil()" class="accent myButton myButtonRaised centered">Modifer le profil</button>
+            <button ng-click="frienship()" class=" accent myButton myButtonRaised centered">Gérer mes amis</button>
+        </div>
+    </div>
 </div>
 
 <my-footer/>
