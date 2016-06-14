@@ -588,3 +588,13 @@ th:last-child, td:last-child {
        font-size: 10px;
    }
 }
+
+.eventTableDetail{
+    text-align: center;
+    width:100%;
+}
+
+.eventTableDetail th{
+    background-color: #0e90d2;
+    text-align: center;
+}

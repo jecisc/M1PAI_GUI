@@ -23,7 +23,7 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
     MyParticipationsServ.getMyParticipations().get().$promise.then(
         function success(response) {
             $scope.participations=response;
-            console.log($scope.events);
+            console.log($scope.participations);
         },
         function error(errorResponse) {
             if(errorResponse.status==401){

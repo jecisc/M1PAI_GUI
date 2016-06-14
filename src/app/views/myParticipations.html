@@ -28,20 +28,36 @@
             <i class="glyphicon glyphicon-user">12</i>
             <i class="glyphicon glyphicon-calendar">{{invitation.dateBeginning}}</i>
         </div>
-        <button ng-click="denyEvent($index)" class="pull-left btn btn-xs btn-danger" data-toggle="modal" data-target="#modalRefuseEvent">Refuser
+        <button ng-click="denyEvent($index)" confirmation-needed="Do you really want to
+shout?" class="pull-left btn btn-xs btn-danger" >Refuser
         </button>
+        <!--data-toggle="modal" data-target="#modalRefuseEvent"-->
         <button ng-click="acceptEvent($index)" class="pull-right btn btn-xs btn-success">Accepter</button>
     </div>
 
 
 
-    <div ng-repeat="participation in participations" class="eventContainer centered">
+    <div ng-repeat="participation in participations" class="eventContainer centered" ng-click="detailParticipation[$index] =!detailParticipation[$index]">
         <div class="event">
-            <h2>{{participation.description}}</h2>
+            <h2>{{participation.name}}</h2>
             <i class="glyphicon glyphicon-map-marker">{{participation.localisation}}</i>
             <i class="glyphicon glyphicon-user">12</i>
             <i class="glyphicon glyphicon-calendar">{{participation.dateBeginning}}</i>
+            <div ng-show="detailParticipation[$index]" >
+                <p><b>Organisateur: </b> {{participation.creator.pseudo}}</p>
+                <p><b>Description</b><br/>{{participation.description}}</p>
+                <table class="eventTableDetail table-bordered">
+                   <th>Ressource</th>
+                   <th>Quantité</th>
+                   <tr ng-repeat="needed in participation.neededs">
+                   <td>{{needed.resource.name}}</td>
+                   <td>{{needed.needed}}</td>
+                   </tr>
+                </table>
+            </div>
+
         </div>
+
     </div>
 
 
