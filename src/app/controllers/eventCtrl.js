@@ -4,7 +4,7 @@
 'use strict';
 
 
-controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', '$compile', function(ManageFriendsServ,$scope,$compile, $location) {
+controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$compile','$location', function(ManageFriendsServ,EventServ,$scope,$compile, $location) {
 
     $scope.ressources = [];
     /* items est ce qu'on renverra lors de l'envoie du formulaire */
@@ -14,7 +14,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', '$
         $scope.resources=$scope.categories[idx].resources;
     };
 
-    /* Cette fonction permet d'ajouter les ressources choisies pa l'utilisateur depuis la modal dans le tableau des ressources */
+    /* Cette fonction permet d'ajouter les ressources choisies par l'utilisateur depuis la modal dans le tableau des ressources */
     $scope.addRessourceToTable = function(id,theName) {
         //il faut verifier ici que la ressource na pas deja ete inseree dans le tableau
         if( $scope.items.indexOf($scope.items.id) != -1){
@@ -22,20 +22,19 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', '$
         }
         else {
             $scope.items.push({
-                name: theName,
-                id: id,
-                cpt:1
+                idResource:id,
+                needed:1
             });
         }
     };
 
     $scope.addQty = function (item) {
-       item.cpt += 1;
+       item.needed += 1;
     };
 
     $scope.subQty = function (item) {
-        if (item.cpt > 0)
-            item.cpt -= 1;
+        if (item.needed > 0)
+            item.needed -= 1;
     };
 
     $scope.remove = function (item) {
@@ -63,24 +62,36 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', '$
 
 
     $scope.submit = function () {
-        for (var i = 0 ; i < $scope.selection.length ; i++) {
-            $scope.friendsEvent.push($scope.friends[$scope.selection[i]]);
+
+
+        for (var i = 0; i < $scope.selection.length; i++) {
+            $scope.friendsEvent.push({
+                idUser:$scope.friends[$scope.selection[i]].id,
+                accepted:false
+
+            });
         }
 
-
         var event = {
-            name : $scope.nomEvent,
+            name: $scope.nomEvent,
             localisation: $scope.placeEvent,
             dateBeginning: $scope.dateEvent,
             description: $scope.descriptionEvent,
-           /* bedEvent: $scope.bedEvent,
-            placeDispoEvent: $scope.placeDispoEvent,*/
-            participants : $scope.friendsEvent,
-            neededs : $scope.items
+            /* bedEvent: $scope.bedEvent,
+             placeDispoEvent: $scope.placeDispoEvent,*/
+            participants: $scope.friendsEvent,
+            neededs: $scope.items
         };
-    console.log(event);
-    }
 
+        EventServ.createEvent().create(event).$promise.then(
+            function success(data) {
+                $location.path('/homepage');
+            },
+            function error() {
+
+            }
+        );
+    };
 
     /* Permet de recuperer la liste des ressources de la base */
     ManageFriendsServ.resourcesManager().getResources()

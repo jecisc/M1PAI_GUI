@@ -17,7 +17,6 @@
     <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
 
     <form ng-submit="submit()" role="form" name="myForm" id="myForm">
-
         <!-- 1st Step ------------------------------------------------------------------------------------------------->
         <fieldset>
             <div class="col-xs-12 ">
@@ -83,7 +82,7 @@
                 </tr>
                 <tr ng-repeat="item in items" class="item-unchecked">
                     <td  style="width:35%">{{item.name}} </td>
-                    <td class="secondcolumn" style="width:10%"><input type='number' value='{{item.cpt}}' min='0' ng-model="itemAmount" ></td>
+                    <td class="secondcolumn" style="width:10%"><input type='number' value='{{item.needed}}' min='0' ng-model="itemAmount" ></td>
                     <td style="width:40%">
                         <button ng-click="addQty(item)" class="addButton" type="button">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
@@ -100,7 +99,7 @@
 
             <br>
             <p style="text-align:center">
-            <button class="btn btn-xs btn-primary text-center" data-toggle="modal" data-target="#modalAddRessource"
+            <button type="button" class="btn btn-xs btn-primary text-center" data-toggle="modal" data-target="#modalAddRessource"
                     ng-click="clickOnCategory(0)">
                 Ajouter une ressource
             </button>
@@ -165,6 +164,7 @@
             <button id="confirmCreation" type="submit" ng-disabled="!myForm.$valid"
                     class="float accent myButton myButtonRaised">Créer l'évenement
             </button>
+
         </p>
     </form>
 </div>

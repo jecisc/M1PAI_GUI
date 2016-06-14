@@ -1,7 +1,7 @@
 (function($) {
     $.fn.formToWizard = function(options) {
         options = $.extend({
-            submitButton: ""
+            //submitButton: "confirmCreation"
         }, options);
 
         var element = this;
