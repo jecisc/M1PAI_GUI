@@ -1,3 +1,6 @@
+/**
+ * Created by Téo on 15/06/2016.
+ */
 controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyParticipationsServ', 'ConnexionServ', function ($scope, $location, MyParticipationsServ) {
 
     $scope.myEvents = function () {
@@ -23,6 +26,7 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
     MyParticipationsServ.getMyParticipations().get().$promise.then(
         function success(response) {
             $scope.participations=response;
+            console.log($scope.participations);
         },
         function error(errorResponse) {
             if(errorResponse.status==401){
@@ -35,18 +39,7 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
     MyParticipationsServ.getMyEventsInvitation().get().$promise.then(
         function success(response) {
             $scope.invitations=response;
-        },
-        function error(errorResponse) {
-            if(errorResponse.status==401){
-
-            }
-
-        }
-    );
-
-    MyParticipationsServ.getMyEvents().get().$promise.then(
-        function success(response) {
-            $scope.mesEvenements=response;
+            console.log($scope.events);
         },
         function error(errorResponse) {
             if(errorResponse.status==401){
@@ -80,5 +73,5 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
                 console.log("ERROR OCCUR ON DENYING EVENT");
             });
     }
-    
+
 }]);

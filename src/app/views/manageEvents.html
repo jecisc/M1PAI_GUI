@@ -1,0 +1,39 @@
+<header class="header">
+    <div class="row">
+        <span class="spacer"></span>
+        <span>
+            Mes événements
+        </span>
+    </div>
+</header>
+
+<div ng-controller="MyParticipationsCtrl">
+
+
+
+
+    <div ng-repeat="evenement in mesEvenements" class="eventContainer centered" >
+        <div class="event">
+            <h2>{{evenement.name}}</h2>
+            <i class="glyphicon glyphicon-map-marker">{{evenement.localisation}}</i>
+            <i class="glyphicon glyphicon-user">12</i>
+            <i class="glyphicon glyphicon-calendar">{{evenement.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
+            <div ng-show="detailParticipation[$index]" >
+                <p><b>Organisateur: </b> {{evenement.creator.pseudo}}</p>
+                <p><b>Description</b><br/>{{evenement.description}}</p>
+                <table class="eventTableDetail table-bordered">
+                    <th>Ressource</th>
+                    <th>Quantité</th>
+                    <tr ng-repeat="needed in evenement.neededs">
+                        <td>{{needed.resource.name}}</td>
+                        <td>{{needed.needed}}</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<my-footer/>

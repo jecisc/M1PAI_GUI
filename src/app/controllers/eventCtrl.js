@@ -9,7 +9,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
     $scope.ressources = [];
     /* items est ce qu'on renverra lors de l'envoie du formulaire */
     $scope.items = [];
-
+    $scope.isPresent = [];
     $scope.clickOnCategory = function (idx) {
         $scope.resources=$scope.categories[idx].resources;
     };
@@ -17,13 +17,15 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
     /* Cette fonction permet d'ajouter les ressources choisies par l'utilisateur depuis la modal dans le tableau des ressources */
     $scope.addRessourceToTable = function(id,theName) {
         //il faut verifier ici que la ressource na pas deja ete inseree dans le tableau
-        if( $scope.items.indexOf($scope.items.id) != -1){
+        if( $scope.isPresent.indexOf(id) != -1){
             alert("Ressource deja presente");
         }
         else {
+            $scope.isPresent.push(id);
             $scope.items.push({
                 idResource:id,
-                needed:1
+                needed:1,
+                name:theName
             });
         }
     };
@@ -85,7 +87,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
 
         EventServ.createEvent().create(event).$promise.then(
             function success(data) {
-                $location.path('/homepage');
+                $location.path('/manageEvents');
             },
             function error() {
 

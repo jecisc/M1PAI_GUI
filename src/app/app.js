@@ -63,12 +63,12 @@ app = angular.module('myApp', [
       // gestion de mes evenements
       .when('/manageEvents', {
           templateUrl: 'views/manageEvents.html',
-          controller: 'ManageEventsCtrl'
+          controller: 'MyParticipationsCtrl'
       })
       // mes participations
       .when('/participations', {
           templateUrl: 'views/participations.html',
-          controller: 'ParticipationsCtrl'
+          controller: 'MyParticipationsCtrl'
       })
       // mon profil
       .when('/profil', {
