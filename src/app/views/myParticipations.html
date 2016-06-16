@@ -9,17 +9,7 @@
 
 <div ng-controller="MyParticipationsCtrl">
 
-    <!--<div class="eventContainer centered">
-        <div class="event">
-            <h2>Soirée chez Paul</h2>
-            <i class="glyphicon glyphicon-map-marker"/> 25 rue Jean Dujardin - 59800 Tourcoing
-            <i class="glyphicon glyphicon-user"/> 12
-            <i class="glyphicon glyphicon-calendar"/> 23/06/2016 14:00
-        </div>
-        <button class="pull-left btn btn-xs btn-danger" data-toggle="modal" data-target="#modalRefuseEvent">Refuser
-        </button>
-        <button class="pull-right btn btn-xs btn-success">Accepter</button>
-    </div>-->
+
 
     <div ng-repeat="invitation in invitations" class="eventContainer centered">
         <div class="event">
@@ -28,8 +18,7 @@
             <i class="glyphicon glyphicon-user">12</i>
             <i class="glyphicon glyphicon-calendar">{{invitation.dateBeginning}}</i>
         </div>
-        <button ng-click="denyEvent($index)" confirmation-needed="Do you really want to
-shout?" class="pull-left btn btn-xs btn-danger" >Refuser
+        <button ng-click="denyEvent($index)">Refuser
         </button>
         <!--data-toggle="modal" data-target="#modalRefuseEvent"-->
         <button ng-click="acceptEvent($index)" class="pull-right btn btn-xs btn-success">Accepter</button>
@@ -37,7 +26,7 @@ shout?" class="pull-left btn btn-xs btn-danger" >Refuser
 
 
 
-    <div ng-repeat="participation in participations" class="eventContainer centered" ng-click="detailParticipation[$index] =!detailParticipation[$index]">
+    <div ng-repeat="participation in participations" class="eventContainer centered" >
         <div class="event">
             <h2>{{participation.name}}</h2>
             <i class="glyphicon glyphicon-map-marker">{{participation.localisation}}</i>
@@ -55,67 +44,11 @@ shout?" class="pull-left btn btn-xs btn-danger" >Refuser
                    </tr>
                 </table>
             </div>
-
+            <button ng-click="detailParticipation[$index] =!detailParticipation[$index]"  class=" accent myButton myButtonRaised centered">Détails</button>
         </div>
 
     </div>
 
-
-
-    <!--<div class="eventContainer centered">
-        <div class="event">
-            <h2>Week-end à la mer</h2>
-            <i class="glyphicon glyphicon-map-marker"/> Dunkerque
-            <i class="glyphicon glyphicon-user"/> 4
-            <i class="glyphicon glyphicon-calendar"/> 30/07/2016 10:30
-        </div>
-        <button class="pull-left btn btn-xs btn-primary" data-toggle="modal" data-target="#modalStopParticipation">Ne
-            plus
-            participer
-        </button>
-    </div>-->
-
-    <!-- Modal Refuse an event-->
-    <div class="modal fade" id="modalRefuseEvent" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Confirmation de refus</h4>
-                </div>
-                <div class="modal-body">
-                    Voulez-vous vraiment refuser cet événement ?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Refuser</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- Modal Stop participation -->
-    <div class="modal fade" id="modalStopParticipation" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title">Confirmation d'annulation</h4>
-                </div>
-                <div class="modal-body">
-                    Voulez-vous vraiment annuler votre participation à l'événement ? <br><br>
-                    L'administrateur de l'événement sera informé de votre désistement.
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary">Ne plus participer</button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Annuler</button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 <my-footer/>
