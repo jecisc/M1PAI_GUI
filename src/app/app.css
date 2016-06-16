@@ -39,6 +39,14 @@ body, html {
     padding:14px;
 }
 
+.space2 {
+    padding:5px;
+}
+
+.eventTitle {
+    font-size:25px;
+}
+
 .myButton {
     margin-left : 10%;
     background: 0 0;
@@ -543,6 +551,10 @@ header span {
     margin-top: 30px;
 }
 
+.myEvent {
+    border: 5px solid #E8EAF6;
+    padding: 0px 10px 10px 10px;
+}
 .event span {
     width: 100%;
 }
@@ -625,6 +637,24 @@ footer .selected{
     color: #FF9E80;
 }
 
+.tablefriend {
+    border-collapse:collapse;
+}
+
+.glyphicon.glyphicon-cog {
+    font-size: 25px;
+}
+
+.glyphicon.glyphicon-remove {
+    font-size: 25px;
+}
+
+
+.tdfriend {
+
+    width : 50%;
+}
+
 .addFriend{
     width:100%;
     padding-bottom: 70px;
@@ -635,4 +665,14 @@ footer .selected{
    .addFriend table td{
        font-size: 10px;
    }
+}
+
+.eventTableDetail{
+    text-align: center;
+    width:100%;
+}
+
+.eventTableDetail th{
+    background-color: #0e90d2;
+    text-align: center;
 }
