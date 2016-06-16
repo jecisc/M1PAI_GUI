@@ -23,7 +23,8 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
         else {
             $scope.items.push({
                 idResource:id,
-                needed:1
+                needed:1,
+                name:theName
             });
         }
     };
