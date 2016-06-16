@@ -23,7 +23,6 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
     MyParticipationsServ.getMyParticipations().get().$promise.then(
         function success(response) {
             $scope.participations=response;
-            console.log($scope.participations);
         },
         function error(errorResponse) {
             if(errorResponse.status==401){
@@ -36,7 +35,6 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
     MyParticipationsServ.getMyEventsInvitation().get().$promise.then(
         function success(response) {
             $scope.invitations=response;
-            console.log($scope.events);
         },
         function error(errorResponse) {
             if(errorResponse.status==401){
@@ -45,6 +43,8 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
 
         }
     );
+
+
 
     $scope.acceptEvent=function(index){
 

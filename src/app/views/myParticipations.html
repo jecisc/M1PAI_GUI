@@ -16,7 +16,7 @@
             <h2>{{invitation.description}}</h2>
             <i class="glyphicon glyphicon-map-marker">{{invitation.localisation}}</i>
             <i class="glyphicon glyphicon-user">12</i>
-            <i class="glyphicon glyphicon-calendar">{{invitation.dateBeginning}}</i>
+            <i class="glyphicon glyphicon-calendar">{{invitation.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
         </div>
         <button ng-click="denyEvent($index)">Refuser
         </button>
@@ -31,7 +31,7 @@
             <h2>{{participation.name}}</h2>
             <i class="glyphicon glyphicon-map-marker">{{participation.localisation}}</i>
             <i class="glyphicon glyphicon-user">12</i>
-            <i class="glyphicon glyphicon-calendar">{{participation.dateBeginning}}</i>
+            <i class="glyphicon glyphicon-calendar">{{participation.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
             <div ng-show="detailParticipation[$index]" >
                 <p><b>Organisateur: </b> {{participation.creator.pseudo}}</p>
                 <p><b>Description</b><br/>{{participation.description}}</p>

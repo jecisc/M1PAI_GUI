@@ -21,6 +21,9 @@ services.factory('MyParticipationsServ',['$resource','$rootScope','$cookies',
                     }
                 });
             },
+
+          
+            
             acceptEvent:function(idEvent){
                 return $resource("http://localhost:8080/event/accept/"+idEvent, {}, {
 
