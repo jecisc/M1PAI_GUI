@@ -22,15 +22,7 @@ services.factory('MyParticipationsServ',['$resource','$rootScope','$cookies',
                 });
             },
 
-            getMyEvents: function () {
-                return $resource("http://localhost:8080/event/myEventsCreated", {}, {
-                    
-                    get: {
-                        method: 'GET',
-                        isArray:true
-                    }
-                });
-            },
+          
             
             acceptEvent:function(idEvent){
                 return $resource("http://localhost:8080/event/accept/"+idEvent, {}, {

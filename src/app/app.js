@@ -8,8 +8,9 @@ app = angular.module('myApp', [
   'ngResource',
   'ngCookies',
   'controllers',
-    'services',
-    'ngTable'
+  'services',
+  'ngTable',
+  'ngDialog'
 ]).config(['$routeProvider','$httpProvider', function ($routeProvider,$httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     $httpProvider.defaults.withCredentials = true;
@@ -63,7 +64,7 @@ app = angular.module('myApp', [
       // gestion de mes evenements
       .when('/manageEvents', {
           templateUrl: 'views/manageEvents.html',
-          controller: 'MyParticipationsCtrl'
+          controller: 'MyEventsCtrl'
       })
       // mes participations
       .when('/participations', {

@@ -44,17 +44,7 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
         }
     );
 
-    MyParticipationsServ.getMyEvents().get().$promise.then(
-        function success(response) {
-            $scope.mesEvenements=response;
-        },
-        function error(errorResponse) {
-            if(errorResponse.status==401){
 
-            }
-
-        }
-    );
 
     $scope.acceptEvent=function(index){
 

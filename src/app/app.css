@@ -39,6 +39,14 @@ body, html {
     padding:14px;
 }
 
+.space2 {
+    padding:5px;
+}
+
+.eventTitle {
+    font-size:25px;
+}
+
 .myButton {
     margin-left : 10%;
     background: 0 0;
@@ -407,6 +415,10 @@ header span {
     margin-top: 30px;
 }
 
+.myEvent {
+    border: 5px solid #E8EAF6;
+    padding: 0px 10px 10px 10px;
+}
 .event span {
     width: 100%;
 }
@@ -497,6 +509,13 @@ tbody .selected{
     border-collapse:collapse;
 }
 
+.glyphicon.glyphicon-cog {
+    font-size: 25px;
+}
+
+.glyphicon.glyphicon-remove {
+    font-size: 25px;
+}
 
 
 .tdfriend {
