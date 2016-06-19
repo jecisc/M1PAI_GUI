@@ -103,9 +103,6 @@ body, html {
 .voffset20 { margin-bottom: 20px;}
 .voffset30 { margin-bottom: 30px;}
 
-
-
-
 /* Header */
 
 header {
@@ -338,8 +335,9 @@ header .logo img{
     height: 48px;
     font-size: 12px;
     color: rgba(0, 0, 0, .54);
-    padding-bottom: 8px;
     box-sizing: border-box;
+    padding: 0 18px 12px;
+    text-align: center;
 }
 
 .mdlTable tr{
@@ -354,7 +352,7 @@ header .logo img{
     background-color: #eee;
 }
 
-.mdlTable td{
+.mdlTable td, .addFriendTable tr:nth-child(2){
     position: relative;
     height: 48px;
     border-top: 1px solid rgba(0,0,0,.12);
@@ -362,6 +360,19 @@ header .logo img{
     padding: 12px 24px;
     box-sizing: border-box;
     color: #757575;
+}
+
+.mdlTable img {
+    width: 25px;
+    height: 25px;
+}
+
+.mdlTable .selected, table .selected{
+    background-color: #FFAB91;
+}
+
+.mdlTable .selected:hover{
+    background-color: #FF8A65;
 }
 
 .profil td:first-child{
@@ -376,9 +387,17 @@ header .logo img{
     box-sizing: border-box;
 }
 
+.profil tr:nth-child(2) td:nth-child(2) {
+    text-transform: initial;
+}
+
 .manageFriends{
     height: calc(100% - 121px);
     padding-top: 15px;
+}
+
+.manageFriends .mdlTable{
+    width: 95%;
 }
 
 .manageFriends .mdlTable td:first-child{
@@ -399,6 +418,22 @@ header .logo img{
     margin: 0 12px 0 0;
 }
 
+.addFriendTable input{
+    width: 100%;
+}
+
+.addFriendTable tr:nth-child(2) th:first-child {
+    width: 45% !important;
+    padding: 6px 15px;
+}
+
+.addFriendTable .form-control{
+    padding: 0;
+}
+
+.addFriendTable tr:nth-child(2) th:nth-child(2), .addFriendTable tr:nth-child(2) th:nth-child(3) {
+    background-color: #EEEEEE !important;
+}
 
 header span {
     line-height: 48px;
@@ -590,97 +625,11 @@ footer .selected{
     color: #FF9E80;
 }
 
-tbody .selected{
-    background-color: #93c47d;
-}
-
-.tablefriend {
-    border-collapse:collapse;
-}
-
-
-
-.tdfriend {
-
-    width : 50%;
-}
-table.table-fixedheader, table.table-fixedheader>thead, table.table-fixedheader>tbody, table.table-fixedheader>thead>tr, table.table-fixedheader>tbody>tr, table.table-fixedheader>thead>tr>th, table.table-fixedheader>tbody>td {
-    display: block;
-}
-table.table-fixedheader>thead>tr:after, table.table-fixedheader>tbody>tr:after {
-    content:' ';
-    display: block;
-    visibility: visible;
-    clear: both;
-    color : #2e6da4;
-    font-weight : bold;
-}
-
-table.table-fixedheader>tbody {
-    height: 20vh;
-}
-
-table.table-fixedheader>thead {
-    overflow-y: scroll;
-}
-
-table.table-fixedheader>thead>tr>th:after, table.table-fixedheader>tbody>tr>td:after {
-    content:' ';
-    display: table-cell;
-    visibility: hidden;
-    clear: both;
-}
-
-table.table-fixedheader>thead tr th, table.table-fixedheader>tbody tr td {
-   /* float: left;*/
-    vertical-align: middle;
-    text-align: center;
-    word-wrap:break-word;
-    font-size: 3vw;
-    font-family: "Comic Sans MS";
-}
-
-table.table-fixedheader>tbody>tr>td>img{
-    width :50px;
-    max-height: 50px;
-}
-
-.listUser>tbody>tr>td>img{
-    width :50px;
-    max-height: 50px;
-}
-
-.addFriend table.selected {
-    background-color:lightgreen;
-    color:black;
-    font-weight:bold;
-}
-
 .addFriend{
     width:100%;
     padding-bottom: 70px;
     text-align: center;
 }
-
-.addFriend table {
-    width: 90%;
-    margin-left: 5%;
-    margin-top: 20px;
-    text-align: left;
-}
-
-.addFriend table th, .addFriend table td{
-    width: calc( 50% - 50px );
-}
-
-th:last-child, td:last-child {
-    width: 50px !important;
-}
-
-.addFriend table tr{
-    max-height: 50px;
-}
-
 
 @media screen and (max-width: 400px) {
    .addFriend table td{
