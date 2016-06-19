@@ -503,7 +503,7 @@ header span {
 }
 
 .event {
-    border: 5px solid #E8EAF6;
+    border: 2px solid #E8EAF6;
     padding: 10px 10px 10px 10px;
     margin-top: 30px;
 }
@@ -709,8 +709,7 @@ th:last-child, td:last-child {
     font-size: 25px;
 }
 
-.event div .btn-danger{
-
+.event div .btn-danger .btn-success{
     margin-bottom: 5%;
 }
 
@@ -719,6 +718,45 @@ th:last-child, td:last-child {
     color: #757575;
 }
 
-/*.event i{
+.event .glyphicon{
     margin-right: 10px;
-}*/
+}
+
+.eventDetail{
+    margin-top: 10px;
+}
+
+.invitation div h2{
+    display: inline-block;
+    width:50%;
+    font-size: 25px;
+}
+
+.event .btn-success{
+    margin-right: 25px;
+}
+
+.btnDetail{
+    margin-top: 10px;
+}
+
+
+.invitations .eventTitle {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 15px 10px;
+    color: rgba(0,0,0,.64);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.invitations h2 span{
+    margin-right: 12px;
+}
+
+.invitations{
+    height: calc(100% - 121px);
+    padding-top: 15px;
+}
+

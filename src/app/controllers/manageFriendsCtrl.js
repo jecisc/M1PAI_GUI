@@ -5,7 +5,7 @@
 
 'use strict';
 
-controllers.controller('ManageFriendsCtrl',['ManageFriendsServ','$scope','$location','$rootScope','$interval',function(ManageFriendsServ,$scope,$location,$rootScope,$interval){
+controllers.controller('ManageFriendsCtrl',['ManageFriendsServ','$scope','$location','$rootScope','$interval','dialogs',function(ManageFriendsServ,$scope,$location,$rootScope,$interval,dialogs,$translate){
 
 
 
@@ -46,34 +46,46 @@ controllers.controller('ManageFriendsCtrl',['ManageFriendsServ','$scope','$locat
     })};
 
     $scope.denyFriend=function(index){
-        var friend=$scope.friendsRequest[index];
-        ManageFriendsServ.denyFriend(friend.id).deny()
-            .$promise.then(
-            function success(response) {
-                $scope.friendsRequest.splice(index,1);
-            },
-            function error(errorResponse) {
-                console.log("Erreur refus demande d'ami");
-            })
+
+        var dlg = dialogs.confirm("Refuser demande d'ami","Voulez-vous vraiment refuser cette demande d'ami ?","");
+        dlg.result.then(function(btn){
+            var friend=$scope.friendsRequest[index];
+            ManageFriendsServ.denyFriend(friend.id).deny()
+                .$promise.then(
+                function success(response) {
+                    $scope.friendsRequest.splice(index,1);
+                },
+                function error(errorResponse) {
+                    console.log("Erreur refus demande d'ami");
+                })
+        },function(btn){
+
+        });
     };
 
 
     $scope.removeFriend=function(index){
 
-        var friend=$scope.friends[index];
 
-        ManageFriendsServ.deleteFriend(friend.id).delete()
-            .$promise
-            .then(
-               function success(response) {
+        var dlg = dialogs.confirm("Supprimer un ami","Voulez-vous vraiment supprimer cet ami ?","");
+        dlg.result.then(function(btn){
+            var friend=$scope.friends[index];
 
-                   $scope.friends.splice(index,1);
+            ManageFriendsServ.deleteFriend(friend.id).delete()
+                .$promise
+                .then(
+                   function success(response) {
 
-               },
-               function error(errorResponse) {
-                   console.log("Erreur dans la suppression");
-               }
-        );
+                       $scope.friends.splice(index,1);
+
+                   },
+                   function error(errorResponse) {
+                       console.log("Erreur dans la suppression");
+                   }
+            );
+        },function(btn){
+
+        });
     };
 
     ManageFriendsServ.friendsManager().getFriends()

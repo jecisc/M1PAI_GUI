@@ -38,7 +38,7 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
             );
 
         },function(btn){
-            $scope.confirmed = 'You confirmed "No."';
+
         });
 
 
@@ -85,14 +85,23 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
 
     $scope.denyEvent=function(index){
 
-        var invitation=$scope.invitations[index];
-        MyParticipationsServ.denyEvent(invitation.id).get().$promise.then(
-            function success(response) {
-                $scope.invitations.splice(index,1);
-            },
-            function error(errorResponse) {
-                console.log("ERROR OCCUR ON DENYING EVENT");
-            });
+        var dlg = dialogs.confirm("Refuser invitation","Voulez-vous vraiment refuser cette invitation ?","");
+        dlg.result.then(function(btn){
+            var invitation=$scope.invitations[index];
+            MyParticipationsServ.denyEvent(invitation.id).get().$promise.then(
+                function success(response) {
+                    $scope.invitations.splice(index,1);
+                },
+                function error(errorResponse) {
+                    console.log("ERROR OCCUR ON DENYING EVENT");
+                });
+        },function(btn){
+
+
+
+        });
+
+
     }
     
 }]);

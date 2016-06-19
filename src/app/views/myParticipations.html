@@ -7,25 +7,31 @@
     </div>
 </header>
 
-<div ng-controller="MyParticipationsCtrl">
+<div class="invitations" ng-controller="MyParticipationsCtrl">
 
 
-
+    <h2 class="eventTitle"><span class="fa fa-flag fa-1x"></span>Mes invitations</h2>
     <div ng-repeat="invitation in invitations" class="eventContainer centered">
-        <div class="event">
-            <h2>{{invitation.description}}</h2>
+        <div class="event invitation">
+            <div >
+                <h2>{{invitation.name}}</h2>
+                <a class="btn btn-success" ng-click="acceptEvent($index)">
+                    <i class="fa fa-check" title="Delete" aria-hidden="true"></i>
+                    <span class="sr-only">Delete</span>
+                </a>
+                <a class="btn btn-danger"  ng-click="denyEvent($index)" >
+                    <i class="fa fa-ban" title="Delete" aria-hidden="true"></i>
+                    <span class="sr-only">Delete</span>
+                </a>
+            </div>
             <i class="glyphicon glyphicon-map-marker">{{invitation.localisation}}</i>
-            <i class="glyphicon glyphicon-user">12</i>
+            <i class="glyphicon glyphicon-user">{{invitation.participants.length}}</i>
             <i class="glyphicon glyphicon-calendar">{{invitation.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
         </div>
-        <button ng-click="denyEvent($index)">Refuser
-        </button>
-        <!--data-toggle="modal" data-target="#modalRefuseEvent"-->
-        <button ng-click="acceptEvent($index)" class="pull-right btn btn-xs btn-success">Accepter</button>
     </div>
 
 
-
+    <h2 class="eventTitle"><span class="fa fa-ticket fa-1x"></span>Mes participations</h2>
     <div ng-repeat="participation in participations" class="eventContainer centered" >
         <div class="event">
             <div >
@@ -37,10 +43,9 @@
                 </a>
             </div>
             <i class="glyphicon glyphicon-map-marker">{{participation.localisation}}</i>
-            <i class="glyphicon glyphicon-user">12 </i>
+            <i class="glyphicon glyphicon-user">{{participation.participants.length}}</i>
             <i class="glyphicon glyphicon-calendar">{{participation.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
-            <br/>
-            <div ng-show="detailParticipation[$index]" >
+            <div class="eventDetail" ng-show="detailParticipation[$index]" >
                 <p><b>Organisateur: </b> {{participation.creator.pseudo}}</p>
                 <p><b>Description</b><br/>{{participation.description}}</p>
                 <table class="eventTableDetail table-bordered mdlTable">
@@ -52,7 +57,7 @@
                     </tr>
                 </table>
             </div>
-            <button ng-hide="detail" ng-click="detailParticipation[$index] =!detailParticipation[$index]; reduire=true ; detail=!detail"  class=" accent myButton myButtonRaised centered">Détails</button>
+            <button  ng-hide="detail" ng-click="detailParticipation[$index] =!detailParticipation[$index]; reduire=true ; detail=!detail"  class=" accent myButton myButtonRaised centered btnDetail">Détails</button>
             <button ng-show="reduire" ng-click="detailParticipation[$index] =!detailParticipation[$index]; detail=false; reduire=false"  class=" accent myButton myButtonRaised centered">Réduire</button>
         </div>
 
