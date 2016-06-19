@@ -15,7 +15,8 @@
     "html5-boilerplate": "~5.2.0",
     "bootstrap": "^3.3.6",
     "ng-table": "~0.8.3 ",
-    "nr-smart-table":"~0.2.1"
+    "nr-smart-table":"~0.2.1",
+    "angular-dialog-service":""
   },
   "resolutions": {
     "angular": "1.4.10"

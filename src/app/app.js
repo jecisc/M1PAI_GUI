@@ -9,7 +9,13 @@ app = angular.module('myApp', [
   'ngCookies',
   'controllers',
     'services',
-    'ngTable'
+    'ngTable',
+    'dialogs.main',
+    'ui.bootstrap',
+    'ngSanitize',
+    'dialogs.default-translations'
+
+
 ]).config(['$routeProvider','$httpProvider', function ($routeProvider,$httpProvider) {
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
     $httpProvider.defaults.withCredentials = true;
@@ -57,7 +63,7 @@ app = angular.module('myApp', [
       // gestion de mes evenements
       .when('/manageEvents', {
           templateUrl: 'views/manageEvents.html',
-          controller: 'ManageEventsCtrl'
+          controller: 'MyEventsCtrl'
       })
       // mes participations
       .when('/participations', {
@@ -100,7 +106,9 @@ app = angular.module('myApp', [
             }
         }
     }])
-    .config(['$httpProvider',function($httpProvider) {
+    .config(['$httpProvider','$translateProvider',function($httpProvider,$translateProvider) {
         //Http Intercpetor to check auth failures for xhr requests
         $httpProvider.interceptors.push('authHttpResponseInterceptor');
+        $translateProvider.preferredLanguage('fr-FR');
+        $translateProvider.useSanitizeValueStrategy('sanitize');
     }]);

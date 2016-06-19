@@ -35,7 +35,16 @@ services.factory('MyParticipationsServ',['$resource','$rootScope','$cookies',
 
                     get: {
                         method: 'DELETE',
-                        isArray: true
+                        isArray: false
+                    }
+                });
+            },
+            cancelParticipation:function(idEvent){
+                return $resource("http://localhost:8080/event/cancelParticipation/"+idEvent, {}, {
+
+                    cancel: {
+                        method: 'DELETE',
+                        isArray: false
                     }
                 });
             }
