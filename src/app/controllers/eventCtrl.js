@@ -34,7 +34,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','$scope','$location', '$
     };
 
     $scope.subQty = function (item) {
-        if (item.cpt > 0)
+        if (item.cpt > 1)
             item.cpt -= 1;
     };
 

@@ -4,11 +4,14 @@
     });
 </script>
 <header class="header">
-    <div class="row">
+    <div class="mdl-layout__header-row">
         <span class="spacer"></span>
         <span>
             Création d'événement
         </span>
+        <nav class="mdl-navigation logout" ng-controller="FooterCtrl">
+            <a class="mdl-navigation__link" ng-click="logout()"> <span class="glyphicon glyphicon-log-out"></span></a>
+        </nav>
     </div>
 </header>
 
@@ -74,7 +77,7 @@
 
         <fieldset>
 
-            <table class="mdlTable" id="requireRessourcesTable">
+            <table class="mdlTable resourceTable" id="requireRessourcesTable">
                 <caption><b>Ressources requises / participant</b></caption>
                 <tr>
                     <th style="width:35%">Ressource</th>
@@ -83,7 +86,7 @@
                 </tr>
                 <tr ng-repeat="item in items" class="item-unchecked">
                     <td  style="width:35%">{{item.name}} </td>
-                    <td class="secondcolumn" style="width:10%"><input type='number' value='{{item.cpt}}' min='0' ng-model="itemAmount" ></td>
+                    <td class="secondcolumn" style="width:10%"><input type='number' value='{{item.cpt}}' min='1' ng-model="itemAmount" ></td>
                     <td style="width:40%">
                         <button ng-click="addQty(item)" class="addButton" type="button">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
