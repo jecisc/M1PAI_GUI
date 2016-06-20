@@ -707,6 +707,7 @@ footer .selected{
 .invitations{
     height: calc(100% - 121px);
     padding-top: 15px;
+    overflow: auto;
 }
 
 .resourceTable td{

@@ -23,7 +23,11 @@ controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ', funct
     };
 
     $scope.logout=function(){
-        ConnexionServ.logout();
+        ConnexionServ.logout().logout().$promise.then(
+            function(){
+                $location.path('/');
+            }
+        );
     };
 
     $scope.pagePath = function(){

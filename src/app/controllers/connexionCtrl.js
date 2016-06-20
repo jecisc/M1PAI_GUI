@@ -31,7 +31,6 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                     $rootScope.user=response;
                 },
                 function error(errorResponse) {
-                    console.log("Error:" + JSON.stringify(errorResponse));
                     $scope.infoMessage = null;
                     $scope.errorMessage = "Identification invalide."
                 }

@@ -18,8 +18,14 @@ services.factory('ConnexionServ',['$resource','$cookies','$location','$http',
                 },
 
                 logout:function(){
-                    $cookies.remove("JSESSIONID");
-                    $location.path('/');
+                    return $resource("http://localhost:8080/user/logout", {}, {
+                        logout: {
+                            method: 'POST',
+                            cache: false,
+                            isArray: false
+                        }
+                    });
+                    
                 }
 
 
