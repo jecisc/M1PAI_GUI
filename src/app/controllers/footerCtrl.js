@@ -4,7 +4,7 @@
 'use strict';
 
 
-controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ', function($scope, $location,ConnexionServ) {
+controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ','FooterServ', function($scope, $location, ConnexionServ, FooterServ) {
 
     $scope.myEvents = function() {
         $location.path('/event');
@@ -55,5 +55,27 @@ controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ', funct
         if( $scope.pagePath() == '/event')
             return 'selected'
     };
+
+    FooterServ.friendsInv().getNumberOfFriendsInv(
+        function success(data) {
+            if(data.number != "0"){
+                $scope.numberOfInvitations = data.number;
+            }
+        },
+        function error(errorResponse) {
+
+        }
+    );
+
+    FooterServ.eventsInv().getNumberOfEventsInv(
+        function success(data) {
+            if(data.number != "0") {
+                $scope.numberOfEventsInvitations = data.number;
+            }
+        },
+        function error(errorResponse) {
+
+        }
+    );
 
 }]);

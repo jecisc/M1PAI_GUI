@@ -112,9 +112,8 @@ controllers.controller('ManageFriendsCtrl',['ManageFriendsServ','$scope','$locat
 
                 },
                 function error(errorResponse) {
-
                 })
-    };
+    }
 
     //var refresh=$interval(getFriendsRequest(),3000);
 
