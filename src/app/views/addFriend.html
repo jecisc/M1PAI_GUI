@@ -11,18 +11,15 @@
 </header>
 <div class="addFriend">
     <table ng-table="tableParams" show-filter="true" class="mdlTable addFriendTable" >
-        <tbody>
         <tr ng-repeat="row in $data track by row.id" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
             <td  data-title="'Pseudo'" filter="{pseudo:'text'}">{{row.pseudo}}</td>
             <td  data-title="'Nom'" >{{row.name}}</td>
             <td  data-title="'Prénom'">{{row.firstName}}</td>
         </tr>
-        </tbody>
     </table>
+    <div class="alert alert-success" ng-show="feedbackMessage">{{feedbackMessage}}</div>
     <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
     <button ng-click="addFriendRequest()" class=" accent myButton myButtonRaised centered">Demander en ami</button>
 </div>
-
-
 
 <my-footer/>

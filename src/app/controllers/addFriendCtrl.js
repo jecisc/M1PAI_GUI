@@ -43,11 +43,13 @@ controllers.controller('AddFriendCtrl',['NgTableParams','$resource','ManageFrien
 
             return ManageFriendsServ.addFriendRequest($scope.tableParams.data[id].id).add()
                 .$promise.then(function success(response) {
-                        $scope.errorMessage="Une demande d'ami a été envoyée"
+                        $scope.feedbackMessage = "Une demande d'ami a été envoyée";
+                        $scope.errorMessage = null;
                     },
                     function error(errorResponse) {
                         if(errorResponse.status=500){
-                            $scope.errorMessage = "Une demande d'ami existe déja"
+                            $scope.errorMessage = "Une demande d'ami existe déja";
+                            $scope.feedbackMessage = null;
                         }
 
                     }
