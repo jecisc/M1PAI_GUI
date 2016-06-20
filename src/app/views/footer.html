@@ -14,12 +14,14 @@
     <div ng-click="myParticipations()">
         <p>
             <i class="fa fa-calendar-check-o" aria-hidden="true" ng-class="shouldDisplayParticipationSelection()"></i>
+            <span class="mdl-badge" ng-show="numberOfEventsInvitations" data-badge="{{numberOfEventsInvitations}}"> </span>
         </p>
         Participations
     </div>
     <div ng-click="myProfil()" class="last">
         <p>
-            <i class="fa fa-user" aria-hidden="true"  ng-class="shouldDisplayProfilSelection()"></i>
+            <i class="fa fa-user" aria-hidden="true" ng-class="shouldDisplayProfilSelection()"></i>
+            <span class="mdl-badge" ng-show="numberOfInvitations" data-badge="{{numberOfInvitations}}"> </span>
         </p>
         Profil
     </div>

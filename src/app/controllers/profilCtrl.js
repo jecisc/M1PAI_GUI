@@ -25,7 +25,6 @@ controllers.controller('ProfilCtrl',['$scope', '$location','ProfilServ', functio
             $scope.firstName = response.firstName;
         },
         function error(errorResponse) {
-           
         }
     );
 }]);
