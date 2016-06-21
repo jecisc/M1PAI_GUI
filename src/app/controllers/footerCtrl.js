@@ -60,7 +60,7 @@ controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ','Foote
         function success(data) {
             if(data.number != "0"){
                 $scope.numberOfInvitations = data.number;
-            }
+            }   
         },
         function error(errorResponse) {
 
