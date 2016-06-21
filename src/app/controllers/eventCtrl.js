@@ -44,7 +44,11 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
         $scope.items.splice(index, 1);
     };
 
+    $scope.actualDateAndTime = function (){
+        return new Date;
+    };
 
+    $scope.dateEvent = $scope.actualDateAndTime();
 
 
     /* Permet de choisir des amis a ajouter a l'evenement a partir de la liste
