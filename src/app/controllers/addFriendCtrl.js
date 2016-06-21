@@ -3,8 +3,8 @@
  */
 
 
-controllers.controller('AddFriendCtrl',['NgTableParams','$resource','ManageFriendsServ','$scope','$window',
-    function(NgTableParams,$resource,ManageFriendsServ,$scope,$window) {
+controllers.controller('AddFriendCtrl',['NgTableParams','$resource','ManageFriendsServ','$scope','$window','dialogs',
+    function(NgTableParams,$resource,ManageFriendsServ,$scope,$window,dialogs,$translate) {
 
        
         $scope.tableParams = new NgTableParams({},{
@@ -43,17 +43,31 @@ controllers.controller('AddFriendCtrl',['NgTableParams','$resource','ManageFrien
 
             return ManageFriendsServ.addFriendRequest($scope.tableParams.data[id].id).add()
                 .$promise.then(function success(response) {
-                        $scope.feedbackMessage = "Une demande d'ami a été envoyée";
-                        $scope.errorMessage = null;
+                    $scope.tableParams.data.splice(id,1)
+                    console.log($scope.tableParams.data[id]);
+                    $scope.friendsAsking.push($scope.tableParams.data[id]);
+                    dialogs.notify("Demande d'ami envoyée","La demande d'ami a bien été envoyé !");
+                        
                     },
                     function error(errorResponse) {
                         if(errorResponse.status=500){
-                            $scope.errorMessage = "Une demande d'ami existe déja";
-                            $scope.feedbackMessage = null;
+                            dialogs.error("Demande d'ami existante","Cette demande d'ami existe déjà !");
                         }
 
                     }
                 )
         };
+
+        ManageFriendsServ.getFriendsAsking().get()
+            .$promise
+            .then(
+                function success(data) {
+                    $scope.friendsAsking={};
+                    $scope.friendsAsking=data;
+                },
+                function error(errorResponse) {
+
+                }
+            );
 }]);
 

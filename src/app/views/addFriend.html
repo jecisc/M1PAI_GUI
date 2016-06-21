@@ -9,17 +9,29 @@
         </nav>
     </div>
 </header>
-<div class="addFriend">
-    <table ng-table="tableParams" show-filter="true" class="mdlTable addFriendTable" >
-        <tr ng-repeat="row in $data track by row.id" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
-            <td  data-title="'Pseudo'" filter="{pseudo:'text'}">{{row.pseudo}}</td>
-            <td  data-title="'Nom'" >{{row.name}}</td>
-            <td  data-title="'Prénom'">{{row.firstName}}</td>
+<div class="mainAddFriend">
+    <h2 class="friendAskedTitle"><span class="fa fa-flag fa-1x"></span>Ajouter un ami</h2>
+    <div class="addFriend">
+
+        <table ng-table="tableParams" show-filter="true" class="mdlTable addFriendTable" >
+            <tr ng-repeat="row in $data track by row.id" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+                <td  data-title="'Pseudo'" filter="{pseudo:'text'}">{{row.pseudo}}</td>
+                <td  data-title="'Nom'" >{{row.name}}</td>
+                <td  data-title="'Prénom'">{{row.firstName}}</td>
+            </tr>
+        </table>
+        <div class="alert alert-success" ng-show="feedbackMessage">{{feedbackMessage}}</div>
+        <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
+        <button ng-click="addFriendRequest()" class=" accent myButton myButtonRaised centered">Demander en ami</button>
+
+    </div>
+    <h2 class="friendAskedTitle"><span class="fa fa-flag fa-1x"></span>Mes demandes d'amitiés</h2>
+    <table class="mdlTable friendsAsking">
+        <tr ng-repeat="friendAsking in friendsAsking">
+            <td><img src="../../Ressources/Images/logo_user.jpg" class="icon"/></td>
+            <td width="40%">{{friendAsking.firstName}}</td>
+            <td width="40%">{{friendAsking.name}}</td>
         </tr>
     </table>
-    <div class="alert alert-success" ng-show="feedbackMessage">{{feedbackMessage}}</div>
-    <div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>
-    <button ng-click="addFriendRequest()" class=" accent myButton myButtonRaised centered">Demander en ami</button>
 </div>
-
 <my-footer/>

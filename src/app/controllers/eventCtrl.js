@@ -102,7 +102,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             function success(data) {
                 $scope.categories={};
                 $scope.categories=data;
-                console.log( $scope.categories);
             },
             function error(errorResponse) {
 
@@ -117,7 +116,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
                 $scope.friends={};
                 $scope.friends=data;
                 getFriendsRequest();
-                console.log($scope.friends);
 
             },
             function error(errorResponse) {

@@ -751,5 +751,21 @@ footer .selected{
     padding: 12px 5px;
 }
 
+.friendAskedTitle{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 15px 10px;
+    color: rgba(0,0,0,.64);
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
 
+.mainAddFriend{
+    height: calc(100% - 121px);
+    overflow: auto;
+}
 
+.mainAddFriend  span{
+    margin-right: 20px;
+}

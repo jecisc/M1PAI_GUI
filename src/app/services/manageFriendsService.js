@@ -91,6 +91,15 @@ services.factory('ManageFriendsServ', ['$resource', '$cookies',
                         cache: false
                     }
                 });
+            },
+            getFriendsAsking:function(){
+                return $resource("http://localhost:8080/friendRequest/getFriendAsking", {}, {
+
+                    get: {
+                        method: 'GET',
+                        isArray: true
+                    }
+                });
             }
 
         }
