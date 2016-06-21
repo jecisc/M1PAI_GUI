@@ -6,8 +6,20 @@
 'use strict';
 
 controllers.controller('ManageFriendsCtrl',['ManageFriendsServ','$scope','$location','$rootScope','$interval','dialogs',function(ManageFriendsServ,$scope,$location,$rootScope,$interval,dialogs,$translate){
+    
+    $scope.shouldShowInvitations = function () {
+        if(!$scope.friendsRequest)
+            return false;
+        else
+            return $scope.friendsRequest.length != 0;
+    };
 
-
+    $scope.haveFriends = function () {
+        if(!$scope.friends)
+            return false;
+        else
+            return $scope.friends.length != 0;
+    };
 
     $scope.returnProfil = function() {
         $location.path('/profil');
