@@ -39,6 +39,12 @@
                 <span ng-show="myForm.placeEvent.$error.required && myForm.placeEvent.$dirty">Champ obligatoire</span>
             </div>
             <div class="row voffset15"></div>
+            <!--<div class="col-xs-6">
+                <label for="dateEvent">Date et heure</label>
+                <input type="datetime-local" min="sysdate" ng-model="dateEvent" class="form-control" id="dateEvent"
+                       name="dateEvent">
+                <span ng-show="myForm.dateEvent.$error.required && myForm.dateEvent.$dirty">Champ obligatoire</span>
+            </div>-->
             <div class="col-xs-6">
                 <label for="dateEvent">Date et heure</label>
                 <input type="datetime-local" min="sysdate" ng-model="dateEvent" class="form-control" id="dateEvent"
@@ -86,7 +92,7 @@
                 </tr>
                 <tr ng-repeat="item in items" class="item-unchecked">
                     <td  class="col-xs-5 col-md-5 col-lg-5">{{item.name}} </td>
-                    <td  class="col-xs-1 col-md-1 col-lg-1 " ><input class="secondcolumn" type='number' value='{{item.cpt}}' min='0' ng-model="itemAmount" ></td>
+                    <td  class="col-xs-1 col-md-1 col-lg-1 " ><input class="secondcolumn" type='number' value='{{item.needed}}' min='0' ng-model="itemAmount" ></td>
                     <td class="col-xs-6 col-md-6 col-lg-6">
                         <button ng-click="addQty(item)" class="addButton" type="button">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>

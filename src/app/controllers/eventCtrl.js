@@ -45,11 +45,11 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
         $scope.isPresent.splice(index,1);
     };
 
-    $scope.actualDateAndTime = function (){
+    /*$scope.actualDateAndTime = function (){
         return new Date;
     };
 
-    $scope.dateEvent = $scope.actualDateAndTime();
+    $scope.dateEvent = $scope.actualDateAndTime();*/
 
 
     /* Permet de choisir des amis a ajouter a l'evenement a partir de la liste
@@ -78,7 +78,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             });
         }
 
-
+        console.log($scope.dateBeginning);
         var event = {
             name : $scope.nomEvent,
             localisation: $scope.placeEvent,
@@ -90,7 +90,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             neededs: $scope.items
         };
    
-    }
+
 
         EventServ.createEvent().create(event).$promise.then(
             function success(data) {

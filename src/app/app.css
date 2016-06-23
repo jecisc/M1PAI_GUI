@@ -483,6 +483,7 @@ header .logo img{
 .manageFriends{
     height: calc(100% - 121px);
     padding-top: 15px;
+    overflow: auto;
 }
 
 .manageFriends .mdlTable{
@@ -636,7 +637,7 @@ header span {
     width: 100%;
 }
 
-.secondcolumn input {
+.secondcolumn  {
     width: 100%;
 }
 .event h2 {
@@ -789,7 +790,7 @@ th:last-child, td:last-child {
     padding-left: 10px;
 }
 
-/*.event i{
+/*.event i{*/
 .event .glyphicon{
     margin-right: 10px;
 }
@@ -854,4 +855,9 @@ th:last-child, td:last-child {
 
 .mainAddFriend  span{
     margin-right: 20px;
+}
+
+.eventManagementView{
+height: calc(100% - 121px);
+overflow: auto;
 }
