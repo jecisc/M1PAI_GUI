@@ -114,5 +114,4 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
         });
 
     }
-    
 }]);

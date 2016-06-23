@@ -88,6 +88,10 @@ app = angular.module('myApp', [
           templateUrl: 'views/modifyProfil.html',
           controller: 'ModifyProfilCtrl'
       })
+      .when('/viewEvent/:idEvent', {
+          templateUrl: 'views/viewEvent.html',
+          controller: 'ViewEventCtrl'
+      })
 }])
     .factory('authHttpResponseInterceptor',['$q','$location',function($q,$location){
         return {

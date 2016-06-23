@@ -42,6 +42,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
     $scope.remove = function (item) {
         var index = $scope.items.indexOf(item);
         $scope.items.splice(index, 1);
+        $scope.isPresent.splice(index,1);
     };
 
     $scope.actualDateAndTime = function (){
@@ -52,13 +53,13 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
 
 
     /* Permet de choisir des amis a ajouter a l'evenement a partir de la liste
-     *  Toutes les personnes ajoutées seront dans $scope.selection (c'est l'index de la liste concernant l'ami qui est ajouté) */
+    *  Toutes les personnes ajoutées seront dans $scope.selection (c'est l'index de la liste concernant l'ami qui est ajouté) */
     $scope.selection = [];
     $scope.friendsEvent = [];
     $scope.toggle = function (idx) {
         var pos = $scope.selection.indexOf(idx);
         if (pos == -1) {
-            // $scope.selection.push($scope.friends[idx]);
+           // $scope.selection.push($scope.friends[idx]);
             $scope.selection.push(idx);
         } else {
             $scope.selection.splice(pos, 1);
@@ -68,18 +69,18 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
 
 
     $scope.submit = function () {
-
-
+        
         for (var i = 0; i < $scope.selection.length; i++) {
             $scope.friendsEvent.push({
                 idUser:$scope.friends[$scope.selection[i]].id,
                 accepted:false
-
+                
             });
         }
 
+
         var event = {
-            name: $scope.nomEvent,
+            name : $scope.nomEvent,
             localisation: $scope.placeEvent,
             dateBeginning: $scope.dateEvent,
             description: $scope.descriptionEvent,
@@ -88,6 +89,8 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             participants: $scope.friendsEvent,
             neededs: $scope.items
         };
+   
+    }
 
         EventServ.createEvent().create(event).$promise.then(
             function success(data) {
@@ -106,8 +109,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             function success(data) {
                 $scope.categories={};
                 $scope.categories=data;
-                console.log($scope.categories);
-                //btoa($scope.categories[0].resources[0].icon)
             },
             function error(errorResponse) {
 
@@ -139,13 +140,12 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
 
             }
         );
-
+    
     function getFriendsRequest(){
         ManageFriendsServ.getFriendRequests().get()
             .$promise
             .then(
                 function success(data) {
-
                     $scope.friendsRequest=data;
 
                 },
@@ -153,18 +153,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
 
                 })
     };
-
-
-
-    $scope.arrayBufferToBase64 = function( buffer ) {
-        var binary = '';
-        var bytes = new Uint8Array( buffer );
-        var len = bytes.byteLength;
-        for (var i = 0; i < len; i++) {
-            binary += String.fromCharCode( bytes[ i ] );
-        }
-        return window.btoa( binary );
-    }
 
 
 

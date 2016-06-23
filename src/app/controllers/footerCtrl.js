@@ -47,7 +47,9 @@ controllers.controller('FooterCtrl',['$scope','$location','ConnexionServ','Foote
     };
 
     $scope.shouldDisplayManageEventSelection = function(){
-        if( $scope.pagePath() == '/manageEvents')
+
+        if( $scope.pagePath() == '/manageEvents'
+        || ($location.path().search("/viewEvent") == 0))
             return 'selected'
     };
 

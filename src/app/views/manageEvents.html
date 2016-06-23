@@ -1,44 +1,33 @@
 <header class="header">
-    <div class="mdl-layout__header-row">
+    <div class="row">
         <span class="spacer"></span>
         <span>
             Mes événements
         </span>
-        <nav class="mdl-navigation logout" ng-controller="FooterCtrl">
-            <a class="mdl-navigation__link" ng-click="logout()"> <span class="glyphicon glyphicon-log-out"></span></a>
-        </nav>
     </div>
 </header>
+
 
 <div ng-controller="MyEventsCtrl">
 
     <div ng-repeat="evenement in mesEvenements" class="eventContainer centered" >
-        <div class="space"></div>
-        <i class="glyphicon glyphicon-remove" ng-click="deleteEvent(evenement.id)"></i>
-        <div class="myEvent">
-            <div class="eventTitle">{{evenement.name}}</div>
-            <i class="glyphicon glyphicon-map-marker ">{{evenement.localisation}}</i>
-            <i class="glyphicon glyphicon-user ">12</i>
-            <div class="space2"></div>
-            <i class="glyphicon glyphicon-calendar">{{evenement.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
-            <div ng-show="detailParticipation[$index]" >
-                <p><b>Organisateur: </b> {{evenement.creator.pseudo}}</p>
-                <p><b>Description</b><br/>{{evenement.description}}</p>
-                <table class="eventTableDetail table-bordered">
-                    <th>Ressource</th>
-                    <th>Quantité</th>
-                    <tr ng-repeat="needed in evenement.neededs">
-                        <td>{{needed.resource.name}}</td>
-                        <td>{{needed.needed}}</td>
-                    </tr>
-                </table>
+        <div class="event">
+            <div>
+                <h2  ng-click="showEvent(evenement.id)">{{evenement.name}}</h2>
+
+                <a class="btn btn-danger" ng-click="deleteEvent($index,evenement.id)" >
+                    <i class="fa fa-ban" title="Delete" aria-hidden="true"></i>
+                    <span class="sr-only">Delete</span>
+                </a>
+            </div>
+            <div ng-click="showEvent(evenement.id)">
+                <i class="glyphicon glyphicon-map-marker">{{evenement.localisation}}</i>
+                <i class="glyphicon glyphicon-user">{{evenement.participants.length}} </i>
+                <i class="glyphicon glyphicon-calendar">{{evenement.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
             </div>
         </div>
-    </div>
 
-    <script type="text/ng-template" id="templateId">
-        <div id="target"> Click here </div>
-    </script>
+    </div>
 
 </div>
 
