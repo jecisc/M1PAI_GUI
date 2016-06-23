@@ -139,8 +139,12 @@
                         <!-- Tab panes -->
                         <div class="tab-content ressources-img">
 
+
                             <div ng-repeat="resource in resources" class ="ressourceImg" id="{{resource.idRessource}}" ng-click="addRessourceToTable(resource.idRessource,resource.name)">
-                                {{resource.name}}
+                               <!-- {{resource.name}}-->
+
+                                <!--<img data-ng-src="http://localhost:8080/event/imgResource/test" id="photo-id"/>-->
+                                <img ng-src="data:image/jpeg;base64,{{img}}" id="photo-id"/>
                             </div>
 
                         </div>

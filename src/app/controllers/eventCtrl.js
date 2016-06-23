@@ -102,11 +102,24 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             function success(data) {
                 $scope.categories={};
                 $scope.categories=data;
+                console.log($scope.categories);
+                //btoa($scope.categories[0].resources[0].icon)
             },
             function error(errorResponse) {
 
             }
         );
+
+    EventServ.getImgResource().get().$promise.then(
+        function success(data) {
+            console.log(data);
+            console.log(JSON.toString(data));
+            $scope.img=data;
+        },
+        function error() {
+
+        }
+    );
 
     /* Permet de recuperer la liste d'amis associée à la personne qui crée l'evenement */
     ManageFriendsServ.friendsManager().getFriends()
@@ -128,6 +141,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             .$promise
             .then(
                 function success(data) {
+
                     $scope.friendsRequest=data;
 
                 },
@@ -135,6 +149,18 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
 
                 })
     };
+
+
+
+    $scope.arrayBufferToBase64 = function( buffer ) {
+        var binary = '';
+        var bytes = new Uint8Array( buffer );
+        var len = bytes.byteLength;
+        for (var i = 0; i < len; i++) {
+            binary += String.fromCharCode( bytes[ i ] );
+        }
+        return window.btoa( binary );
+    }
 
 
 

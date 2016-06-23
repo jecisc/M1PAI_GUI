@@ -13,6 +13,15 @@ services.factory('EventServ', ['$resource',
                         isArray: false
                     }
                 });
+            },
+            getImgResource: function () {
+                return $resource("http://localhost:8080/event/imgResource/test", {}, {
+
+                    get: {
+                        method: 'GET',
+                        isArray: false
+                    }
+                });
             }
         }}
 ]);

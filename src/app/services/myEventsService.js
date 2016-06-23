@@ -15,6 +15,7 @@ services.factory('MyEventsServ',['$resource','$rootScope','$cookies',
                     }
                 });
             }
+
         };
     }
 ]);
