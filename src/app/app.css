@@ -636,10 +636,16 @@ header span {
     margin-top: 10px;
 }
 
+.eventContainer .cancel {
+    position: absolute;
+    bottom: 10px;
+}
+
 .event {
     border: 2px solid #E8EAF6;
     padding: 10px 10px 10px 10px;
     margin-top: 30px;
+    position: relative;
 }
 
 .event span {
@@ -772,7 +778,7 @@ th:last-child, td:last-child {
 }
 
 .eventTableDetail th{
-    background-color: #0e90d2;
+    background-color: #FAFAFA;
     text-align: center;
 }
 

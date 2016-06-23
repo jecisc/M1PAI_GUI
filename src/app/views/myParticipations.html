@@ -42,7 +42,7 @@
             <div >
                 <h2>{{participation.name}}</h2>
 
-                <a class="btn btn-danger"  ng-click="cancelParticipation($index,participation.id)" >
+                <a class="btn btn-danger cancel"  ng-click="cancelParticipation($index,participation.id)" >
                     <i class="fa fa-ban" title="Delete" aria-hidden="true"></i>
                     <span class="sr-only">Delete</span>
                 </a>
@@ -62,10 +62,11 @@
                     </tr>
                 </table>
             </div>
-            <button  ng-hide="detail" ng-click="detailParticipation[$index] =!detailParticipation[$index]; reduire=true ; detail=!detail"  class=" accent myButton myButtonRaised centered btnDetail">Détails</button>
-            <button ng-show="reduire" ng-click="detailParticipation[$index] =!detailParticipation[$index]; detail=false; reduire=false"  class=" accent myButton myButtonRaised centered">Réduire</button>
+            <div class="eventButtons">
+                <button  ng-hide="detail" ng-click="detailParticipation[$index] =!detailParticipation[$index]; reduire=true ; detail=!detail"  class=" accent myButton myButtonRaised centered btnDetail">Détails</button>
+                <button ng-show="reduire" ng-click="detailParticipation[$index] =!detailParticipation[$index]; detail=false; reduire=false"  class=" accent myButton myButtonRaised centered">Réduire</button>
+            </div>
         </div>
-
     </div>
 
 </div>
