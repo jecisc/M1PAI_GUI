@@ -3,7 +3,7 @@
  */
 services.factory('ViewEventServ',['$resource','$rootScope','$cookies',
 
-    function($resource,$rootScope,$cookies) {
+    function($resource) {
 
         return {
             getEvent: function (id) {

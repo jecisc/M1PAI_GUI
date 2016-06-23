@@ -4,7 +4,7 @@
 /**
  * Created by Téo on 15/06/2016.
  */
-controllers.controller('MyEventsCtrl', ['$scope', '$location', 'MyEventsServ',  'dialogs' , function ($scope, $location, MyEventsServ,dialogs,$translate) {
+controllers.controller('MyEventsCtrl', ['$scope', '$location', 'MyEventsServ',  'dialogs' , function ($scope, $location, MyEventsServ,dialogs) {
 
     $scope.myEvents = function () {
         $location.path('/events');
@@ -42,19 +42,19 @@ controllers.controller('MyEventsCtrl', ['$scope', '$location', 'MyEventsServ',  
 
     $scope.deleteEvent=function(index,idEvent){
         var dlg = dialogs.confirm("Supprimer evenement","Voulez-vous vraiment supprimer cet evenement ?","");
-        dlg.result.then(function(btn){
+        dlg.result.then(function(){
             MyEventsServ.deleteEvent(idEvent).delete().$promise.then(
-                function success(response) {
+                function success() {
                     $scope.mesEvenements.splice(index,1);
 
                 },
-                function error(errorResponse) {
+                function error() {
 
                     console.log("ERROR OCCUR ON CANCELLING EVENT");
                 }
             );
 
-        },function(btn){
+        },function(){
             $scope.confirmed = 'You confirmed "No."';
         });
 

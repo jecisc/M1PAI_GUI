@@ -38,14 +38,13 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
     $scope.cancelParticipation=function(index,idEvent){
 
         var dlg = dialogs.confirm("Annulation participation","Voulez-vous vraiment annuler cette participation ?","");
-        dlg.result.then(function(btn){
+        dlg.result.then(function(){
             MyParticipationsServ.cancelParticipation(idEvent).cancel().$promise.then(
-                function success(response) {
+                function success() {
                     $scope.participations.splice(index,1);
-                    //console.log($scope.participations);
 
                 },
-                function error(errorResponse) {
+                function error() {
 
                     console.log("ERROR OCCUR ON CANCELLING EVENT");
                 }
@@ -100,13 +99,13 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
     $scope.denyEvent=function(index){
 
         var dlg = dialogs.confirm("Refuser invitation","Voulez-vous vraiment refuser cette invitation ?","");
-        dlg.result.then(function(btn){
+        dlg.result.then(function(){
             var invitation=$scope.invitations[index];
             MyParticipationsServ.denyEvent(invitation.id).get().$promise.then(
-                function success(response) {
+                function success() {
                     $scope.invitations.splice(index,1);
                 },
-                function error(errorResponse) {
+                function error() {
                     console.log("ERROR OCCUR ON DENYING EVENT");
                 });
         },function(btn){

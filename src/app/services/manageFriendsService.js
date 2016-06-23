@@ -7,7 +7,7 @@
 
 services.factory('ManageFriendsServ', ['$resource', '$cookies',
 
-    function ($resource, $cookies) {
+    function ($resource) {
         return {
             friendsManager: function () {
                 return $resource("http://localhost:8080/user/friends", {}, {

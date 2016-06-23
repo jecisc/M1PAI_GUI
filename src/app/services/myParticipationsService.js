@@ -1,6 +1,6 @@
 services.factory('MyParticipationsServ',['$resource','$rootScope','$cookies',
 
-    function($resource,$rootScope,$cookies) {
+    function($resource) {
        
         return {
            getMyParticipations: function () {

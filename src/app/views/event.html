@@ -17,8 +17,6 @@
 
 <div class="main1Row">
 
-    <!--<div class="alert alert-danger" ng-show="errorMessage">{{errorMessage}}</div>-->
-
     <form ng-submit="submit()" role="form" name="myForm" id="myForm">
 
         <!-- 1st Step ------------------------------------------------------------------------------------------------->
@@ -39,12 +37,7 @@
                 <span ng-show="myForm.placeEvent.$error.required && myForm.placeEvent.$dirty">Champ obligatoire</span>
             </div>
             <div class="row voffset15"></div>
-            <!--<div class="col-xs-6">
-                <label for="dateEvent">Date et heure</label>
-                <input type="datetime-local" min="sysdate" ng-model="dateEvent" class="form-control" id="dateEvent"
-                       name="dateEvent">
-                <span ng-show="myForm.dateEvent.$error.required && myForm.dateEvent.$dirty">Champ obligatoire</span>
-            </div>-->
+
             <div class="col-xs-6">
                 <label for="dateEvent">Date et heure</label>
                 <input type="datetime-local" min="sysdate" ng-model="dateEvent" class="form-control" id="dateEvent"
@@ -64,19 +57,7 @@
             </div>
 
             <div class="row voffset20"></div>
-<!--
-            <label for="bedEvent" class="col-xs-10">Nombre de lits dispos</label>
-            <input type="number" class="col-xs-2" min="0" max="20" value="0" ng-model="bedEvent" id="bedEvent"
-                   name="bedEvent">
 
-            <div class="row voffset15"></div>
-
-            <label for="placeDispoEvent" class="col-xs-10">Nombre de places max</label>
-            <input type="number" class="col-xs-2" min="0" max="20" value="0" ng-model="placeDispoEvent"
-                   id="placeDispoEvent" name="placeDispoEvent">
-
-            <div class="row voffset30"></div>
--->
         </fieldset>
 
         <!-- 2nd Step ------------------------------------------------------------------------------------------------->
@@ -91,7 +72,7 @@
                     <th class="col-xs-6 col-md-6 col-lg-6">Action</th>
                 </tr>
                 <tr ng-repeat="item in items" class="item-unchecked">
-                    <td  class="col-xs-5 col-md-5 col-lg-5"><img ng-src="{{item.logo}}"/> {{item.name}} </td>
+                    <td  class="col-xs-5 col-md-5 col-lg-5"><img ng-src="{{item.logo}}"/></td>
                     <td  class="col-xs-1 col-md-1 col-lg-1 " ><input class="secondcolumn" type='number' value='{{item.needed}}' min='0' ng-model="itemAmount" ></td>
                     <td class="col-xs-6 col-md-6 col-lg-6">
                         <button ng-click="addQty(item)" class="addButton" type="button">

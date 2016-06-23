@@ -4,7 +4,7 @@
 
 
 controllers.controller('AddFriendCtrl',['NgTableParams','$resource','ManageFriendsServ','$scope','$window','dialogs',
-    function(NgTableParams,$resource,ManageFriendsServ,$scope,$window,dialogs,$translate) {
+    function(NgTableParams,$resource,ManageFriendsServ,$scope,$window,dialogs) {
 
        
         $scope.tableParams = new NgTableParams({},{
@@ -21,14 +21,11 @@ controllers.controller('AddFriendCtrl',['NgTableParams','$resource','ManageFrien
 
                 });
 
-                var content = ManageFriendsServ.searchUsersByPseudo(params.filter(), params.page(), params.count()).get()
+                return ManageFriendsServ.searchUsersByPseudo(params.filter(), params.page(), params.count()).get()
                     .$promise.then(function (data) {
 
                         return data;
                     });
-                
-
-                return content;
             }
         });
 
@@ -42,11 +39,11 @@ controllers.controller('AddFriendCtrl',['NgTableParams','$resource','ManageFrien
             var id=$scope.selectedRow;
 
             return ManageFriendsServ.addFriendRequest($scope.tableParams.data[id].id).add()
-                .$promise.then(function success(response) {
-                    $scope.tableParams.data.splice(id,1)
+                .$promise.then(function success() {
+                    $scope.tableParams.data.splice(id,1);
                     console.log($scope.tableParams.data[id]);
                     $scope.friendsAsking.push($scope.tableParams.data[id]);
-                    dialogs.notify("Demande d'ami envoyée","La demande d'ami a bien été envoyé !");
+                    dialogs.notify("Demande d'ami envoyée","La demande d'ami a bien été envoyée !");
                         
                     },
                     function error(errorResponse) {

@@ -3,7 +3,7 @@
  */
 services.factory('MyEventsServ',['$resource','$rootScope','$cookies',
 
-    function($resource,$rootScope,$cookies) {
+    function($resource) {
 
         return {
             getMyEvents: function () {

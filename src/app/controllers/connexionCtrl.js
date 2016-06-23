@@ -30,7 +30,7 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
                     $location.path('/myParticipations');
                     $rootScope.user=response;
                 },
-                function error(errorResponse) {
+                function error() {
                     $scope.infoMessage = null;
                     $scope.errorMessage = "Identification invalide."
                 }
@@ -38,8 +38,5 @@ controllers.controller('ConnexionCtrl', ['$rootScope','$scope', '$location', 'Co
 
 
         };
-
-
-
 
     }]);

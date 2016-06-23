@@ -19,7 +19,7 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
         },
         function error(errorResponse) {
             if(errorResponse.status==401){
-                alert("Session interrompue")
+                alert("Session interrompue");
                 console.log("Utilisateur non authentifié.");
             }
 
@@ -30,8 +30,9 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
 
     $scope.submit = function () {
 
+        var userModification;
         if ($scope.password == null) {
-            var userModification = {
+            userModification = {
                 id: $scope.id,
                 name: $scope.name,
                 firstName: $scope.firstName,
@@ -39,7 +40,7 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
             };
         }
         else {
-            var userModification = {
+            userModification = {
                 id: $scope.id,
                 name: $scope.name,
                 firstName: $scope.firstName,
@@ -65,7 +66,7 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
             console.log(errorResponse);
 
             if(errorResponse.status==401){
-                alert("Session interrompue")
+                alert("Session interrompue");
                 console.log("Utilisateur non authentifié.");
                 $location.path('/');
             }
@@ -79,4 +80,4 @@ controllers.controller('ModifyProfilCtrl',['$rootScope','$scope', '$location','M
 
     };
 
-}])
+}]);

@@ -4,10 +4,10 @@
 'use strict';
 
 
-controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$compile','$location','dialogs', function(ManageFriendsServ,EventServ,$scope,$compile, $location,dialogs,$translate) {
+controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$compile','$location','dialogs', function(ManageFriendsServ,EventServ,$scope,$compile, $location,dialogs) {
 
     $scope.ressources = [];
-    /* items est ce qu'on renverra lors de l'envoie du formulaire */
+    /* items est ce qu'on renverra lors de l'envoi du formulaire */
     $scope.items = [];
     $scope.isPresent = [];
     $scope.clickOnCategory = function (idx) {
@@ -47,13 +47,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
         $scope.isPresent.splice(index,1);
     };
 
-    /*$scope.actualDateAndTime = function (){
-        return new Date;
-    };
-
-    $scope.dateEvent = $scope.actualDateAndTime();*/
-
-
     /* Permet de choisir des amis a ajouter a l'evenement a partir de la liste
     *  Toutes les personnes ajoutées seront dans $scope.selection (c'est l'index de la liste concernant l'ami qui est ajouté) */
     $scope.selection = [];
@@ -67,9 +60,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             $scope.selection.splice(pos, 1);
         }
     };
-
-
-
+    
     $scope.submit = function () {
         
         for (var i = 0; i < $scope.selection.length; i++) {
@@ -86,8 +77,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             localisation: $scope.placeEvent,
             dateBeginning: $scope.dateEvent,
             description: $scope.descriptionEvent,
-            /* bedEvent: $scope.bedEvent,
-             placeDispoEvent: $scope.placeDispoEvent,*/
             participants: $scope.friendsEvent,
             neededs: $scope.items
         };
@@ -95,7 +84,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
 
 
         EventServ.createEvent().create(event).$promise.then(
-            function success(data) {
+            function success() {
                 $location.path('/manageEvents');
             },
             function error() {
@@ -116,17 +105,6 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
 
             }
         );
-
-    /*EventServ.getImgResource().get().$promise.then(
-        function success(data) {
-            console.log(data);
-            console.log(JSON.toString(data));
-            $scope.img=data;
-        },
-        function error() {
-
-        }
-    );*/
 
     /* Permet de recuperer la liste d'amis associée à la personne qui crée l'evenement */
     ManageFriendsServ.friendsManager().getFriends()
@@ -154,9 +132,5 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
                 function error(errorResponse) {
 
                 })
-    };
-
-
-
-
+    }    
 }]);

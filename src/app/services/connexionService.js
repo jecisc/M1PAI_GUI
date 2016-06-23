@@ -6,7 +6,7 @@
 
 services.factory('ConnexionServ',['$resource','$cookies','$location','$http',
 
-        function($resource,$cookies,$location,$http){
+        function($resource){
             return{
                 authenticate:function(username,password) {
                     return $resource("http://localhost:8080/user/get", {}, {

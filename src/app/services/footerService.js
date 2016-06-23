@@ -2,7 +2,7 @@
 
 services.factory('FooterServ', ['$resource', '$rootScope', '$cookies',
 
-    function ($resource, $cookies) {
+    function ($resource) {
         return {
             friendsInv: function () {
                 return $resource("http://localhost:8080/friendRequest/numberOfInvitations", {}, {
