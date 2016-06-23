@@ -301,6 +301,27 @@ header .logo img{
     margin: 0 12px 0 0;
 }
 
+.profil2 .profil_header{
+    background: #f6f7f9;
+    border-bottom: 1px solid #d3d6db;
+    border-radius: 2px 2px 0 0;
+    min-height: 66px;
+    padding-top: 16px;
+    margin-bottom: 16px;
+}
+
+.profil2 .profil_header h2{
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin: 0 12px 5px;
+    color: rgba(0,0,0,.54);
+}
+
+.profil2 .profil_header h2 span{
+    margin: 0 12px 0 0;
+}
+
 .profil .buttons{
     display: inline-flex;
     width: 100%;
@@ -315,6 +336,14 @@ header .logo img{
     height: 90%;
 }
 
+.profil2{
+    width: 95%;
+    margin: auto;
+    border: 1px solid #d3d6db;
+    border-radius: 3px;
+    height: auto;
+}
+
 .mdlTable{
     position: relative;
     border: 1px solid rgba(0,0,0,.12);
@@ -326,6 +355,21 @@ header .logo img{
     margin: 20px auto;
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
     text-transform: capitalize;
+}
+
+.texteZone{
+    color: rgba(0,0,0,.54);
+}
+.mdlTable2{
+    position: relative;
+    border: 1px solid rgba(0,0,0,.12);
+    border-collapse: collapse;
+    font-size: 13px;
+    background-color: #fff;
+    width: 95%;
+    margin: 20px auto;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+    height : auto;
 }
 
 .mdlTable th {
@@ -512,7 +556,7 @@ header span {
     width: 100%;
 }
 
-.secondcolumn input {
+.secondcolumn  {
     width: 100%;
 }
 .event h2 {
@@ -669,6 +713,11 @@ table.table-fixedheader>tbody>tr>td>img{
     text-align: left;
 }
 
+.tableFriend {
+    height: 200px;
+    overflow:auto;
+}
+
 .addFriend table th, .addFriend table td{
     width: calc( 50% - 50px );
 }
@@ -716,6 +765,14 @@ th:last-child, td:last-child {
 
 .event {
     box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.viewEventStyle {
+    margin-right: 10px;
+}
+
+.descriptionEvent {
+    padding-left: 10px;
 }
 
 /*.event i{

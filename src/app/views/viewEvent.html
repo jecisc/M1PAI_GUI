@@ -1,0 +1,79 @@
+<header class="header">
+    <div class="mdl-layout__header-row">
+        <span class="spacer"></span>
+        <span>
+            Mon evenement
+        </span>
+
+
+    </div>
+</header>
+
+<div class="main1Row main1RowConnected" >
+
+    <div class="profil2" >
+        <div class="profil_header">
+            <h2><span class="fa fa-bookmark fa-2x"></span>{{event.name}}</h2></div>
+
+        <table class="mdlTable">
+            <tr>
+                <td> <span class="fa fa-calendar fa-2x viewEventStyle"></span> {{event.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</td>
+            </tr>
+            <tr>
+                <td> <span class="fa fa-location-arrow fa-2x viewEventStyle"></span> {{event.localisation}}</td>
+            </tr>
+
+
+            <tr>
+                <td><span class="fa fa-users fa-2x viewEventStyle"></span> {{event.participants.length}} participants</td>
+            </tr>
+        </table>
+    </div>
+    <div class="row voffset20"></div>
+
+    <div class="profil2" >
+        <div class="profil_header">
+            <h2><span class="fa fa-comment fa-2x"></span>Description</h2>
+
+        </div>
+        <p class="descriptionEvent" s>{{event.description}}</p>
+    </div>
+
+
+    <div class="row voffset20"></div>
+
+
+
+        <table class="mdlTable" id="lesRessources">
+            <caption><b>Ressources requises / participant</b></caption>
+            <tr >
+                <th class="col-xs-8 col-md-8 col-lg-8"><b>Ressource</b></th>
+                <th class="col-xs-4 col-md-4 col-lg-4"><b>Quantite</b></th>
+            </tr>
+            <tr ng-repeat="item in event.neededs" class="item-unchecked">
+                <td  class="col-xs-5 col-md-5 col-lg-5"><img  ng-src="{{item.resource.logo}}" id="photo-id"/> </td>
+                <td  class="col-xs-1 col-md-1 col-lg-1 " >{{item.needed}}</td>
+
+
+            </tr>
+        </table>
+
+         <div class="row voffset20"></div>
+
+        <table class="mdlTable" id="lesParticipants">
+            <caption><b>Participants</b></caption>
+            <tr >
+                <th class="col-xs-6 col-md-6 col-lg-6"><b>Nom</b></th>
+                <th class="col-xs-6 col-md-6 col-lg-6"><b>Prénom</b></th>
+            </tr>
+            <tr ng-repeat="participant in event.participants" class="item-unchecked">
+                <td  class="col-xs-5 col-md-5 col-lg-5">{{participant.user.name}} </td>
+                <td  class="col-xs-1 col-md-1 col-lg-1 " >{{participant.user.firstName}}</td>
+
+
+            </tr>
+        </table>
+
+</div>
+
+<my-footer/>

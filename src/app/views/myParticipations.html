@@ -10,7 +10,6 @@
 <div ng-controller="MyParticipationsCtrl">
 
 
-
     <div ng-repeat="invitation in invitations" class="eventContainer centered">
         <div class="event">
             <h2>{{invitation.description}}</h2>
@@ -37,7 +36,7 @@
                 </a>
             </div>
             <i class="glyphicon glyphicon-map-marker">{{participation.localisation}}</i>
-            <i class="glyphicon glyphicon-user">12 </i>
+            <i class="glyphicon glyphicon-user">{{participation.participants.length}} </i>
             <i class="glyphicon glyphicon-calendar">{{participation.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
             <br/>
             <div ng-show="detailParticipation[$index]" >

@@ -1,0 +1,34 @@
+<header class="header">
+    <div class="row">
+        <span class="spacer"></span>
+        <span>
+            Mes événements
+        </span>
+    </div>
+</header>
+
+
+<div ng-controller="MyEventsCtrl">
+
+    <div ng-repeat="evenement in mesEvenements" class="eventContainer centered" >
+        <div class="event">
+            <div>
+                <h2  ng-click="showEvent(evenement.id)">{{evenement.name}}</h2>
+
+                <a class="btn btn-danger" ng-click="deleteEvent($index,evenement.id)" >
+                    <i class="fa fa-ban" title="Delete" aria-hidden="true"></i>
+                    <span class="sr-only">Delete</span>
+                </a>
+            </div>
+            <div ng-click="showEvent(evenement.id)">
+                <i class="glyphicon glyphicon-map-marker">{{evenement.localisation}}</i>
+                <i class="glyphicon glyphicon-user">{{evenement.participants.length}} </i>
+                <i class="glyphicon glyphicon-calendar">{{evenement.dateBeginning | date:'dd/MM/yyyy hh:mm'}}</i>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<my-footer/>

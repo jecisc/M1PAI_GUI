@@ -94,5 +94,4 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
                 console.log("ERROR OCCUR ON DENYING EVENT");
             });
     }
-    
 }]);
