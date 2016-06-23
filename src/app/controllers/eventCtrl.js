@@ -4,7 +4,7 @@
 'use strict';
 
 
-controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$compile','$location', function(ManageFriendsServ,EventServ,$scope,$compile, $location) {
+controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$compile','$location','dialogs', function(ManageFriendsServ,EventServ,$scope,$compile, $location,dialogs,$translate) {
 
     $scope.ressources = [];
     /* items est ce qu'on renverra lors de l'envoie du formulaire */
@@ -15,17 +15,19 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
     };
 
     /* Cette fonction permet d'ajouter les ressources choisies par l'utilisateur depuis la modal dans le tableau des ressources */
-    $scope.addRessourceToTable = function(id,theName) {
+    $scope.addRessourceToTable = function(id,theName,theLogo) {
         //il faut verifier ici que la ressource na pas deja ete inseree dans le tableau
         if( $scope.isPresent.indexOf(id) != -1){
-            alert("Ressource deja presente");
+            dialogs.notify("Ressource déjà présente","La ressource que vous souhaitez ajouter existe déjà !");
+               
         }
         else {
             $scope.isPresent.push(id);
             $scope.items.push({
                 idResource:id,
                 needed:1,
-                name:theName
+                name:theName,
+                logo: theLogo
             });
         }
     };
@@ -115,7 +117,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
             }
         );
 
-    EventServ.getImgResource().get().$promise.then(
+    /*EventServ.getImgResource().get().$promise.then(
         function success(data) {
             console.log(data);
             console.log(JSON.toString(data));
@@ -124,7 +126,7 @@ controllers.controller('EventCtrl',['ManageFriendsServ','EventServ','$scope', '$
         function error() {
 
         }
-    );
+    );*/
 
     /* Permet de recuperer la liste d'amis associée à la personne qui crée l'evenement */
     ManageFriendsServ.friendsManager().getFriends()

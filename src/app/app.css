@@ -212,6 +212,11 @@ header .row {
     margin: 0;
 }
 
+.sizeOfImg {
+    width:50px; /* you can use % */
+    height: 50px;
+}
+
 .mdl-layout__header-row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -341,6 +346,10 @@ header .logo img{
 
 .profil .profil_header h2 span{
     margin: 0 12px 0 0;
+}
+
+.capitaliser {
+    text-transform : capitalize;
 }
 
 .profil2 .profil_header{

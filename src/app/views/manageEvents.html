@@ -13,7 +13,7 @@
     <div ng-repeat="evenement in mesEvenements" class="eventContainer centered" >
         <div class="event">
             <div>
-                <h2  ng-click="showEvent(evenement.id)">{{evenement.name}}</h2>
+                <h2  ng-click="showEvent(evenement.id)" class="capitaliser">{{evenement.name}}</h2>
 
                 <a class="btn btn-danger" ng-click="deleteEvent($index,evenement.id)" >
                     <i class="fa fa-ban" title="Delete" aria-hidden="true"></i>

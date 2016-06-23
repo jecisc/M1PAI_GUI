@@ -91,7 +91,7 @@
                     <th class="col-xs-6 col-md-6 col-lg-6">Action</th>
                 </tr>
                 <tr ng-repeat="item in items" class="item-unchecked">
-                    <td  class="col-xs-5 col-md-5 col-lg-5">{{item.name}} </td>
+                    <td  class="col-xs-5 col-md-5 col-lg-5"><img ng-src="{{item.logo}}"/> {{item.name}} </td>
                     <td  class="col-xs-1 col-md-1 col-lg-1 " ><input class="secondcolumn" type='number' value='{{item.needed}}' min='0' ng-model="itemAmount" ></td>
                     <td class="col-xs-6 col-md-6 col-lg-6">
                         <button ng-click="addQty(item)" class="addButton" type="button">
@@ -145,8 +145,9 @@
                         <!-- Tab panes -->
                         <div class="tab-content ressources-img">
 
-                            <div ng-repeat="resource in resources" class ="ressourceImg" id="{{resource.idRessource}}" ng-click="addRessourceToTable(resource.idRessource,resource.name)">
-                                {{resource.name}}
+                            <div ng-repeat="resource in resources" class ="ressourceImg" id="{{resource.idRessource}}" ng-click="addRessourceToTable(resource.idRessource,resource.name,resource.icon)">
+                                <div class="row voffset15"></div>
+                               <img class="sizeOfImg" ng-src="{{resource.icon}}" title="{{resource.name}}"/>
                             </div>
 
                         </div>
