@@ -1,5 +1,3 @@
-
-
 <header class="header">
     <div class="mdl-layout__header-row">
         <span class="spacer"></span>
@@ -11,7 +9,9 @@
         </nav>
     </div>
 </header>
+
 <div ng-controller="MyEventsCtrl">
+
     <div ng-repeat="evenement in mesEvenements" class="eventContainer centered" >
         <div class="space"></div>
         <i class="glyphicon glyphicon-remove" ng-click="deleteEvent(evenement.id)"></i>
@@ -33,16 +33,13 @@
                     </tr>
                 </table>
             </div>
-
         </div>
-
     </div>
-    <script type="text/ng-template" id="templateId">
 
-        <div id="target">
-            Click here
-        </div>
+    <script type="text/ng-template" id="templateId">
+        <div id="target"> Click here </div>
     </script>
+
 </div>
 
 <my-footer/>

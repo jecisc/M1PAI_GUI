@@ -12,8 +12,8 @@
 </header>
 
 <div class="manageFriends"> <!--ng-controller="ManageFriendsCtrl"-->
-    <h2><span class="fa fa-user-plus fa-1x"></span>Mes demandes d'amis</h2>
-    <table class="mdlTable">
+    <h2 ng-show="shouldShowInvitations()"><span class="fa fa-user-plus fa-1x"></span>Mes demandes d'amis</h2>
+    <table ng-show="shouldShowInvitations()" class="mdlTable">
         <tbody >
         <tr ng-repeat="request in friendsRequest">
             <td>{{request.firstName}}&nbsp;{{request.name}}</td>
@@ -35,7 +35,7 @@
     </table>
 
     <h2><span class="fa fa-users fa-1x"></span>Mes amis</h2>
-
+    <div class="alert alert-info" ng-hide="haveFriends()">Vous n'avez pas encore d'amis ! :)</div>
     <table class="mdlTable">
             <tr ng-repeat="friend in friends">
                 <td><img src="../../Ressources/Images/logo_user.jpg" class="icon"/></td>

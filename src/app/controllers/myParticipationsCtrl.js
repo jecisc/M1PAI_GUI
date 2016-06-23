@@ -21,6 +21,20 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
         $location.path('/profil');
     };
 
+        $scope.shouldShowInvitations = function () {
+            if(!$scope.invitations)
+                return false;
+            else
+                return $scope.invitations.length != 0;
+        };
+
+        $scope.haveParticipations = function () {
+            if(!$scope.participations)
+                return false;
+            else
+                return $scope.participations.length != 0;
+        };
+
     $scope.cancelParticipation=function(index,idEvent){
 
         var dlg = dialogs.confirm("Annulation participation","Voulez-vous vraiment annuler cette participation ?","");
@@ -42,7 +56,7 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
         });
 
 
-    }
+    };
 
     MyParticipationsServ.getMyParticipations().get().$promise.then(
         function success(response) {
@@ -81,7 +95,7 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
             function error() {
                 console.log("ERROR OCCUR ON ACCEPTING EVENT");
             });
-    }
+    };
 
     $scope.denyEvent=function(index){
 
@@ -97,10 +111,7 @@ controllers.controller('MyParticipationsCtrl', ['$scope', '$location', 'MyPartic
                 });
         },function(btn){
 
-
-
         });
-
 
     }
     

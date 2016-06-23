@@ -72,6 +72,11 @@ body, html {
     margin-right: 18px;
 }
 
+.alert{
+    width: 90%;
+    margin-left: 5%;
+}
+
 .space {
     padding:14px;
 }

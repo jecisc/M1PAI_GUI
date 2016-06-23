@@ -13,7 +13,7 @@
 <div class="invitations" ng-controller="MyParticipationsCtrl">
 
 
-    <h2 class="eventTitle"><span class="fa fa-flag fa-1x"></span>Mes invitations</h2>
+    <h2 class="eventTitle" ng-show="shouldShowInvitations()"><span class="fa fa-flag fa-1x"></span>Mes invitations</h2>
     <div ng-repeat="invitation in invitations" class="eventContainer centered">
         <div class="event invitation">
             <div >
@@ -35,6 +35,7 @@
 
 
     <h2 class="eventTitle"><span class="fa fa-ticket fa-1x"></span>Mes participations</h2>
+    <div class="alert alert-info" ng-hide="haveParticipations()">Vous n'avez pas encore d'événements ! :)</div>
     <div ng-repeat="participation in participations" class="eventContainer centered" >
         <div class="event">
             <div >
